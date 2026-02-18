@@ -1,0 +1,109 @@
+/* ================= Footer ================= */
+.footer {
+    font-family: "Roboto", sans-serif;
+    color: #FFFFFF;
+    background-color: #2D2B2F;
+}
+.footer__content {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+}
+
+/* ===== Contacts ===== */
+.footer__contacts {
+    grid-row: span 2;
+}
+
+.footer__title {
+    font-size: 30px;
+}
+
+.footer__contacts-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__contacts-item {
+    font-size: 24px;
+}
+
+.footer__contacts-link {
+    color: #FFFFFF;
+}
+
+.footer__contacts-icon {
+    margin-right: 36px;
+}
+
+.footer__contacts-address {
+    display: flex;
+    align-items: flex-start;
+    color: #FFFFFF;
+}
+
+/* ===== Subscription Form (из FormSubscription) ===== */
+.form-subscription {
+
+}
+
+.form-subscription__label {
+    font-size: 24px;
+}
+
+.form-subscription__input {
+
+}
+
+.form-subscription__btn {
+
+}
+
+/* ===== Social Subscription ===== */
+.footer__subscription {
+
+}
+
+.footer__subscription-list {
+    display: flex;
+    padding: 0;
+    column-gap: 48px;
+    list-style: none;
+}
+
+.footer__subscription-item {
+
+}
+
+.footer__subscription-link {
+    color: #FFFFFF;
+}
+
+.footer__subscription-icon {
+
+}
+
+/* ===== Bottom ===== */
+.footer__bottom {
+    border-top: 1px solid #E5E5E5;
+}
+
+.footer__logo {
+
+}
+
+.footer__year {
+
+}
+
+.footer__back-to-top {
+
+}
+
+.footer__arrow-top {
+
+}

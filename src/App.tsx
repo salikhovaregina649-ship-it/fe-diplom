@@ -1,9 +1,14 @@
 import "./App.css";
+import { Outlet } from "react-router";
+import Menu from "./components/Menu";
 
 function App() {
     return (
         <div>
-            Hello
+            <Menu />
+            <div className="page">
+                <Outlet />
+            </div>
         </div>
     )
 }
