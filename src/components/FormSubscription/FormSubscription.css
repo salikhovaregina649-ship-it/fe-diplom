@@ -1,0 +1,36 @@
+.form-subscription {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    color: #E5E5E5;
+}
+
+.form-subscription__label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.form-subscription__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 33px;
+}
+
+.form-subscription__input {
+    font-size: 24px;
+    padding: 17px 11px 17px 21px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+}
+
+.form-subscription__input::placeholder {
+    font-size: 24px;
+    color: #E5E5E5;
+}
+
+.form-subscription__btn {
+    padding: 17px 13px 17px 17px;
+    font-weight: 400;
+    color: #E5E5E5;
+    border-radius: 3px;
+}

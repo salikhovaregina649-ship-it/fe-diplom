@@ -1,39 +1,51 @@
 /* ================= Footer ================= */
 .footer {
     font-family: "Roboto", sans-serif;
-    color: #FFFFFF;
+    color: #E5E5E5;
     background-color: #2D2B2F;
 }
 .footer__content {
-    padding-top: 50px;
+
+}
+
+.footer__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(2, auto);
+    padding: 50px;
+    column-gap: 50px;
+    row-gap: 44px;
 }
 
 /* ===== Contacts ===== */
 .footer__contacts {
     grid-row: span 2;
+    min-width: 270px;
 }
 
 .footer__title {
+    margin-bottom: 30px;
     font-size: 30px;
+    font-weight: 500;
 }
 
 .footer__contacts-list {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
+    margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 .footer__contacts-item {
     font-size: 24px;
+    font-weight: 400;
 }
 
 .footer__contacts-link {
+    display: flex;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .footer__contacts-icon {
@@ -43,36 +55,25 @@
 .footer__contacts-address {
     display: flex;
     align-items: flex-start;
+    font-style: normal;
     color: #FFFFFF;
 }
 
-/* ===== Subscription Form (из FormSubscription) ===== */
-.form-subscription {
-
+/* ===== Subscription Form ===== */
+.footer__form {
 }
 
-.form-subscription__label {
-    font-size: 24px;
-}
 
-.form-subscription__input {
-
-}
-
-.form-subscription__btn {
-
-}
 
 /* ===== Social Subscription ===== */
 .footer__subscription {
-
+    min-width: 370px;
 }
 
 .footer__subscription-list {
     display: flex;
     padding: 0;
     column-gap: 48px;
-    list-style: none;
 }
 
 .footer__subscription-item {
@@ -80,7 +81,8 @@
 }
 
 .footer__subscription-link {
-    color: #FFFFFF;
+    color: #E5E5E5;
+    transition: color 0.3s ease;
 }
 
 .footer__subscription-icon {
@@ -92,18 +94,34 @@
     border-top: 1px solid #E5E5E5;
 }
 
+.footer__row {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .footer__logo {
 
 }
 
-.footer__year {
-
+.footer__back-to-top {
+    background-color: transparent;
+    border: none;
 }
 
-.footer__back-to-top {
-
+.footer__year {
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
 .footer__arrow-top {
 
+}
+
+/* ===== Состояния ===== */
+.footer__subscription-link:hover .social-icon {
+    color: #FFCA62;
 }
