@@ -23,7 +23,7 @@
 
 .button--transparent {
     color: #FFFFFF;
-    background-color: #2D2B2F;
+    background-color: transparent;
     border: 1px solid #E5E5E5;
 }
 
