@@ -1,0 +1,71 @@
+.button {
+    /* padding - у всех разный*/
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.button--yellow {
+    color: #FFFFFF;
+    background-color: #FFA800;
+    border: 1px solid #FFA800;
+}
+
+.button--light {
+    color: #292929;
+    background-color: #FFFFFF;
+    border: 1px solid #292929;
+}
+
+.button--dark {
+    color: #FFFFFF;
+    background-color: #2D2B2F;
+    border: 1px solid #E5E5E5;
+}
+
+.button--uppercase {
+    text-transform: uppercase;
+}
+
+/* ===== Состояния ===== */
+.button--yellow:active {
+    color: #FFA800;
+    background-color: #FFFFFF;
+    border: 1px solid #FFA800;
+}
+
+.button--light:hover {
+    color: #FFA800;
+    background-color: #FFFFFF;
+    border: 1px solid #292929;
+}
+
+.button--light:active {
+    color: #292929;
+    background-color: #FFA800;
+    border: 1px solid #FFA800;
+}
+
+.button--dark:hover {
+    color: #2D2B2F;
+    background-color: #FFCA62;
+    border: 1px solid #FFCA62;
+}
+
+.button--dark:active {
+    color: #2D2B2F;
+    background-color: #FFFFFF;
+    background-color: #2D2B2F;
+}
+
+.button--yellow:disabled,
+.button--light:disabled {
+    color: #FFFFFF;
+    background-color: #928F94;
+    border: 1px solid #928F94;
+    cursor: default;
+}
