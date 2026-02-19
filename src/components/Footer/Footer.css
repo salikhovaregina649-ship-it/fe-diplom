@@ -4,9 +4,6 @@
     color: #E5E5E5;
     background-color: #2D2B2F;
 }
-.footer__content {
-
-}
 
 .footer__grid {
     display: grid;
@@ -33,8 +30,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .footer__contacts-item {
@@ -48,7 +43,10 @@
     cursor: pointer;
 }
 
-.footer__contacts-icon {
+.footer__contacts-link .contacts-icon,
+.footer__contacts-address .contacts-icon {
+    color: #E5E5E5;
+    width: 30px;
     margin-right: 36px;
 }
 
@@ -59,12 +57,6 @@
     color: #FFFFFF;
 }
 
-/* ===== Subscription Form ===== */
-.footer__form {
-}
-
-
-
 /* ===== Social Subscription ===== */
 .footer__subscription {
     min-width: 370px;
@@ -72,21 +64,12 @@
 
 .footer__subscription-list {
     display: flex;
-    padding: 0;
     column-gap: 48px;
-}
-
-.footer__subscription-item {
-
 }
 
 .footer__subscription-link {
     color: #E5E5E5;
     transition: color 0.3s ease;
-}
-
-.footer__subscription-icon {
-
 }
 
 /* ===== Bottom ===== */
@@ -97,13 +80,10 @@
 .footer__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     column-gap: 50px;
     padding-top: 25px;
     padding-bottom: 25px;
-}
-
-.footer__logo {
-
 }
 
 .footer__back-to-top {
@@ -118,7 +98,7 @@
 }
 
 .footer__arrow-top {
-
+    cursor: pointer;
 }
 
 /* ===== Состояния ===== */

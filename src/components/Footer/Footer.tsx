@@ -2,10 +2,10 @@ import FormSubscription from "../FormSubscription/FormSubscription";
 import "./Footer.css";
 
 //icons
-import phone from "../../assets/icons/contacts/phone.svg";
-import mail from "../../assets/icons/contacts/mail.svg";
-import skype from "../../assets/icons/contacts/skype.svg";
-import geolocation from "../../assets/icons/contacts/geolocation.svg";
+import PhoneIcon from "../../assets/icons/contacts/PhoneIcon.tsx";
+import EmailIcon from "../../assets/icons/contacts/EmailIcon.tsx";
+import SkypeIcon from "../../assets/icons/contacts/SkypeIcon.tsx";
+import GeolocationIcon from "../../assets/icons/contacts/GeolocationIcon.tsx";
 
 import YoutubeIcon from "../../assets/icons/social/YoutubeIcon.tsx";
 import LinkedInIcon from "../../assets/icons/social/LinkedInIcon.tsx";
@@ -13,7 +13,7 @@ import GooglePlusIcon from "../../assets/icons/social/GooglePlusIcon.tsx";
 import FacebookIcon from "../../assets/icons/social/FacebookIcon.tsx";
 import TwitterIcon from "../../assets/icons/social/TwitterIcon.tsx";
 
-import logo from "../../assets/icons/logo.svg";
+import Logo from "../../assets/icons/Logo.tsx";
 import arrowTop from "../../assets/icons/btn__arrow-top.svg";
 
 export default function Footer() {
@@ -22,33 +22,33 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer__content container">
                 <div className="footer__grid">
-                    <div className="footer__contacts">
+                    <div className="footer__contacts" id="contacts">
                         <h3 className="footer__title">Свяжитесь с нами</h3>
                         <ul className="footer__contacts-list">
                             <li className="footer__contacts-item">
                                 <a className="footer__contacts-link" href="tel:88000000000">
-                                    <img className="footer__contacts-icon" src={phone} alt="Телефон" />
+                                    <PhoneIcon />
                                     8 (800) 000 00 00
                                 </a>
                             </li>
                             <li className="footer__contacts-item"> 
                                 <a className="footer__contacts-link" href="mailto:inbox@mail.ru">
-                                    <img className="footer__contacts-icon" src={mail} alt="Почта" />
+                                    <EmailIcon />
                                     inbox@mail.ru
                                 </a>
                             </li>
                             <li className="footer__contacts-item">
                                 <a className="footer__contacts-link" href="skype:tu.train.tickets?chat">
-                                    <img className="footer__contacts-icon" src={skype} alt="Скайп" />
+                                    <SkypeIcon />
                                     tu.train.tickets
                                 </a>
                             </li>
                             <li className="footer__contacts-item">
                                 <address className="footer__contacts-address">
-                                    <img className="footer__contacts-icon" src={geolocation} alt="Местоположение" />
+                                    <GeolocationIcon />
                                     г. Москва<br/>
-                                    ул. Московская<br/>
-                                    27-35 555 555
+                                    ул. Московская 27-35<br/>
+                                    555 555
                                 </address>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@ export default function Footer() {
             </div>
             <div className="footer__bottom">
                 <div className="footer__row container">
-                    <img className="footer__logo" src={logo} alt="Лого" />
+                    <Logo />
                     <button className="footer__back-to-top" type="button">
                         <img className="footer__arrow-top" src={arrowTop} alt="Вверх"/>
                     </button>
