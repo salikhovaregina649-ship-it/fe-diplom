@@ -1,7 +1,11 @@
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding-top: 15px;
     font-family: Roboto, sans-serif;
-    
+    z-index: 1000;
 }
 
 .header__navigation {
