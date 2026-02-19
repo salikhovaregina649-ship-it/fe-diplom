@@ -1,0 +1,14 @@
+.title {
+    position: absolute;
+    left: 90px;
+    bottom: 242px;
+    font-family: "Roboto", sans-serif;
+    font-size: 72px;
+    font-weight: 100;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.title span {
+    font-weight: 700;
+}

@@ -1,0 +1,32 @@
+.about {
+    padding-top: 144px;
+    padding-bottom: 115px;
+    font-family: Roboto, sans-serif;
+    background-color: #FFFFFF;
+}
+
+.about__title {
+    margin-bottom: 30px;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1;
+    color: #292929;
+    text-transform: uppercase;
+}
+
+.about__content-box {
+    padding-left: 19px;
+    padding-bottom: 24px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    border-left: 9px solid #FFA800;
+}
+
+.about__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.about__paragraph--bold {
+    font-weight: 700;
+}
