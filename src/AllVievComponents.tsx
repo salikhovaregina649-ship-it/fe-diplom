@@ -8,7 +8,7 @@ export default function AllVievComponents() {
             <Button variant="yellow">
                 <YoutubeIcon />
             </Button>
-            <Button variant="dark" uppercase={true} type="submit">
+            <Button variant="transparent" uppercase={true} type="submit">
                 Темная
             </Button>
             <Button variant="light" uppercase={false}>

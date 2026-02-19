@@ -3,7 +3,7 @@ import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     children: React.ReactNode;
-    variant?: "yellow" | "light" | "dark";
+    variant?: "yellow" | "light" | "transparent";
     uppercase?: true | false;
 }
 

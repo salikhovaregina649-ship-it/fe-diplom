@@ -21,7 +21,7 @@
     border: 1px solid #292929;
 }
 
-.button--dark {
+.button--transparent {
     color: #FFFFFF;
     background-color: #2D2B2F;
     border: 1px solid #E5E5E5;
@@ -50,13 +50,13 @@
     border: 1px solid #FFA800;
 }
 
-.button--dark:hover {
+.button--transparent:hover {
     color: #2D2B2F;
     background-color: #FFCA62;
     border: 1px solid #FFCA62;
 }
 
-.button--dark:active {
+.button--transparent:active {
     color: #2D2B2F;
     background-color: #FFFFFF;
     background-color: #2D2B2F;

@@ -13,7 +13,7 @@ export default function FormSubscription () {
                     type="email" 
                     placeholder="e-mail" 
                 />
-                <Button className="form-subscription__btn" variant="dark" uppercase={true} type="submit">
+                <Button className="form-subscription__btn" variant="transparent" uppercase={true} type="submit">
                     Отправить
                 </Button>
             </div>
