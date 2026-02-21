@@ -1,10 +1,15 @@
 .button {
-    /* padding - у всех разный*/
+    /* height и padding - у всех разный*/
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 700;
-    line-height: 1;
+
     border-radius: 5px;
+    box-sizing: border-box;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -59,7 +64,7 @@
 .button--transparent:active {
     color: #2D2B2F;
     background-color: #FFFFFF;
-    background-color: #2D2B2F;
+    border: 1px solid #FFFFFF;
 }
 
 .button--yellow:disabled,
