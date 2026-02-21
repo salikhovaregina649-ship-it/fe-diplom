@@ -1,0 +1,15 @@
+.reviews {
+    padding-top: 152px;
+    padding-bottom: 122px;
+    font-family: Roboto, sans-serif;
+    background-color: #FFFFFF;
+}
+
+.reviews__title {
+    margin-bottom: 83px;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1;
+    color: #292929;
+    text-transform: uppercase;
+}
