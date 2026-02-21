@@ -43,8 +43,8 @@
     cursor: pointer;
 }
 
-.footer__contacts-link .contacts-icon,
-.footer__contacts-address .contacts-icon {
+.footer__contacts-link .icon,
+.footer__contacts-address .icon {
     color: #E5E5E5;
     width: 30px;
     margin-right: 36px;
@@ -111,6 +111,6 @@
 }
 
 /* ===== Состояния ===== */
-.footer__subscription-link:hover .social-icon {
+.footer__subscription-link:hover .icon {
     color: #FFCA62;
 }

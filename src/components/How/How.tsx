@@ -1,8 +1,8 @@
 import "./How.css";
 import Button from "../Button/Button";
-import monitorIcon from "../../assets/icons/monitor.svg";
-import officeIcon from "../../assets/icons/office.svg";
-import internetIcon from "../../assets/icons/internet.svg";
+import monitorIcon from "../../assets/icons/big/monitor.svg";
+import officeIcon from "../../assets/icons/big/office.svg";
+import internetIcon from "../../assets/icons/big/internet.svg";
 
 export default function How() {
     return(

@@ -2,10 +2,10 @@ import FormSubscription from "../FormSubscription/FormSubscription";
 import "./Footer.css";
 
 //icons
-import PhoneIcon from "../../assets/icons/contacts/PhoneIcon.tsx";
-import EmailIcon from "../../assets/icons/contacts/EmailIcon.tsx";
-import SkypeIcon from "../../assets/icons/contacts/SkypeIcon.tsx";
-import GeolocationIcon from "../../assets/icons/contacts/GeolocationIcon.tsx";
+import PhoneIcon from "../../assets/icons/small/PhoneIcon.tsx";
+import EmailIcon from "../../assets/icons/small/EmailIcon.tsx";
+import SkypeIcon from "../../assets/icons/small/SkypeIcon.tsx";
+import GeolocationIcon from "../../assets/icons/small/GeolocationIcon.tsx";
 
 import YoutubeIcon from "../../assets/icons/social/YoutubeIcon.tsx";
 import LinkedInIcon from "../../assets/icons/social/LinkedInIcon.tsx";
@@ -14,7 +14,7 @@ import FacebookIcon from "../../assets/icons/social/FacebookIcon.tsx";
 import TwitterIcon from "../../assets/icons/social/TwitterIcon.tsx";
 
 import Logo from "../../assets/icons/Logo.tsx";
-import arrowTop from "../../assets/icons/btn__arrow-top.svg";
+import arrowTop from "../../assets/icons/small/btn__arrow-top.svg";
 
 export default function Footer() {
 
