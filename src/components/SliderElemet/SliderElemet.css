@@ -32,25 +32,6 @@
     color: #000000;
 }
 
-/* .slide__text {
-    font-size: 18px;
-    font-weight: 300;
-    font-style: italic;
-    color: #928F94;
-}
-
-.slide__text span:first-child {
-    font-size: 36px;
-}
-
-.slide__text span:last-child {
-    position: relative;
-    bottom: -12px;
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 0;
-} */
-
 .slide__text {
     font-size: 18px;
     font-weight: 300;

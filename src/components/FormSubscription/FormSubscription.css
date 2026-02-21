@@ -19,7 +19,6 @@
 .form-subscription__input {
     flex-grow: 1;
     max-width: 447px;
-    height: 60px;
     padding: 0 21px;
     font-size: 24px;
     background-color: #FFFFFF;
@@ -32,7 +31,6 @@
 }
 
 .button.form-subscription__btn {
-    height: 60px;
     padding: 0 15px;
     font-weight: 400;
     color: #E5E5E5;
