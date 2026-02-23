@@ -11,13 +11,9 @@
     position: relative;
 }
 
-.how__title {
+.how__title.title {
     margin-bottom: 107px;
-    font-size: 36px;
-    font-weight: 500px;
-    line-height: 1;
     color: #FFFFFF;
-    text-transform: uppercase;
 }
 
 .how__list {

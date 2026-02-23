@@ -1,4 +1,5 @@
 import FormSubscription from "../FormSubscription/FormSubscription";
+import Title from "../uikit/Title/Title.tsx";
 import "./Footer.css";
 
 //icons
@@ -23,7 +24,7 @@ export default function Footer() {
             <div className="footer__content container">
                 <div className="footer__grid">
                     <div className="footer__contacts" id="contacts">
-                        <h3 className="footer__title">Свяжитесь с нами</h3>
+                        <Title as="h3" className="footer__title">Свяжитесь с нами</Title>
                         <ul className="footer__contacts-list">
                             <li className="footer__contacts-item">
                                 <a className="footer__contacts-link" href="tel:88000000000">
@@ -54,11 +55,11 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="footer__form">
-                        <h3 className="footer__title">Подписка</h3>
+                        <Title as="h3" className="footer__title">Подписка</Title>
                         <FormSubscription />
                     </div>
                     <div className="footer__subscription">
-                        <h3 className="footer__title">Подписывайтесь на нас</h3>
+                        <Title as="h3" className="footer__title">Подписывайтесь на нас</Title>
                         <ul className="footer__subscription-list">
                             <li className="footer__subscription-item">
                                 <a className="footer__subscription-link" href="https://youtube.com" target="_blank" rel="noopener">

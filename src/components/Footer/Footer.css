@@ -22,8 +22,7 @@
 
 .footer__title {
     margin-bottom: 30px;
-    font-size: 30px;
-    font-weight: 500;
+    color: #FFFFFF;
 }
 
 .footer__contacts-list {
@@ -39,7 +38,7 @@
 
 .footer__contacts-link {
     display: flex;
-    color: #FFFFFF;
+    color: inherit;
     cursor: pointer;
 }
 
@@ -54,7 +53,7 @@
     display: flex;
     align-items: flex-start;
     font-style: normal;
-    color: #FFFFFF;
+    color: inherit;
 }
 
 /* ===== Form ===== */
@@ -74,7 +73,7 @@
 }
 
 .footer__subscription-link {
-    color: #E5E5E5;
+    color: inherit;
     transition: color 0.3s ease;
 }
 
@@ -102,6 +101,7 @@
     justify-self: end;
     font-size: 24px;
     font-weight: 300;
+    color: inherit;
     text-transform: uppercase;
 }
 

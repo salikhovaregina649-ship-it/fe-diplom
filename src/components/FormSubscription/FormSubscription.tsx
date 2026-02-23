@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import Button from "../uikit/Button/Button";
 import "./FormSubscription.css";
 
 export default function FormSubscription () {

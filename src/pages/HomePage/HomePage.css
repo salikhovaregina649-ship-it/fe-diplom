@@ -1,14 +1,35 @@
-.title {
+.home__title {
     position: absolute;
     left: 90px;
     bottom: 242px;
-    font-family: "Roboto", sans-serif;
-    font-size: 72px;
     font-weight: 100;
-    color: #FFFFFF;
-    line-height: 1;
 }
 
-.title span {
+.home__title span {
     font-weight: 700;
+}
+
+.home__hero {
+    height: 985px;
+    max-height: 100vh;
+    min-height: 600px;
+    background-image: url("/images/bg__header.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: 8px solid #FFA800;
+}
+
+.home__hero .container {
+    position: relative;
+    height: 100%;
+}
+
+.home__search {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 729px;
+    height: 574px;
+    padding: 79px 24px 52px 21px;
 }

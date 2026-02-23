@@ -1,6 +1,7 @@
 import "./Search.css";
-import Button from "../Button/Button";
+import Button from "../uikit/Button/Button";
 import { useNavigate } from "react-router";
+import clsx from "clsx";
 
 import GeolocationIcon from "../../assets/icons/small/GeolocationIcon";
 import CalendarIcon from "../../assets/icons/small/CalendarIcon";
@@ -18,7 +19,7 @@ export default function Search({className}: SearchProps) {
     }
 
     return (
-        <form className={`form-search ${className ? `form-search--${className}` : ""} `} >
+        <form className={clsx("form-search", className)}>
             <div className="form-search__direction">
                 <label className="form-search__label" htmlFor="cityForth">Направление</label>
                 <div className="form-search__input-wrapper form-search__wrapper--col-1">

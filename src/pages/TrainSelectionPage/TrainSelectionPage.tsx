@@ -1,7 +1,7 @@
-import "./TrainSelectionPage.css";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
 import Search from "../../components/Search/Search";
+import "./TrainSelectionPage.css";
 
 export default function TrainSelectionPage() {
 

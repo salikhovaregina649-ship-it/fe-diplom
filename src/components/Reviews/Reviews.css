@@ -6,10 +6,5 @@
 }
 
 .reviews__title {
-    margin-bottom: 83px;
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 1;
-    color: #292929;
-    text-transform: uppercase;
+    margin-bottom: 83px; 
 }

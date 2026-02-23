@@ -4,15 +4,6 @@
     background-color: rgba(41, 41, 41, 0.8);
 }
 
-.form-search--home {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 729px;
-    height: 574px;
-    padding: 79px 24px 52px 21px;
-}
-
 .form-search__direction,
 .form-search__date {
     display: grid;
