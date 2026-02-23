@@ -15,7 +15,7 @@ export default function Search({className}: SearchProps) {
 
     const navigate = useNavigate();
     const handle = () => {
-        navigate("/cities");
+        navigate("/booking");
     }
 
     return (

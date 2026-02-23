@@ -1,7 +1,7 @@
 import { createHashRouter } from "react-router";
 import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
-import TrainSelectionPage from "./pages/TrainSelectionPage/TrainSelectionPage";
+import BookingPage from "./pages/BookingPage/BookingPage";
 import AllVievComponents from "./AllVievComponents";
 
 export const router = createHashRouter([
@@ -10,13 +10,7 @@ export const router = createHashRouter([
         Component: App,
         children: [
             {index: true, Component: HomePage},
-            {
-                path: "cities", 
-                Component: TrainSelectionPage,
-                children: [
-                    // Шаги бронирования
-                ]
-            },
+            {path: "booking", Component: BookingPage},
         ],
     },
     {
