@@ -13,7 +13,7 @@
     height: 985px;
     max-height: 100vh;
     min-height: 600px;
-    background-image: url("/images/bg__header.webp");
+    background-image: url("/images/bg-home-hero.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 .home__search {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -24px;
     width: 729px;
     height: 574px;
     padding: 79px 24px 52px 21px;
