@@ -96,15 +96,19 @@ export default function Filter () {
                     <Title className="filter__title" as="h3">Туда</Title>
                     <Button className={clsx("filter__collapse-btn", openForth && "active")} variant="openner" onClick={() => setOpenForth(prev => !prev)} />
                 </div>
-                <Collapse className="filter__collapse-box" isOpen={openForth}>
-                    <div className="filter__slider-label filter__slider-label--direction">
-                        <span>Время прибытия</span>
+                <Collapse className="filter__collapse" isOpen={openForth}>
+                    <div className="filter__collapse-box">
+                        <div className="filter__slider-label filter__slider-label--direction">
+                            <span>Время прибытия</span>
+                        </div>
+                        <TimeRangeSlider />
                     </div>
-                    <TimeRangeSlider />
-                    <div className="filter__slider-label filter__slider-label--direction">
-                        <span>Время отбытия</span>
+                    <div className="filter__collapse-box">   
+                        <div className="filter__slider-label filter__slider-label--direction">
+                            <span>Время отбытия</span>
+                        </div>
+                        <TimeRangeSlider />
                     </div>
-                    <TimeRangeSlider />
                 </Collapse>
             </div>
             <div className="filter__direction filter__direction--back">
@@ -112,15 +116,19 @@ export default function Filter () {
                     <Title className="filter__title" as="h3">Обратно</Title>
                     <Button className={clsx("filter__collapse-btn", openBack && "active")} variant="openner" onClick={() => setOpenBack(prev => !prev)} />
                 </div>
-                <Collapse className="filter__collapse-box" isOpen={openBack}>
-                    <div className="filter__slider-label filter__slider-label--direction">
-                        <span>Время прибытия</span>
+                <Collapse className="filter__collapse" isOpen={openBack}>
+                    <div className="filter__collapse-box">
+                        <div className="filter__slider-label filter__slider-label--direction">
+                            <span>Время прибытия</span>
+                        </div>
+                        <TimeRangeSlider />
                     </div>
-                    <TimeRangeSlider />
-                    <div className="filter__slider-label filter__slider-label--direction">
-                        <span>Время отбытия</span>
-                    </div>
-                    <TimeRangeSlider />
+                    <div className="filter__collapse-box">   
+                        <div className="filter__slider-label filter__slider-label--direction">
+                            <span>Время отбытия</span>
+                        </div>
+                        <TimeRangeSlider />
+                    </div> 
                 </Collapse>
             </div>
         </div>

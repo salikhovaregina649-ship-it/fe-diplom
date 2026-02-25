@@ -30,7 +30,7 @@ export default function TimeRangeSlider({
 
     return (
         <RangeSlider
-            className="filter__direction-slider"
+            className="time-range-slider"
             modifier="small"
             min={0}
             max={1440}

@@ -60,7 +60,7 @@
 
 .filter__slider-label {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
     font-size: 18px;
     font-weight: 400;
 }
@@ -69,7 +69,7 @@
     justify-content: space-between;
 }
 
-.filter__slider-label--direction:nth-child(3) {
+.filter__collapse-box:nth-child(2) .filter__slider-label--direction {
     justify-content: end;
 }
 
@@ -119,7 +119,15 @@
     
 }
 
-.filter__collapse-box {
+.filter__collapse {
     width: 100%;
+}
+
+.filter__collapse-box {
+    margin-bottom: 45px;
+}
+
+.filter__collapse-box:last-child {
+    margin-bottom: 0;
 }
 
