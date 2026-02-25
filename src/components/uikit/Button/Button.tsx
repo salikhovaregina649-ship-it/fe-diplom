@@ -3,8 +3,8 @@ import React from "react";
 import "./Button.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
-    children: React.ReactNode;
-    variant?: "yellow" | "light" | "transparent";
+    children?: React.ReactNode;
+    variant?: "yellow" | "light" | "transparent" | "openner";
     uppercase?: boolean;
 }
 

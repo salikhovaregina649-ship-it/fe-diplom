@@ -37,6 +37,18 @@
     text-transform: uppercase;
 }
 
+.button--openner {
+    width: 20px;
+    height: 20px;
+    background-image: url("../../../assets/icons/small/openner.svg");
+    background-color: transparent;
+    border: none;
+}
+
+.button.active {
+    background-image: url("../../../assets/icons/small/openner-active.svg");
+}
+
 /* ===== Состояния ===== */
 .button--yellow:active {
     color: #FFA800;
@@ -74,4 +86,12 @@
     background-color: #928F94;
     border: 1px solid #928F94;
     cursor: default;
+}
+
+.button--openner:hover  {
+    background-image: url("../../../assets/icons/small/openner-hover.svg");
+}
+
+.button--openner:active {
+    background-image: url("../../../assets/icons/small/openner-active.svg");
 }
