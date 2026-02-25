@@ -32,4 +32,6 @@
     width: 729px;
     height: 574px;
     padding: 79px 24px 52px 21px;
+    display: flex;
+    flex-direction: column;
 }

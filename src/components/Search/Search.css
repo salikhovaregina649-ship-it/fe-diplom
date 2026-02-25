@@ -1,6 +1,4 @@
 .form-search {
-    display: flex;
-    flex-direction: column;
     background-color: rgba(41, 41, 41, 0.8);
 }
 
@@ -48,6 +46,7 @@
 }
 
 .form-search__input {
+    display: block;
     width: 323px;
     height: 60px;
     padding: 19px 50px 11px 21px;

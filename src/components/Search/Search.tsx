@@ -6,6 +6,7 @@ import clsx from "clsx";
 import GeolocationIcon from "../../assets/icons/small/GeolocationIcon";
 import CalendarIcon from "../../assets/icons/small/CalendarIcon";
 import swapIcon from "../../assets/icons/small/swapIcon.svg";
+import InputDate from "../uikit/InputDate/InputDate";
 
 interface SearchProps {
     className?: string;
@@ -37,12 +38,10 @@ export default function Search({className}: SearchProps) {
             <div className="form-search__date">
                 <label className="form-search__label" htmlFor="dataForth">Дата</label>
                 <div className="form-search__input-wrapper form-search__wrapper--col-1">
-                    <input className="form-search__input" id="dataForth" type="date" placeholder="ДД.ММ.ГГ" />
-                    <CalendarIcon />
+                    <InputDate className="form-search__input" id="dataForth" Icon={CalendarIcon} />
                 </div>
                 <div className="form-search__input-wrapper form-search__wrapper--col-2">
-                    <input  className="form-search__input" id="dateBack" type="date" placeholder="ДД.ММ.ГГ" />
-                    <CalendarIcon />
+                    <InputDate className="form-search__input" id="dateBack" Icon={CalendarIcon} />
                 </div>
             </div>
             <Button className="form-search__bnt" variant="yellow" uppercase={true} onClick={handle}>Найти билеты</Button>

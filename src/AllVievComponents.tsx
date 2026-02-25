@@ -1,6 +1,7 @@
 import Button from "./components/uikit/Button/Button";
 import YoutubeIcon from "./assets/icons/social/YoutubeIcon";
 import Title from "./components/uikit/Title/Title";
+import Checkbox from "./components/uikit/Checkbox/Checkbox";
 
 export default function AllVievComponents() {
 
@@ -25,6 +26,8 @@ export default function AllVievComponents() {
             </div>
             <div>
                 <Title as="h2">Заголовок</Title>
+                <Checkbox name="test" value="test checkbox" label="" />
+                <Checkbox name="test" value="test checkbox 2" label="" />
             </div>
         </>
     )
