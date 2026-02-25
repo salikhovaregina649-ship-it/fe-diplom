@@ -1,0 +1,56 @@
+.last-ticket {
+    width: 360px;
+    margin-bottom: 17px;
+    padding: 18px 16px 16px 18px;
+    background-color: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 2px 0 0 rgba(62, 60, 65, 0.25);
+}
+
+.last-ticket:last-child {
+    margin-bottom: 0;
+}
+
+.last-ticket__city {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #292929;
+}
+
+.last-ticket__station {
+    margin-bottom: 29px;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.last-ticket__grid-box {
+    display: flex;
+    align-items: end;
+}
+
+.last-ticket__icons {
+    color: #928F94;
+}
+
+.last-ticket__price {
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.last-ticket__price span {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFA800;
+}
+
+.last-ticket__city,
+.last-ticket__station,
+.last-ticket__grid-box {
+    display: flex;
+    justify-content: space-between;
+}

@@ -17,12 +17,14 @@
     margin-bottom: 0;
 }
 
-.filter__title {
+h3.title.filter__title {
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
-.filter__direction .filter__title {
+.filter__direction h3.title.filter__title {
     margin-bottom: 0;
+    font-weight: 700;
 }
 
 .filter__input-date {
@@ -41,15 +43,12 @@
 
 .filter__item {
     display: grid;
-    grid-template-columns: 30px 1fr;
+    grid-template-columns: 25px 1fr;
     grid-template-rows: 28px;
-    padding-left: 30px;
     align-items: center;
+    gap: 34px;
     margin-bottom: 34px;
-}
-
-.filter__checkbox-icon {
-    margin-right: 33px;
+    padding-left: 30px;
 }
 
 .filter__price {
