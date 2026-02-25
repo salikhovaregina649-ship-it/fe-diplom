@@ -1,0 +1,113 @@
+.steps-menu {
+    position: relative;
+    background-color: #3E3C41;
+    overflow: hidden;
+}
+
+.steps-menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 98px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.steps-menu__step {
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 250px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 1;
+}
+
+.steps-menu__step--active {}
+
+.steps-menu__step--completed {}
+
+.steps-menu__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    margin-right: 21px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.steps-menu__label {
+    padding-right: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+
+/* Тело стрелки */
+.steps-menu__step:first-child::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 98px;
+    width: 2000px;
+    height: 100%;
+    background-color: #FFA800;
+    z-index: -2;
+}
+
+.steps-menu__step--active::before,
+.steps-menu__step--completed::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 98px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFA800;
+    z-index: -2;
+}
+
+
+.steps-menu:has(.steps-menu__step--active:last-child) {
+    background-color: #FFA800;
+}
+
+/* Стрелка */
+.steps-menu__step::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 60px;
+    width: 98px;
+    height: 98px;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.steps-menu__step:last-child:after {
+    content: none;    
+}
+
+.steps-menu__step--active::after,
+.steps-menu__step--completed::after {
+    background-color: #FFA800;
+}
+
+
+.steps-menu__step:first-child {z-index: 4;}
+
+.steps-menu__step:nth-child(2) {z-index: 3;}
+
+.steps-menu__step:nth-child(3) {z-index: 2;}
+
+.steps-menu__step:nth-child(4) {z-index: 1;}

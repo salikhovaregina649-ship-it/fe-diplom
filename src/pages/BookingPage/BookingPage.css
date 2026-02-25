@@ -1,0 +1,33 @@
+.booking__hero {
+    height: 596px;
+    background-image: url("/images/bg-booking-hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.booking__hero .container {
+    position: relative;
+    height: 100%;
+}
+
+.booking__search {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1490px;
+    height: 329px;
+    padding: 28px 42px 76px 44px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 47px 35px;
+}
+
+.booking__search .form-search__bnt {
+    grid-column: 2 / 3;
+}
+
+.booking__search .form-search__direction {
+    margin-bottom: 0;
+}
