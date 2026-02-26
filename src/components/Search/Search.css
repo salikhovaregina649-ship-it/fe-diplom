@@ -35,6 +35,7 @@
     right: 13px;
     transform: translateY(-50%);
     color: #E5E5E5;
+    pointer-events: none;
 }
 
 .form-search__wrapper--col-1 {
@@ -63,4 +64,5 @@
     width: 323px;
     margin-left: auto;
     margin-top: auto;
+    color: #292929;
 }
