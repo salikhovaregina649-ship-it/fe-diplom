@@ -1,0 +1,62 @@
+.train-list {
+    
+}
+
+.train-list__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 400;
+    color: #928F94;
+}
+.train-list__found-result {
+
+}
+
+
+.train-list__controls {
+    display: flex;
+}
+
+.train-list__sorting {
+    display: flex;
+    margin-right: 10px;
+}
+
+.train-list__sorting__label {
+    margin-right: 5px;
+}
+
+.train-list__sorting-select {
+    width: 139px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    border: none;
+    background-color: transparent;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+.train-list__sorting-select option {
+    width: 139px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.train-list__per-page {
+    display: flex;
+}
+
+.train-list__per-page-label {
+    margin-right: 5px;
+}
+
+.train-list__per-page-item {
+    margin-right: 5px;
+}

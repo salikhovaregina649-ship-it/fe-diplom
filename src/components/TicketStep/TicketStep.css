@@ -1,8 +1,25 @@
 .ticket-step {
     padding-top: 95px;
     padding-bottom: 193px;
+    background-color: #F7F5F9;
+}
+
+.ticket-step .container {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    column-gap: 87px;
 }
 
 .ticket-step__aside {
+    grid-column: 1 / 2;
     margin-bottom: 96px;
+}
+
+.ticket-step__last-tickets {
+    grid-column: 1 / 2;
+}
+
+.ticket-step__main {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
 }

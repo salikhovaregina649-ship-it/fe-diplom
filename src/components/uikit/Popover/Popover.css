@@ -1,0 +1,34 @@
+.popover {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #F5F4F6;
+    border: 1px solid #F5F4F6;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Рамка стрелки */
+.popover::before { 
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -9px;
+    transform: translateX(-50%);
+    border-left: 9px solid transparent; 
+    border-right: 9px solid transparent; 
+    border-bottom: 9px solid #F5F4F6;
+}
+
+/* Тело стрелки */
+.popover::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-bottom: 8px solid #F5F4F6;
+}

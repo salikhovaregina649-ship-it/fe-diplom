@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import LastTicket from "../LastTicket/LastTicket";
 import Title from "../uikit/Title/Title";
 import "./LastTicketList.css";
@@ -26,9 +27,13 @@ const tickets = [
     },
 ];
 
-export default function LastTicketList() {
+interface LastTicketListProps {
+    className?: string;
+}
+
+export default function LastTicketList({className}: LastTicketListProps) {
     return(
-        <div className="last-ticket-list">
+        <div className={clsx("last-ticket-list", className)}>
             <Title className="last-ticket-list__title" as="h3" uppercase={true}>Последние билеты</Title>
             {tickets.map((ticket) => (
                 <LastTicket ticket={ticket} />

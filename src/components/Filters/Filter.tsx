@@ -79,7 +79,7 @@ export default function Filter () {
                 {filterItems.map((item, index) => (
                     <li className="filter__item" key={index}>
                         <img className="filter__checkbox-icon" src={item.iconUrl} alt="" />
-                        <Checkbox className="filter__checkbox" name={item.name} value={item.value} label={item.label} />
+                        <Checkbox className="filter__checkbox" name={item.name} value={item.value} label={item.label} switched={true} />
                     </li>
                 ))}
             </ul>

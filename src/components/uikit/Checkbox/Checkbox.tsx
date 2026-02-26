@@ -3,14 +3,15 @@ import "./Checkbox.css";
 
 interface CheckboxProps {
     className?: string;
-    name: string;
+    name?: string;
     value: string;
     checked?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label: string;
+    switched?: boolean;
 }
 
-export default function Checkbox({className, name, value, checked, onChange, label}: CheckboxProps) {
+export default function Checkbox({className, name, value, checked, onChange, label, switched = false}: CheckboxProps) {
     return(
         <label className={clsx("checkbox", className)} >
             <span className="checkbox__label">{label}</span>
@@ -22,7 +23,7 @@ export default function Checkbox({className, name, value, checked, onChange, lab
                 checked={checked}
                 onChange={onChange}
             />
-            <span className="checkbox__switch" />
+            {switched && <span className="checkbox__switch" />}
         </label>
     )
 }

@@ -14,7 +14,7 @@
 .booking__search {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: -43px;
     width: 1490px;
     height: 329px;
     padding: 28px 42px 76px 44px;
