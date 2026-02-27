@@ -10,16 +10,15 @@
     column-gap: 87px;
 }
 
-.ticket-step__aside {
+.ticket-step__aside-wrapper {
     grid-column: 1 / 2;
-    margin-bottom: 96px;
 }
 
-.ticket-step__last-tickets {
-    grid-column: 1 / 2;
+.ticket-step__aside {
+    height: max-content;
+    margin-bottom: 96px;
 }
 
 .ticket-step__main {
     grid-column: 2 / 3;
-    grid-row: 1 / 3;
 }

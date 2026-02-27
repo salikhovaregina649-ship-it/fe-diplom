@@ -1,0 +1,37 @@
+.train__class {
+    display: grid;
+    grid-template-columns: 90px 30px 1fr;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.train__class-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3E3C41;
+}
+
+.train__class-ticket-count {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFA800;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.train__class-ticket-price {
+    color: #928F94;
+}
+
+.train__class-ticket-price span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3E3C41;
+}
+
+.train__class-ticket-price .icon {
+    width: 16px;
+    height: 19px;
+}

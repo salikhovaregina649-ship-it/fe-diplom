@@ -1,0 +1,160 @@
+.train {
+    display: grid;
+    grid-template-columns: 197px 479px 283px;
+    grid-template-rows: repeat(2, auto);
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 2px 0 0 solid rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+}
+
+/* info */
+.train__info {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    height: auto;
+    padding-top: 58px;
+    padding-right: 10px;
+    padding-bottom: 23px;
+    padding-left: 26px;
+    background-color: #E4E0E9;
+}
+
+.train__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 17px;
+}
+
+.train__icon {}
+.train__number {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #3E3C41;
+}
+
+.train__directions {}
+.train__city {
+    font-size: 16px;
+    font-weight: 400;
+    color: #292929;
+    text-transform: capitalize;
+}
+
+.train__city .icon,
+.train__starting-city .icon {
+    margin-left: 5px;
+}
+
+.train__starting-city,
+.train__starting-city .icon {
+    color: #928F94;
+}
+
+/* travel-info */
+.train__travel-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 54px;
+    padding-right: 36px;
+    padding-bottom: 23px;
+    padding-left: 39px;
+}
+
+
+.train__travel-info-wrapper {
+    display: grid;
+    grid-template-columns: 155px 90px 1fr;
+}
+
+.train__travel-info-wrapper:first-child {
+    margin-bottom: 50px;
+}
+
+.travel-info-wrapper--forth {}
+.travel-info-wrapper--back {}
+
+.train__travel-way {
+    padding-top: 4px;
+}
+
+.train__travel-time {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.train__travel-city {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.train__travel-station {
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.train__time-way {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.train__time-way-time {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #C4C4C4;
+}
+
+.train__time-way .icon {
+    color: rgba(255, 168, 0, 0.79);
+}
+
+.travel-info-wrapper--back .train__time-way .icon  {
+    transform: rotate(180deg);
+}
+
+/* options */
+.train__options {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    padding-top: 41px;
+    padding-right: 20px;
+    padding-bottom: 23px;
+    padding-left: 27px;
+    border-left: 1px solid #E5E5E5;
+}
+
+/* grid row 2 / 3 */
+.train__grid-wrapper {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 20px;
+    padding-bottom: 23px;
+    padding-left: 27px;
+    border-left: 1px solid #E5E5E5;
+}
+
+.train__options-icons {
+    margin-bottom: 19px;
+    color: #C4C4C4;
+}
+
+.button.train__button {
+    width: 228px;
+    height: 39px;
+    padding-right: 14px;
+    padding-left: 10px;
+}
