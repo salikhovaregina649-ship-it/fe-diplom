@@ -1,21 +1,20 @@
-import "./OrderSuccess.css";
+import "./OrderSuccessPage.css";
 import { Link } from "react-router";
-import Footer from "../Footer/Footer";
-import Hero from "../Hero/Hero";
-import Title from "../uikit/Title/Title";
-import Button from "../uikit/Button/Button";
+import Footer from "../../components/Footer/Footer";
+import Hero from "../../components/Hero/Hero";
+import Title from "../../components/uikit/Title/Title";
+import Button from "../../components/uikit/Button/Button";
+import monitorTicket from "../../assets/icons/big/monitor-ticket.svg";
+import tickets from "../../assets/icons/big/tickets.svg";
+import conductor from "../../assets/icons/big/conductor.svg";
+import Rating from "../../components/uikit/Rating/Rating";
+import RubleIcon from "../../assets/icons/small/RubleIcon";
 
-interface OrderSuccess {
-    orderId: string;
-    orderAmount: number;
-    customerName: string;
-}
+const orderId = "285AA";
+const customerName = "Ирина Эдуардовна";
+const orderAmount = "7 760";
 
-export default function OrderSuccess({
-    orderId,
-    orderAmount,
-    customerName,
-}: OrderSuccess) {
+export default function OrderSuccess() {
     return (
         <div className="order-success">
             <Hero className="order-success__hero">
@@ -25,57 +24,71 @@ export default function OrderSuccess({
                     </Title>
                 </div>
             </Hero>
-            <div className="order-success__content">
-                <div className="container">
+            <div className="order-success__content container">
+                <div className="order-success__content-wrapper">
                     <div className="order-success__header">
-                        <Title as="h2" className="order-success__order-number">
+                        <p className="order-success__order-number">
                             №Заказа {orderId}
-                        </Title>
+                        </p>
                         <p className="order-success__order-amount">
-                            сумма <span>{orderAmount}</span>
+                            сумма <span>{orderAmount}</span> <RubleIcon />
                         </p>
                     </div>
                     <div className="order-success__steps">
                         <div className="order-success__step">
-                            {/**Иконка с монитором*/}
+                            <img
+                                className="order-success__icon"
+                                src={monitorTicket}
+                                alt=""
+                            />
                             <p className="order-success__step-text">
-                                билеты будут отправлены на ваш{" "}
-                                <span>e-mail</span>
+                                билеты будут
+                                <br /> отправлены
+                                <br /> на ваш <span>e-mail</span>
                             </p>
                         </div>
                         <div className="order-success__step">
-                            {/**Иконка с билетами*/}
+                            <img
+                                className="order-success__icon"
+                                src={tickets}
+                                alt=""
+                            />
                             <p className="order-success__step-text">
-                                <span>распечатайте</span> и сохраняйте билеты до
-                                даты поездки
+                                <span>распечатайте</span>
+                                <br /> и сохраняйте билеты
+                                <br /> до даты поездки
                             </p>
                         </div>
                         <div className="order-success__step">
-                            {/**Иконка с человеком*/}
+                            <img
+                                className="order-success__icon"
+                                src={conductor}
+                                alt=""
+                            />
                             <p className="order-success__step-text">
-                                <span>предьявите</span> распечатанные билеты при
-                                посадке
+                                <span>предьявите</span>
+                                <br /> распечатанные билеты при посадке
                             </p>
                         </div>
                     </div>
                     <div className="order-success__details">
                         <Title as="h2" className="order-success__customer-name">
-                            {customerName}
+                            {customerName}!
                         </Title>
                         <p className="order-success__text">
                             Ваш заказ успешно оформлен.
                             <br />В ближайшее время с вами свяжется наш оператор
                             для подтверждения.
                         </p>
-                        <p className="order-success__text">
+                        <p className="order-success__text order-success__text--bold">
                             Благодарим Вас за оказанное доверие и желаем
                             приятного путешествия!
                         </p>
                     </div>
                     <div className="order-success__footer">
                         <div className="order-success__evaluation">
-                            <p>Оцените сервис</p>
-                            {/*тут вставить компонент Rating для оценки сервиса, он в виде звезд*/}
+                            <p className="order-success__evaluation-text">Оцените сервис</p>
+                            <Rating className="order-success__rating" />
                         </div>
                         <Button
                             className="order-success__btn"

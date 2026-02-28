@@ -3,6 +3,7 @@ import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
 import BookingPage from "./pages/BookingPage/BookingPage";
 import AllVievComponents from "./AllVievComponents";
+import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
 
 export const router = createHashRouter([
     {
@@ -11,6 +12,7 @@ export const router = createHashRouter([
         children: [
             {index: true, Component: HomePage},
             {path: "booking", Component: BookingPage},
+            {path: "order/success", Component: OrderSuccessPage} // /:id добаить позже
         ],
     },
     {
