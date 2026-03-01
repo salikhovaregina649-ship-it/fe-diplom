@@ -27,7 +27,7 @@ export const router = createHashRouter([
                             throw redirect("trains");
                         },
                     },
-                    {   
+                    {
                         path: "trains",
                         Component: TicketStep,
                         children: [

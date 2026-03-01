@@ -10,7 +10,7 @@ export default function BookingPage() {
     const location = useLocation();
 
     const getCurrentStep = () => {
-        if (location.pathname.includes("")) return 1;
+        if (location.pathname.includes("train")) return 1;
         if (location.pathname.includes("passengers")) return 2;
         if (location.pathname.includes("payment")) return 3;
         if (location.pathname.includes("verify")) return 4;

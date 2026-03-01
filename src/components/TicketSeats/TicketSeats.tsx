@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import Title from "../uikit/Title/Title";
 import Button from "../uikit/Button/Button";
 import TravelInfo from "../TravelInfo/TravelInfo";
@@ -44,6 +45,8 @@ export default function TicketSeats() {
     const [currentClass, setCurrentClass] = useState<string | null>(null);
     const [selectedCoaches, setSelectedCoaches] = useState<string[]>([]);
 
+    const navigate = useNavigate();
+
     const handleClassChange = (value: string) => {
         setCurrentClass(value);
     };
@@ -58,7 +61,15 @@ export default function TicketSeats() {
         }
     };
 
-    return ( 
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+    const handleThen = () => {
+        navigate("/booking/passengers");
+    };
+
+    return (
         <div className="ticket-seats">
             <div className="container">
                 <Title as="h3" className="ticket-seats__title">
@@ -68,8 +79,10 @@ export default function TicketSeats() {
                     <div className="ticket-seats__choose-another">
                         <ArrowIconBig />
                         <Button
+                            type="button"
                             className="ticket-seats__btn"
                             variant="transparent"
+                            onClick={handleBack}
                         >
                             Выбрать другой поезд
                         </Button>
@@ -157,13 +170,24 @@ export default function TicketSeats() {
                                         ),
                                     )
                                     .map((item) => (
-                                        <div key={item.coach._id} className="ticket-seats__coach-info">
+                                        <div
+                                            key={item.coach._id}
+                                            className="ticket-seats__coach-info"
+                                        >
                                             <div className="ticket-seats__coach-number">
-                                                {item.coach.name} 
+                                                {item.coach.name}
                                                 <span>вагон</span>
                                             </div>
                                             <div className="ticket-seats__coach-seats">
-                                                <p>Места <span>{item.coach.available_seats}</span></p>
+                                                <p>
+                                                    Места{" "}
+                                                    <span>
+                                                        {
+                                                            item.coach
+                                                                .available_seats
+                                                        }
+                                                    </span>
+                                                </p>
                                                 {/*Вопрос!! В ответе такой информации нет. Нужно высчитать каждое 2 свободное место?*/}
                                                 <p>Верхние 3</p>
                                                 <p>Нижние 8</p>
@@ -180,7 +204,10 @@ export default function TicketSeats() {
                                                 </p>
                                             </div>
                                             <div className="ticket-seats__coach-service">
-                                                <p>Обслуживание <span>фпк</span></p>
+                                                <p>
+                                                    Обслуживание{" "}
+                                                    <span>фпк</span>
+                                                </p>
                                                 <ul>
                                                     <li>
                                                         {/* Icon кондиционер*/}
@@ -210,10 +237,18 @@ export default function TicketSeats() {
                         <div className="class-coupe"></div>
                         <div className="class-luxury"></div>
 
-                        {/**В обратном поезде тоже самое все, но стрелка с другую сторону 
+                        {/**В обратном поезде тоже самое все, но стрелка с другую сторону
                          * и блок ticket-seats__choose-another справа */}
                     </div>
                 </div>
+                <Button 
+                    className="" 
+                    type="button"
+                    variant="yellow"
+                    onClick={handleThen}
+                >
+                    Далее
+                </Button>
             </div>
         </div>
     );

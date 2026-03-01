@@ -92,6 +92,7 @@ export default function OrderSuccess() {
                         </div>
                         <Button
                             className="order-success__btn"
+                            type="button"
                             variant="yellow"
                             uppercase={true}
                         >
