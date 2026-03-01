@@ -1,0 +1,53 @@
+.travel-info {
+    display: grid;
+    grid-template-columns: 155px 90px 1fr;
+}
+
+.travel-info:first-child {
+    margin-bottom: 50px;
+}
+
+.travel-info__way {
+    padding-top: 4px;
+}
+
+.travel-info__time {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.travel-info__city {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.travel-info__station {
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.travel-info__time-way {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.travel-info__time-way-time {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #C4C4C4;
+}
+
+.travel-info__time-way .icon {
+    color: rgba(255, 168, 0, 0.79);
+}
+
+.travel-info--back .travel-info__time-way .icon  {
+    transform: rotate(180deg);
+}

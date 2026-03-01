@@ -11,12 +11,12 @@ interface PriceInfo {
 }
 
 interface TrainOptionsProps {
-    carClass: string;
+    coachClass: string;
     seatsCount?: number;
     priceInfo?: PriceInfo;
 }
 
-export default function TrainOptions({carClass, seatsCount, priceInfo}: TrainOptionsProps) {
+export default function TrainOptions({coachClass, seatsCount, priceInfo}: TrainOptionsProps) {
     // const elementWithPopoverRef = useRef<HTMLButtonElement>(null);
     // const [activePopover, setActivePopover] = useState<null | number>(null);
     return (
@@ -24,13 +24,13 @@ export default function TrainOptions({carClass, seatsCount, priceInfo}: TrainOpt
             {/**.map c классами*/}
             <div className="train__class">
                 <p className="train__class-name">
-                    {carClass}
+                    {coachClass}
                 </p>
                 <p className="train__class-ticket-count">
                     {seatsCount}
                 </p>
 
-                {/**В ответе нет информации о верхних и нижних местах */}
+                {/** Вопрос!! В ответе нет информации о верхних и нижних местах */}
                 {/*<button
                     className="train__class-ticket-count"
                     type="button"
@@ -64,10 +64,10 @@ export default function TrainOptions({carClass, seatsCount, priceInfo}: TrainOpt
                 <div className="train__class-ticket-price">
                     от <span>
                         {Math.min(
-                            priceInfo?.price ?? Infinity,
-                            priceInfo?.top_price ?? Infinity,
-                            priceInfo?.bottom_price ?? Infinity,
-                            priceInfo?.side_price ?? Infinity
+                            priceInfo && priceInfo.price ? priceInfo.price : Infinity,
+                            priceInfo && priceInfo.top_price ? priceInfo.top_price : Infinity,
+                            priceInfo && priceInfo.bottom_price ? priceInfo.bottom_price : Infinity,
+                            priceInfo && priceInfo.side_price ? priceInfo.side_price : Infinity
                         )}    
                     </span> <RubleIcon />
                 </div>

@@ -1,8 +1,8 @@
-import "./Search.css";
-import Button from "../uikit/Button/Button";
 import { useNavigate } from "react-router";
 import clsx from "clsx";
-
+import Button from "../uikit/Button/Button";
+import "./Search.css";
+// icons
 import GeolocationIcon from "../../assets/icons/small/GeolocationIcon";
 import CalendarIcon from "../../assets/icons/small/CalendarIcon";
 import swapIcon from "../../assets/icons/small/swapIcon.svg";

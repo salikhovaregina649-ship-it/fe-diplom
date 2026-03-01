@@ -1,0 +1,490 @@
+[
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8f98f",
+      "name": "ПУВБМ-59",
+      "class_type": "first",
+      "have_wifi": true,
+      "have_air_conditioning": false,
+      "price": 3295,
+      "top_price": 2830,
+      "bottom_price": 4205,
+      "side_price": 0,
+      "linens_price": 250,
+      "wifi_price": 133,
+      "is_linens_included": true,
+      "available_seats": 11,
+      "train": "67ceb6588c75f00047c900de"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": false
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": false
+      },
+      {
+        "index": 4,
+        "available": false
+      },
+      {
+        "index": 5,
+        "available": false
+      },
+      {
+        "index": 6,
+        "available": false
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": false
+      },
+      {
+        "index": 11,
+        "available": false
+      }
+    ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8f990",
+      "name": "БФК-74",
+      "class_type": "third",
+      "have_wifi": true,
+      "have_air_conditioning": false,
+      "price": 0,
+      "top_price": 3670,
+      "bottom_price": 3630,
+      "side_price": 4275,
+      "linens_price": 114,
+      "wifi_price": 57,
+      "is_linens_included": false,
+      "available_seats": 41,
+      "train": "67ceb6588c75f00047c900de"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": false
+      },
+      {
+        "index": 2,
+        "available": false
+      },
+      {
+        "index": 3,
+        "available": false
+      },
+      {
+        "index": 4,
+        "available": false
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": false
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": true
+      },
+      {
+        "index": 11,
+        "available": true
+      },
+      {
+        "index": 12,
+        "available": true
+      },
+      {
+        "index": 13,
+        "available": true
+      },
+      {
+        "index": 14,
+        "available": true
+      },
+      {
+        "index": 15,
+        "available": true
+      },
+      {
+        "index": 16,
+        "available": true
+      },
+      {
+        "index": 17,
+        "available": true
+      },
+      {
+        "index": 18,
+        "available": true
+      },
+      {
+        "index": 19,
+        "available": true
+      },
+      {
+        "index": 20,
+        "available": true
+      },
+      {
+        "index": 21,
+        "available": true
+      },
+      {
+        "index": 22,
+        "available": true
+      },
+      {
+        "index": 23,
+        "available": true
+      },
+      {
+        "index": 24,
+        "available": true
+      },
+      {
+        "index": 25,
+        "available": true
+      },
+      {
+        "index": 26,
+        "available": true
+      },
+      {
+        "index": 27,
+        "available": true
+      },
+      {
+        "index": 28,
+        "available": true
+      },
+      {
+        "index": 29,
+        "available": true
+      },
+      {
+        "index": 30,
+        "available": true
+      },
+      {
+        "index": 31,
+        "available": false
+      },
+      {
+        "index": 32,
+        "available": true
+      },
+      {
+        "index": 33,
+        "available": false
+      },
+      {
+        "index": 34,
+        "available": false
+      },
+      {
+        "index": 35,
+        "available": false
+      },
+      {
+        "index": 36,
+        "available": true
+      },
+      {
+        "index": 37,
+        "available": true
+      },
+      {
+        "index": 38,
+        "available": true
+      },
+      {
+        "index": 39,
+        "available": true
+      },
+      {
+        "index": 40,
+        "available": true
+      },
+      {
+        "index": 41,
+        "available": false
+      }
+    ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8f991",
+      "name": "ИСЕИ-80",
+      "class_type": "fourth",
+      "have_wifi": true,
+      "have_air_conditioning": false,
+      "price": 0,
+      "top_price": 887,
+      "bottom_price": 721,
+      "side_price": 0,
+      "linens_price": 0,
+      "wifi_price": 146,
+      "is_linens_included": false,
+      "available_seats": 55,
+      "train": "67ceb6588c75f00047c900de"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": true
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": true
+      },
+      {
+        "index": 4,
+        "available": true
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": true
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": true
+      },
+      {
+        "index": 11,
+        "available": false
+      },
+      {
+        "index": 12,
+        "available": true
+      },
+      {
+        "index": 13,
+        "available": false
+      },
+      {
+        "index": 14,
+        "available": true
+      },
+      {
+        "index": 15,
+        "available": true
+      },
+      {
+        "index": 16,
+        "available": true
+      },
+      {
+        "index": 17,
+        "available": true
+      },
+      {
+        "index": 18,
+        "available": true
+      },
+      {
+        "index": 19,
+        "available": false
+      },
+      {
+        "index": 20,
+        "available": true
+      },
+      {
+        "index": 21,
+        "available": false
+      },
+      {
+        "index": 22,
+        "available": true
+      },
+      {
+        "index": 23,
+        "available": false
+      },
+      {
+        "index": 24,
+        "available": false
+      },
+      {
+        "index": 25,
+        "available": true
+      },
+      {
+        "index": 26,
+        "available": false
+      },
+      {
+        "index": 27,
+        "available": true
+      },
+      {
+        "index": 28,
+        "available": true
+      },
+      {
+        "index": 29,
+        "available": true
+      },
+      {
+        "index": 30,
+        "available": true
+      },
+      {
+        "index": 31,
+        "available": false
+      },
+      {
+        "index": 32,
+        "available": true
+      },
+      {
+        "index": 33,
+        "available": true
+      },
+      {
+        "index": 34,
+        "available": true
+      },
+      {
+        "index": 35,
+        "available": true
+      },
+      {
+        "index": 36,
+        "available": true
+      },
+      {
+        "index": 37,
+        "available": true
+      },
+      {
+        "index": 38,
+        "available": true
+      },
+      {
+        "index": 39,
+        "available": true
+      },
+      {
+        "index": 40,
+        "available": true
+      },
+      {
+        "index": 41,
+        "available": true
+      },
+      {
+        "index": 42,
+        "available": true
+      },
+      {
+        "index": 43,
+        "available": true
+      },
+      {
+        "index": 44,
+        "available": true
+      },
+      {
+        "index": 45,
+        "available": true
+      },
+      {
+        "index": 46,
+        "available": true
+      },
+      {
+        "index": 47,
+        "available": true
+      },
+      {
+        "index": 48,
+        "available": true
+      },
+      {
+        "index": 49,
+        "available": true
+      },
+      {
+        "index": 50,
+        "available": true
+      },
+      {
+        "index": 51,
+        "available": true
+      },
+      {
+        "index": 52,
+        "available": false
+      },
+      {
+        "index": 53,
+        "available": true
+      },
+      {
+        "index": 54,
+        "available": true
+      },
+      {
+        "index": 55,
+        "available": true
+      }
+    ]
+  }
+]

@@ -1,22 +1,28 @@
+import { useNavigate } from "react-router";
 import clsx from "clsx";
 import Button from "../uikit/Button/Button";
-import { formatTime, formatTimeCompact } from "../../utils/formatTime";
+import TrainOptions from "../TrainOptions/TrainOptions";
+import type Train from "../../types/typeTrain";
+import "./Train.css";
 // icons
 import OptionsIcons from "../../assets/icons/small/OptionsIcons";
 import trainIcon from "../../assets/icons/big/train.svg";
 import ArrowIconSmall from "../../assets/icons/small/ArrowIconSmall";
-import ArrowIconBig from "../../assets/icons/small/ArrowIconBig";
-
-import "./Train.css";
-import type Train from "../../types/typeTrain";
-import TrainOptions from "../TrainOptions/TrainOptions";
+import TravelInfo from "../TravelInfo/TravelInfo";
 
 interface TrainProps {
-    className?: number;
+    className?: string;
     trainInfo: Train;
 }
 
 export default function Train({ className, trainInfo }: TrainProps) {
+    const id = trainInfo.departure._id;
+
+    const navigate = useNavigate();
+    const handle = () => {
+        navigate(`seats/${id}`);
+    }
+
     return (
         <div className={clsx("train", className)}>
             <div className="train__info">
@@ -27,7 +33,7 @@ export default function Train({ className, trainInfo }: TrainProps) {
                     {trainInfo.departure.train.name}
                 </p>
                 <div className="train__directions">
-                    {/** Город из которого отправляется поезд изначально
+                    {/**Вопрос!! Город из которого отправляется поезд изначально (Что это в ответе?)
                      *  <p className=".train__city train__starting-city">
                      *      {Город}
                             <ArrowIconSmall />    
@@ -45,125 +51,45 @@ export default function Train({ className, trainInfo }: TrainProps) {
                 </div>
             </div>
 
-            <div className="train__travel-info">
-                <div className="train__travel-info-wrapper .travel-info-wrapper--forth">
-                    <div className="train__travel-way">
-                        <time
-                            className="train__travel-time"
-                            dateTime={new Date(
-                                trainInfo.departure.from.datetime * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTime(trainInfo.departure.from.datetime)}
-                        </time>
-                        <p className="train__travel-city">
-                            {trainInfo.departure.from.city.name}
-                        </p>
-                        <p className="train__travel-station">
-                            {trainInfo.departure.from.railway_station_name}
-                        </p>
-                    </div>
-                    <div className="train__time-way">
-                        <time
-                            className="train__time-way-time"
-                            dateTime={new Date(
-                                trainInfo.departure.duration * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTimeCompact(trainInfo.departure.duration)}
-                        </time>
-                        <ArrowIconBig />
-                    </div>
-                    <div className="train__travel-way">
-                        <time
-                            className="train__travel-time"
-                            dateTime={new Date(
-                                trainInfo.departure.to.datetime * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTime(trainInfo.departure.to.datetime)}
-                        </time>
-                        <p className="train__travel-city">
-                            {trainInfo.departure.to.city.name}
-                        </p>
-                        <p className="train__travel-station">
-                            {trainInfo.departure.to.railway_station_name}
-                        </p>
-                    </div>
-                </div>
-                {/**Этот же поезд, если едет в обратном направлении ???*/}
-                <div className="train__travel-info-wrapper travel-info-wrapper--back">
-                    <div className="train__travel-way">
-                        <time
-                            className="train__travel-time"
-                            dateTime={new Date(
-                                trainInfo.departure.from.datetime * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTime(trainInfo.departure.from.datetime)}
-                        </time>
-                        <p className="train__travel-city">
-                            {trainInfo.departure.from.city.name}
-                        </p>
-                        <p className="train__travel-station">
-                            {trainInfo.departure.from.railway_station_name}
-                        </p>
-                    </div>
-                    <div className="train__time-way">
-                        <time
-                            className="train__time-way-time"
-                            dateTime={new Date(
-                                trainInfo.departure.duration * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTimeCompact(trainInfo.departure.duration)}
-                        </time>
-                        <ArrowIconBig />
-                    </div>
-                    <div className="train__travel-way">
-                        <time
-                            className="train__travel-time"
-                            dateTime={new Date(
-                                trainInfo.departure.to.datetime * 1000,
-                            ).toISOString()}
-                        >
-                            {formatTime(trainInfo.departure.to.datetime)}
-                        </time>
-                        <p className="train__travel-city">
-                            {trainInfo.departure.to.city.name}
-                        </p>
-                        <p className="train__travel-station">
-                            {trainInfo.departure.to.railway_station_name}
-                        </p>
-                    </div>
-                </div>
+            <div className="train__travel-info-box">
+                <TravelInfo
+                    className="train__travel-info"
+                    trainInfo={trainInfo}
+                />
+                {trainInfo.arrival && 
+                     <TravelInfo
+                        className="train__travel-info"
+                        trainInfo={trainInfo}
+                        back={true}
+                    />   
+                }   
             </div>
             
             <div className="train__options">
                 {trainInfo.departure.have_fourth_class && (
-                    <TrainOptions 
-                        carClass={"Сидячий"}
+                    <TrainOptions
+                        coachClass={"Сидячий"}
                         seatsCount={trainInfo.available_seats_info.fourth}
                         priceInfo={trainInfo.departure.price_info.fourth}
                     />
                 )}
                 {trainInfo.departure.have_third_class && (
-                    <TrainOptions 
-                        carClass={"Плацкарт"}
+                    <TrainOptions
+                        coachClass={"Плацкарт"}
                         seatsCount={trainInfo.available_seats_info.third}
                         priceInfo={trainInfo.departure.price_info.third}
                     />
                 )}
                 {trainInfo.departure.have_second_class && (
-                    <TrainOptions 
-                        carClass={"Купе"}
+                    <TrainOptions
+                        coachClass={"Купе"}
                         seatsCount={trainInfo.available_seats_info.second}
                         priceInfo={trainInfo.departure.price_info.second}
                     />
                 )}
                 {trainInfo.departure.have_first_class && (
                     <TrainOptions
-                        carClass={"Люкс"}
+                        coachClass={"Люкс"}
                         seatsCount={trainInfo.available_seats_info.first}
                         priceInfo={trainInfo.departure.price_info.first}
                     />
@@ -178,6 +104,7 @@ export default function Train({ className, trainInfo }: TrainProps) {
                     className="train__button"
                     variant="yellow"
                     type="button"
+                    onClick={handle}
                 >
                     Выбрать места
                 </Button>

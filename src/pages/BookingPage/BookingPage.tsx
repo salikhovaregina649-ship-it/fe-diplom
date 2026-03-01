@@ -1,22 +1,21 @@
-import { useState } from "react";
+import { Outlet, useLocation } from "react-router";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
 import Search from "../../components/Search/Search";
-import TicketStep from "../../components/TicketStep/TicketStep";
-import "./BookingPage.css";
 import StepsMenu from "../../components/StepsMenu/StepsMenu";
+import Loading from "../../components/Loading/Loading";
+import "./BookingPage.css";
 
 export default function BookingPage() {
-    const [step, setStep] = useState(1);
+    const location = useLocation();
 
-    const renderStep = () => {
-        switch (step) {
-            case 1: return <TicketStep onNext={() => setStep(2)} />;
-            // case 2: return <PassengerStep onNext={() => setStep(3)} onBack={() => setStep(1)} />;
-            // case 3: return <PaymentStep onNext={() => setStep(4)} onBack={() => setStep(2)} />;
-            // case 4: return <VerifyStep onBack={() => setStep(3)} />;
-        }
-    }
+    const getCurrentStep = () => {
+        if (location.pathname.includes("")) return 1;
+        if (location.pathname.includes("passengers")) return 2;
+        if (location.pathname.includes("payment")) return 3;
+        if (location.pathname.includes("verify")) return 4;
+        return 1;
+    };
 
     return(
         <div className="booking">
@@ -25,8 +24,9 @@ export default function BookingPage() {
                     <Search className="booking__search" />
                 </div>
             </Hero>
-                <StepsMenu currentStep={step} />
-                {renderStep()}
+                {/* <Loading /> */}
+                <StepsMenu currentStep={getCurrentStep()} />
+                <Outlet />
             <Footer />
         </div>
     )

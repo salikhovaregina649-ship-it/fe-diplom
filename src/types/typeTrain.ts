@@ -15,6 +15,7 @@ export default interface Train {
         fourth?: number;
     };
     departure: Departure;
+    arrival?: Departure;
 }
 
 interface Departure {

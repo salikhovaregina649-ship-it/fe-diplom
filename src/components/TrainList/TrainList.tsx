@@ -6,15 +6,15 @@ import Train from "../Train/Train";
 import Pagination from "../uikit/Pagination/Pagination";
 import "./TrainList.css";
 
-import directionResponse from "../../directionResponse.json";
+import routesResponse from "../../mocks/routesResponse.json";
 
+//Моки
 const options = [
     { value: "time", label: "времени" },
     { value: "cost", label: "стоимости" },
     { value: "duration", label: "длительности" },
 ];
-
-const trainInfo = directionResponse;
+const trainInfo = routesResponse; //Для заполнения
 
 export default function TrainList() {
     const [selectedValue, setSelectedValue] = useState<string>(options[0].label);
