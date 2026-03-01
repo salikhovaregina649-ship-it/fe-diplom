@@ -12,9 +12,10 @@ interface CustomSelectProps {
     value: string;
     onChange: (value: string) => void;
     className?: string;
+    name?: string;
 }
 
-export default function CustomSelect({className, options, value, onChange}: CustomSelectProps) {
+export default function CustomSelect({className, options, value, onChange, name}: CustomSelectProps) {
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +41,8 @@ export default function CustomSelect({className, options, value, onChange}: Cust
 
     return(
         <div className={clsx("custom-select", className)} ref={selectRef}>
+            {name && <input className="custom-select__input-hidden" type="hidden" name={name} value={value} />}
+
             {!isOpen ? (
                 <div className="custom-select__selected" onClick={() => setIsOpen(true)}>
                     {selected.label}

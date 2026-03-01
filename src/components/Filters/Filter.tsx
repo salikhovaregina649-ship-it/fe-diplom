@@ -17,6 +17,7 @@ import expressIcon from "../../assets/icons/filter/express.svg";
 import Button from "../uikit/Button/Button";
 import Collapse from "../uikit/Collapse/Collapse";
 import TimeRangeSlider from "../uikit/TimeRangeSlider/TimeRangeSlider";
+import SubtractIcon from "../../assets/icons/small/SubtractIcon";
 
 const filterItems = [
     {
@@ -93,7 +94,10 @@ export default function Filter () {
             </div>
             <div className="filter__direction filter__direction--forth">
                 <div className={clsx("filter__direction-box", openForth && "is-open")}>
-                    <Title className="filter__title" as="h3">Туда</Title>
+                    <Title className="filter__title" as="h3">
+                        <SubtractIcon />
+                        Туда
+                    </Title>
                     <Button className={clsx("filter__collapse-btn", openForth && "active")} variant="openner" onClick={() => setOpenForth(prev => !prev)} />
                 </div>
                 <Collapse className="filter__collapse" isOpen={openForth}>
@@ -113,7 +117,10 @@ export default function Filter () {
             </div>
             <div className="filter__direction filter__direction--back">
                 <div className={clsx("filter__direction-box", openForth && "is-open")}>
-                    <Title className="filter__title" as="h3">Обратно</Title>
+                    <Title className="filter__title" as="h3">
+                        <SubtractIcon />
+                        Обратно
+                    </Title>
                     <Button className={clsx("filter__collapse-btn", openBack && "active")} variant="openner" onClick={() => setOpenBack(prev => !prev)} />
                 </div>
                 <Collapse className="filter__collapse" isOpen={openBack}>

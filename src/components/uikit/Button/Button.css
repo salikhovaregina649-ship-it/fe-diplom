@@ -45,8 +45,20 @@
     border: none;
 }
 
-.button.active {
+.button--opennerEllipse {
+    width: 32px;
+    height: 32px;
+    background-image: url("../../../assets/icons/small/plus-border.svg");
+    background-color: transparent;
+    border: none;
+}
+
+.button--openner.active {
     background-image: url("../../../assets/icons/small/openner-active.svg");
+}
+
+.button--opennerEllipse.active {
+    background-image: url("../../../assets/icons/small/minus-border.svg");
 }
 
 /* ===== Состояния ===== */
@@ -94,4 +106,22 @@
 
 .button--openner:active {
     background-image: url("../../../assets/icons/small/openner-active.svg");
+}
+
+.button--opennerEllipse:hover {
+    background-image: url("../../../assets/icons/small/plus.svg");
+}
+
+.button--opennerEllipse:active {
+    background-image: url("../../../assets/icons/small/minus-border.svg");
+}
+
+.button--openner.active:hover,
+.button--openner.active:active {
+    background-image: url("../../../assets/icons/small/openner-active.svg");
+}
+
+.button--opennerEllipse.active:hover,
+.button--opennerEllipse.active:active {
+    background-image: url("../../../assets/icons/small/minus-border.svg");
 }

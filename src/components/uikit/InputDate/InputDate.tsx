@@ -9,9 +9,10 @@ interface InputDateProps {
     className?: string;
     id?: string;
     Icon?: React.ElementType;
+    name?: string;
 }
 
-export default function InputDate({className, id, Icon}: InputDateProps) {
+export default function InputDate({className, id, Icon, name}: InputDateProps) {
     const [date, setDate] = useState<Date | null>(null);
 
     // Ограничение: только текущий месяц
@@ -38,7 +39,8 @@ export default function InputDate({className, id, Icon}: InputDateProps) {
                             className={clsx("date-picker__input", className)} 
                             id={id} 
                             type="date" 
-                            placeholder="ДД.ММ.ГГ" 
+                            placeholder="ДД.ММ.ГГ"
+                            name={name}
                         />
                         {Icon && <Icon />}
                     </div>

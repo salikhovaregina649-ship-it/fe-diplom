@@ -1,0 +1,32 @@
+.passenger-step {
+    padding-top: 95px;
+    padding-bottom: 193px;
+    background-color: #F7F5F9;
+}
+
+.passenger-step .container {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    column-gap: 87px;
+}
+
+.passenger-step__aside-wrapper {
+    grid-column: 1 / 2;
+}
+
+.passenger-step__aside {
+    height: max-content;
+    margin-bottom: 96px;
+}
+
+.passenger-step__main {
+    grid-column: 2 / 3;
+}
+
+.passenger-step__append {}
+
+.passenger-step__append-text {}
+
+.passenger-step__append-btn {}
+
+.passenger-step__then-btn {}

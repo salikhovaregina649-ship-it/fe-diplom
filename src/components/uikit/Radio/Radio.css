@@ -1,5 +1,7 @@
 .radio__input {
-  display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
 }
 
 .radio__label {

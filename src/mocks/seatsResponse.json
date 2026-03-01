@@ -486,5 +486,113 @@
         "available": true
       }
     ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6568c75f00047c8fd65",
+      "name": "СФССБГ-45",
+      "class_type": "second",
+      "have_wifi": true,
+      "have_air_conditioning": true,
+      "price": 0,
+      "top_price": 2040,
+      "bottom_price": 2505,
+      "side_price": 0,
+      "linens_price": 144,
+      "wifi_price": 91,
+      "is_linens_included": true,
+      "available_seats": 22,
+      "train": "67ceb65a8c75f00047c90265"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": true
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": true
+      },
+      {
+        "index": 4,
+        "available": true
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": true
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": true
+      },
+      {
+        "index": 11,
+        "available": true
+      },
+      {
+        "index": 12,
+        "available": true
+      },
+      {
+        "index": 13,
+        "available": true
+      },
+      {
+        "index": 14,
+        "available": true
+      },
+      {
+        "index": 15,
+        "available": true
+      },
+      {
+        "index": 16,
+        "available": true
+      },
+      {
+        "index": 17,
+        "available": true
+      },
+      {
+        "index": 18,
+        "available": true
+      },
+      {
+        "index": 19,
+        "available": true
+      },
+      {
+        "index": 20,
+        "available": true
+      },
+      {
+        "index": 21,
+        "available": true
+      },
+      {
+        "index": 22,
+        "available": true
+      }
+    ]
   }
 ]

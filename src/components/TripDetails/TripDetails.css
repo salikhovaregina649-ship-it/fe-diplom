@@ -1,0 +1,38 @@
+.trip-details {
+    width: 100%; 
+}
+
+.trip-details__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trip-details__direction {
+    
+}
+
+.trip-details__direction h3.title.filter__direction-title {
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.trip-details__direction .icon {
+    margin-right: 12px;
+    color: #FFA800;
+}
+
+.trip-details__direction.trip-details__direction--forth .icon {
+    transform: rotate(180deg); 
+}
+
+.trip-details__direction {
+    height: auto;
+}
+
+.trip-details__direction-box {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 36px;
+    padding-left: 44px;
+}

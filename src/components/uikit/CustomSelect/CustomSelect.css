@@ -35,3 +35,9 @@
     color: #FFFFFF;
     background-color: #FFCA62;
 }
+
+.custom-select__input-hidden {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}

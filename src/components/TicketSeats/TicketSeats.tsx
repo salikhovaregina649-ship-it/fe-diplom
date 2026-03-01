@@ -242,7 +242,7 @@ export default function TicketSeats() {
                     </div>
                 </div>
                 <Button 
-                    className="" 
+                    className="ticket-seats__then-btn" 
                     type="button"
                     variant="yellow"
                     onClick={handleThen}

@@ -26,12 +26,13 @@ h3.title.filter__title {
     font-weight: 700;
 }
 
-.filter__input-date {
-
+.filter__direction .icon {
+    margin-right: 12px;
+    color: #FFA800;
 }
 
-.filter__input-date .icon {
-    
+.filter__direction.filter__direction--back .icon {
+    transform: rotate(180deg); 
 }
 
 .filter__list {
