@@ -34,20 +34,24 @@
     font-size: 18px;
     font-weight: 400;
     color: #000000;
-    border: none;
     background-color: transparent;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
 }
 
-.train-list__sorting-select option {
+.train-list__sorting-select .custom-select__option {
     width: 139px;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 400;
     color: #000000;
+}
+
+.train-list__sorting-select .custom-select__list {
+    top: -9px;
+    left: -8px;
+}
+
+.train-list__sorting-select .custom-select__option {
+    padding: 8px 11px 10px 7px;
 }
 
 .train-list__per-page {

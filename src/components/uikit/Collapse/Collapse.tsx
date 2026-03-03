@@ -24,7 +24,6 @@ export default function Collapse({isOpen, children, className}: CollapseProps) {
                 el.style.maxHeight = '0px';
             });
         }
-        console.log(isOpen);
 
     }, [isOpen]);
 

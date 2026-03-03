@@ -42,12 +42,10 @@ export default function CustomSelect({className, options, value, onChange, name}
     return(
         <div className={clsx("custom-select", className)} ref={selectRef}>
             {name && <input className="custom-select__input-hidden" type="hidden" name={name} value={value} />}
-
-            {!isOpen ? (
-                <div className="custom-select__selected" onClick={() => setIsOpen(true)}>
-                    {selected.label}
-                </div>
-            ) : (
+            <div className="custom-select__selected" onClick={() => setIsOpen(true)}>
+                {selected.label}
+            </div>
+            {isOpen &&
                 <ul className="custom-select__list">
                     {listOptions.map(option => (
                         <li
@@ -62,7 +60,7 @@ export default function CustomSelect({className, options, value, onChange, name}
                         </li>
                     ))}
                 </ul>
-            )}
+            }
         </div>
     )
 }

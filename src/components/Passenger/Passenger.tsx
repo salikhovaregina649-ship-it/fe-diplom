@@ -7,35 +7,38 @@ import clsx from "clsx";
 import FormPassenger from "../FormPassenger/FormPassenger";
 
 interface PassengerProps {
+    className?: string;
     number: number;
     onDelete: () => void;
 }
 
-export default function Passenger({ number, onDelete }: PassengerProps) {
+export default function Passenger({ className, number, onDelete }: PassengerProps) {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="passenger">
-            <div className={clsx("passenger__box", open && "active")}>
-                <Button
-                    className={clsx(
-                        "passenger__collapse-btn",
-                        open && "active",
-                    )}
-                    variant="opennerEllipse"
-                    onClick={() => setOpen((prev) => !prev)}
-                />
-                <Title className="passenger__title" as="h3">
-                    Пассажир {number}
-                </Title>
-                <Button
-                    className="passenger_delete-btn"
-                    type="button"
-                    variant="transparent"
-                    onClick={onDelete}
-                >
-                    +
-                </Button>
+        <div className={clsx("passenger", className)}>
+            <div className={clsx("passenger__row", open && "active")}>
+                <div className="passenger__box">
+                    <Button
+                        className={clsx(
+                            "passenger__collapse-btn",
+                            open && "active",
+                        )}
+                        variant="opennerEllipse"
+                        onClick={() => setOpen((prev) => !prev)}
+                    />
+                    <Title className="passenger__title" as="h3">
+                        Пассажир {number}
+                    </Title>
+                </div>
+                {open &&
+                    <Button
+                        className="passenger_delete-btn"
+                        type="button"
+                        variant="cross"
+                        onClick={onDelete}
+                    />
+                }
             </div>
             <Collapse className="passenger__collapse" isOpen={open}>
                 <div className="passenger__collapse-box">

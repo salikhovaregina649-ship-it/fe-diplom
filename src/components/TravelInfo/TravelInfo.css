@@ -1,6 +1,7 @@
 .travel-info {
     display: grid;
-    grid-template-columns: 155px 90px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 39px;
 }
 
 .travel-info:first-child {
@@ -11,10 +12,22 @@
     padding-top: 4px;
 }
 
+.travel-info__way:first-child{
+    display: grid;
+    grid-template-columns: 1fr 60px;
+}
+
 .travel-info__time {
     font-size: 24px;
     font-weight: 700;
     color: #000000;
+}
+
+.travel-info__date {
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #E5E5E5;
 }
 
 .travel-info__city {
@@ -34,7 +47,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 30px;
 }
 
 .travel-info__time-way-time {

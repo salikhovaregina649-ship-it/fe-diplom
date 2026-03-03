@@ -4,7 +4,7 @@ import "./Button.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     children?: React.ReactNode;
-    variant?: "yellow" | "light" | "transparent" | "openner" | "opennerEllipse";
+    variant?: "yellow" | "light" | "transparent" | "openner" | "opennerEllipse" | "cross";
     uppercase?: boolean;
 }
 

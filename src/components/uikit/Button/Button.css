@@ -53,6 +53,15 @@
     border: none;
 }
 
+.button--cross {
+    width: 12px;
+    height: 12px;
+    background-image: url("../../../assets/icons/small/cross.svg");
+    background-color: transparent;
+    border: none;
+    transform: rotate(90deg);
+}
+
 .button--openner.active {
     background-image: url("../../../assets/icons/small/openner-active.svg");
 }
@@ -60,6 +69,8 @@
 .button--opennerEllipse.active {
     background-image: url("../../../assets/icons/small/minus-border.svg");
 }
+
+
 
 /* ===== Состояния ===== */
 .button--yellow:active {

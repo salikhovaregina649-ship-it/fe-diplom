@@ -2,37 +2,175 @@
     width: 100%; 
 }
 
-.trip-details__title {
+.trip-details__header {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #E5E5E5;
 }
 
-.trip-details__direction {
-    
+.trip-details__direction,
+.trip-details__passenger {
+    height: auto;
+    padding-top: 16px;
+    border-bottom: 1px solid #E5E5E5;
 }
 
-.trip-details__direction h3.title.filter__direction-title {
+/* trip-details__box */
+.trip-details__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 27px;
+    padding-bottom: 16px;
+    padding-left: 28px;
+    transition: padding-bottom 0.4s ease-in-out;
+}
+
+.trip-details__box.is-open {
+    padding-bottom: 50px;
+}
+
+.trip-details__row-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.trip-details__direction h3.title.trip-details__title {
+    display: flex;
     margin-bottom: 0;
+    margin-right: 10px;
     font-weight: 700;
 }
 
-.trip-details__direction .icon {
+.trip-details__title .icon {
     margin-right: 12px;
     color: #FFA800;
 }
 
-.trip-details__direction.trip-details__direction--forth .icon {
+.trip-details__direction.trip-details__direction--back .icon {
     transform: rotate(180deg); 
 }
 
-.trip-details__direction {
-    height: auto;
+.trip-details__date {
+    font-size: 18px;
 }
 
-.trip-details__direction-box {
+/* trip-details__collapse */
+
+.trip-details__collapse {
+    padding-right: 27px;
+    padding-left: 28px;
+}
+
+.trip-details__collapse-row {
     display: flex;
     justify-content: space-between;
-    padding-right: 36px;
-    padding-left: 44px;
+    align-items: baseline;
+    margin-bottom: 22px;
+}
+
+.trip-details__collapse-row:nth-child(2) {
+    margin-bottom: 46px;
+}
+
+.trip-details__collapse-row-left {
+    font-size: 18px;
+    font-weight: 400;
+    color: #E5E5E5;
+}
+
+.trip-details__collapse-row-right {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.trip-details__collapse-cities {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+/* TravelInfo */
+.trip-details__collapse-travel-info {
+    position: relative;
+    gap: 0;
+}
+
+.trip-details__collapse-travel-info .travel-info__time-way {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.trip-details__collapse-travel-info .travel-info__way {
+    padding-top: 25px;
+}
+
+.trip-details__collapse-travel-info .travel-info__way:first-child {
+    display: block;
+}
+
+.trip-details__collapse-travel-info .travel-info__way {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.trip-details__collapse-travel-info .travel-info__way:last-child .travel-info__city,
+.trip-details__collapse-travel-info .travel-info__way:last-child .travel-info__station {
+    text-align: end;
+}
+
+.trip-details__collapse-travel-info .travel-info__time{
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.trip-details__collapse-travel-info .travel-info__city {
+    color: #FFFFFF;
+}
+
+/* trip-details__passenger */
+.trip-details__passenger .icon {
+    color: #FFA800;
+}
+
+.trip-details__passenger .trip-details__collapse-row-right .icon {
+    width: 14px;
+    height: 17px;
+    color: #928F94;
+}
+
+/* trip-details__price */
+.trip-details__price {
+    padding-top: 30px;
+}
+
+.trip-details__price .trip-details__box {
+    align-items: baseline;
+    padding-bottom: 0;
+}
+
+.trip-details__price .icon {
+    width: 26px;
+    height: 32px;
+    color: #E5E5E5;
+}
+
+.trip-details__price-left {
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.trip-details__price-right {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFA800;
 }

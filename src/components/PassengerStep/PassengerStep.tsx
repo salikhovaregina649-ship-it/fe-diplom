@@ -6,12 +6,21 @@ import Button from "../uikit/Button/Button";
 import Passenger from "../Passenger/Passenger";
 import "./PassengerStep.css";
 import TripDetails from "../TripDetails/TripDetails";
+import Title from "../uikit/Title/Title";
+
+interface PassengerItem {
+  id: string;
+}
 
 //Моки
 const initialQuantityTickets = 3;
 
 export default function PassengerStep() {
-    const [quantityTickets, setQuantityTickets] = useState(initialQuantityTickets);
+    const [passengers, setPassengers] = useState<PassengerItem[]>(
+        Array.from({ length: initialQuantityTickets }, () => ({
+            id: uuidv4(),
+        }))
+    );
 
     const navigate = useNavigate();
 
@@ -19,12 +28,12 @@ export default function PassengerStep() {
         navigate("/booking/payment");
     };
 
-    const removePassenger = () => {
-        setQuantityTickets((prev) => Math.max(prev - 1, 0)); // уменьшаем на 1, но не меньше 0
+    const removePassenger = (id: string) => {
+        setPassengers(prev => prev.filter(p => p.id !== id));
     };
 
     const addPassenger = () => {
-        setQuantityTickets((prev) => prev + 1);
+        setPassengers(prev => [...prev, { id: uuidv4() }]);
     };
 
     return (
@@ -36,23 +45,24 @@ export default function PassengerStep() {
                     </Aside>
                 </div>
                 <div className="passenger-step__main">
-                    {Array.from({ length: quantityTickets }, (_, index) => (
+                    {passengers.map((passenger, index) => (
                         <Passenger 
-                            key={uuidv4()} 
+                            key={passenger.id} 
+                            className="passenger-step__passenger"
                             number={index + 1}
-                            onDelete={removePassenger}
+                            onDelete={() => removePassenger(passenger.id)}
                         />
                     ))}
 
                     <div className="passenger-step__append">
-                        <p className="passenger-step__append-text">Добавить пассажира</p>
+                        <Title as="h3" className="passenger-step__append-title">Добавить пассажира</Title>
                         <Button
                             className="passenger-step__append-btn"
                             type="button"
                             variant="light"
                             onClick={addPassenger}
                         >
-                            + {/** или Иконка плюса*/}
+                            <span />
                         </Button>
                     </div>
                     

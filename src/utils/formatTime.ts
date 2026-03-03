@@ -1,3 +1,9 @@
+export function formatDate(departureDate: string): string {
+    const [year, month, day] = departureDate.split("-");
+    const formatted = `${day}.${month}.${year}`;
+    return formatted;
+}
+
 export function formatTime(timestamp: number): string {
     const date = new Date(timestamp * 1000);
     const hours = date.getHours().toString().padStart(2, "0");

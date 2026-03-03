@@ -1,35 +1,33 @@
 .custom-select {
     position: relative;
+    cursor: pointer;
 }
 
 .custom-select__selected {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     padding: 0;
-    border: 1px solid transparent;
-    cursor: pointer;
     background-color: #F7F5F9;
 }
 
 .custom-select__list {
     position: absolute;
-    top: -8px;
-    left: -7px;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: #F7F5F9;
     border: 1px solid #ccc;
-    overflow-y: auto;
+    overflow: hidden;
     z-index: 100;
     box-shadow: 0 4px 0 0 #F7F5F9;
 }
 
 .custom-select__option {
-    padding: 8px 11px 10px 7px;
     border-bottom: 1px solid #E5E5E5;
     cursor: pointer;
 }
-
-.custom-select__optio:last-child {
-    border-bottom: none; 
-} 
 
 .custom-select__option:hover {
     color: #FFFFFF;

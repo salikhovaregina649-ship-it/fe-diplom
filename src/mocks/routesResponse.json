@@ -1,6 +1,1581 @@
 {
-    "total_count": 2,
+    "total_count": 20,
     "items": [
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
+                {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 675,
+            "available_seats": 124,
+            "available_seats_info": {
+                "first": 18,
+                "third": 48,
+                "fourth": 62
+            },
+            "departure": {
+                "_id": "67ceb67d8c75f00047c91fcd",
+                "have_first_class": true,
+                "have_second_class": false,
+                "have_third_class": true,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": false,
+                "is_express": false,
+                "min_price": 721,
+                "duration": 285780,
+                "available_seats": 128,
+                "available_seats_info": {
+                    "first": 18,
+                    "third": 48,
+                    "fourth": 62
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900de",
+                    "name": "undefined - 99"
+                },
+                "from": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1705066922
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1705352702
+                },
+                
+                "price_info": {
+                    "first": {
+                        "price": 3295,
+                        "top_price": 2830,
+                        "bottom_price": 4205
+                    },
+                    "third": {
+                        "top_price": 3670,
+                        "bottom_price": 3630,
+                        "side_price": 4275
+                    },
+                    "fourth": {
+                        "top_price": 887,
+                        "bottom_price": 721
+                    }
+                }
+            },
+            "arrival": {
+                "_id": "67ceba8c8c75f00047cc92cc",
+                "have_first_class": false,
+                "have_second_class": false,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": false,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 675,
+                "duration": 285420,
+                "available_seats": 124,
+                "available_seats_info": {
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb6588c75f00047c900e1",
+                    "name": "Калина - 15"
+                },
+                "from": {
+                    "railway_station_name": "Московский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772324420
+                },
+                "to": {
+                    "railway_station_name": "Курский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772609840
+                },
+                "price_info": {
+                    "fourth": {
+                        "top_price": 902,
+                        "bottom_price": 675
+                    }
+                }
+            }
+        },
+        {
+            "have_first_class": false,
+            "have_second_class": false,
+            "have_third_class": false,
+            "have_fourth_class": false,
+            "have_wifi": false,
+            "have_air_conditioning": false,
+            "is_express": false,
+            "min_price": 590,
+            "available_seats": 156,
+            "available_seats_info": {
+                "second": 32,
+                "fourth": 124
+            },
+            "departure": {
+                "_id": "67ceba7c8c75f00047cc8553",
+                "have_first_class": false,
+                "have_second_class": true,
+                "have_third_class": false,
+                "have_fourth_class": true,
+                "have_wifi": true,
+                "have_air_conditioning": true,
+                "is_express": false,
+                "min_price": 590,
+                "duration": 316500,
+                "available_seats": 156,
+                "available_seats_info": {
+                    "second": 32,
+                    "fourth": 124
+                },
+                "train": {
+                    "_id": "67ceb65a8c75f00047c90265",
+                    "name": "Транзит - 72"
+                },
+                "from": {
+                    "railway_station_name": "Ленинградский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78d",
+                        "name": "москва"
+                    },
+                    "datetime": 1772376605
+                },
+                "to": {
+                    "railway_station_name": "Ладожский",
+                    "city": {
+                        "_id": "67ceb6548c75f00047c8f78e",
+                        "name": "санкт-петербург"
+                    },
+                    "datetime": 1772693105
+                },
+                "price_info": {
+                    "second": {
+                        "top_price": 2040,
+                        "bottom_price": 2505
+                    },
+                    "fourth": {
+                        "top_price": 680,
+                        "bottom_price": 590
+                    }
+                }
+            }
+        },
                 {
             "have_first_class": false,
             "have_second_class": false,

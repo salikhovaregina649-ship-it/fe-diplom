@@ -9,9 +9,10 @@ interface CheckboxProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label?: string;
     switched?: boolean;
+    checkMark?: boolean;
 }
 
-export default function Checkbox({className, name, value, checked, onChange, label, switched = false}: CheckboxProps) {
+export default function Checkbox({className, name, value, checked, onChange, label, switched = false, checkMark = false}: CheckboxProps) {
     return(
         <label className={clsx("checkbox", className)} >
             <span className="checkbox__label">{label}</span>
@@ -23,6 +24,7 @@ export default function Checkbox({className, name, value, checked, onChange, lab
                 checked={checked}
                 onChange={onChange}
             />
+            {checkMark && <span className="checkbox__check-mark" />}
             {switched && <span className="checkbox__switch" />}
         </label>
     )

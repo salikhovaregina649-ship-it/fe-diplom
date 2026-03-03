@@ -18,7 +18,7 @@ export default interface Train {
     arrival?: Departure;
 }
 
-interface Departure {
+export interface Departure {
     _id: string;
     have_first_class: boolean;
     have_second_class: boolean;
@@ -45,7 +45,7 @@ interface Departure {
     price_info: PriceInfo;
 }
 
-interface StationInfo {
+export interface StationInfo {
     railway_station_name: string;
     city: {
         _id: string;
@@ -54,7 +54,7 @@ interface StationInfo {
     datetime: number;
 }
 
-interface PriceInfo {
+export interface PriceInfo {
     first?: {
         price?: number;
         top_price?: number;

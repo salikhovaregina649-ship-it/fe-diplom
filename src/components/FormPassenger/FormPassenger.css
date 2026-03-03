@@ -1,0 +1,293 @@
+.form-passenger__personal-box {
+    padding-top: 38px;
+    padding-right: 31px;
+    padding-left: 36px;
+    border-top: 1px dashed #928F94;
+    border-bottom: 1px dashed #928F94;
+}
+
+.form-passenger__personal-box:last-child {
+    border-bottom: none;
+}
+
+.form-passenger__select {
+    max-width: 280px;
+    height: 50px;
+    margin-bottom: 45px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    color: #292929;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+}
+
+.form-passenger__select--ticket-type {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.form-passenger__select .custom-select__selected {
+    background-color: #FFFFFF;
+}
+
+.form-passenger__select .custom-select__selected::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    width: 0;
+    height: 0;
+    transform: translateY(-50%);
+    border-top: 6px solid #928F94;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+}
+
+.form-passenger__select .custom-select__list {
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    border: 1px solid #F4F3F6;
+    border-radius: 5px;
+}
+
+.form-passenger__select .custom-select__option {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 13px;
+    padding-right: 13px;
+    background-color: #F4F3F6;
+}
+
+.form-passenger__select .custom-select__option:hover {
+    background-color: #FFCA62;
+}
+
+.form-passenger__personal-data {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.form-passenger__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-passenger__label span {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.form-passenger__input {
+    display: flex;
+    align-items: center;
+    max-width: 280px;
+    height: 50px;
+    padding-right: 40px;
+    padding-left: 13px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    color: #292929;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+}
+
+.form-passenger__personal-data-box {
+    border-bottom: 1px dashed #928F94;
+}
+
+.form-passenger__radio-box {
+    display: flex;
+}
+
+.form-passenger__gender {
+    position: relative;
+    width: 101px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: 900;
+    cursor: pointer;
+
+}
+
+.form-passenger__gender .radio__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 101px;
+    height: 50px;
+    border-top: 1px solid #928F94;
+    border-bottom: 1px solid #928F94;
+}
+
+.form-passenger__gender:first-child .radio__label {
+    border-left: 1px solid #928F94;
+    border-right: 1px solid #928F94;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.form-passenger__gender:last-child .radio__label {
+    border-right: 1px solid #928F94;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form-passenger__gender:first-child .radio__input:checked + .radio__label {
+    background-color: #FFA800;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.form-passenger__gender:last-child .radio__input:checked + .radio__label {
+    background-color: #FFA800;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form-passenger__input--birth {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form-passenger__mobility  {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.form-passenger__mobility .checkbox__check-mark {
+    order: 1;
+    margin-right: 20px;
+}
+
+.form-passenger__mobility .checkbox__label {
+    order: 2;
+}
+
+/* Document */
+.form-passenger__personal-box--document {
+    display: flex;
+}
+
+.form-passenger__personal-select-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 35px;
+}
+
+.form-passenger__personal-document-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.form-passenger__select.form-passenger__select--document-type {
+    width: 444px;
+    font-size: 16px;
+}
+
+.form-passenger__select--document-type {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.form-passenger__select--document-type.size {
+    width: 205px;
+}
+
+.form-passenger__select--document-type .custom-select__list {
+    width: 444px;
+}
+
+.form-passenger__select.form-passenger__select--document-type .custom-select__option {
+    padding: 10px 14px 12px 14px;
+    background-color: #F4F3F6;
+}
+
+.form-passenger__select.form-passenger__select--document-type .custom-select__option:hover {
+    background-color: #FFCA62;
+}
+
+.form-passenger__personal-document {
+    display: flex;
+    gap: 35px;
+}
+
+.form-passenger__personal-document--passport .form-passenger__input {
+    max-width: 205px;
+}
+
+.form-passenger__personal-document--birth-certificate .form-passenger__input {
+    min-width: 207px;
+}
+
+.form-passenger__btn-box {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    padding-top: 39px;
+    padding-right: 31px;
+    padding-bottom: 28px;
+}
+
+.form-passenger__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 303px;
+    height: 52px;
+}
+
+.form-passenger__btn.button {
+    color: #292929;
+    border-color: #292929;
+}
+
+/* message */
+
+.form-passenger__message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-passenger__message-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 36px;
+    font-size: 18px;
+}
+
+.form-passenger__message-box:has(.form-passenger__valid) {
+    color: #FFFFFF;
+    background-color: #B2F6A1;
+}
+
+.form-passenger__message-box:has(.form-passenger__passport-error-message),
+.form-passenger__message-box:has(.form-passenger__birth-certificate-error-message) {
+    background-color: #FF3D0061;
+}
+
+.form-passenger__message .icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+}
