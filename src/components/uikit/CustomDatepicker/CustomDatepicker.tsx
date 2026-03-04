@@ -8,13 +8,46 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./CustomDatepicker.css";
 import clsx from "clsx";
 
-
 registerLocale("ru", ru);
 
 interface CustomInputProps {
     value?: string;
     onClick?: () => void;
+    name?: string;
+    placeholder?: string;
+    icon?: "small" | "big" | false;
+    modifier?: string;
 }
+
+// Выносим компонент ЗА пределы CustomDatepicker
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+    ({ value, onClick, name, placeholder, icon, modifier }, ref) => (
+        <div className={clsx("custom-datepicker", modifier && `custom-datepicker--${modifier}`)}>
+            <input
+                className="custom-datepicker__input"
+                type="text"
+                name={name}
+                value={value}
+                onClick={onClick}
+                ref={ref}
+                readOnly
+                placeholder={placeholder}
+            />
+            {icon === "small" && (
+                <div className="custom-datepicker__icon" onClick={onClick}>
+                    <CalendarIconSmall />
+                </div>
+            )}
+            {icon === "big" && (
+                <div className="custom-datepicker__icon" onClick={onClick}>
+                    <CalendarIcon />
+                </div>
+            )}
+        </div>
+    )
+);
+
+CustomInput.displayName = "CustomInput";
 
 interface CustomDatepickerProps {
     value: Date | null;
@@ -37,33 +70,6 @@ export default function CustomDatepicker({
     icon = false,
     modifier,
 }: CustomDatepickerProps) {
-    const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
-        ({ value, onClick }, ref) => (
-            <div className={clsx("custom-datepicker", `custom-datepicker--${modifier}`)}>
-                <input
-                    className="custom-datepicker__input"
-                    type="text"
-                    name={name}
-                    value={value}
-                    onClick={onClick}
-                    ref={ref}
-                    readOnly
-                    placeholder={placeholder}
-                />
-                {icon === "small" && (
-                    <div className="custom-datepicker__icon" onClick={onClick}>
-                        <CalendarIconSmall />
-                    </div>
-                )}
-                {icon === "big" && (
-                    <div className="custom-datepicker__icon" onClick={onClick}>
-                        <CalendarIcon />
-                    </div>
-                )}
-            </div>
-        ),
-    );
-
     return (
         <DatePicker
             locale="ru"
@@ -72,7 +78,15 @@ export default function CustomDatepicker({
             dateFormat="dd/MM/yyyy"
             minDate={minDate}
             maxDate={maxDate}
-            customInput={<CustomInput />}
+            placeholderText={placeholder}
+            customInput={
+                <CustomInput
+                    name={name}
+                    placeholder={placeholder}
+                    icon={icon}
+                    modifier={modifier}
+                />
+            }
             dateFormatCalendar={modifier === "form" ? "LLLL yyyy" : "LLLL"}
         />
     );

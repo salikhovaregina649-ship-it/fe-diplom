@@ -76,7 +76,6 @@ export default function Filter () {
                     <CustomDatepicker
                         value={dateForth}
                         onChange={setDateForth}
-                        placeholder="ДД/ММ/ГГ"
                         name="date-forth"
                         icon="small"
                         minDate={minDate}
@@ -89,7 +88,6 @@ export default function Filter () {
                     <CustomDatepicker
                         value={dateBack}
                         onChange={setDateBack}
-                        placeholder="ДД/ММ/ГГ"
                         name="date-back"
                         icon="small"
                         minDate={minDate}
