@@ -4,7 +4,7 @@ import Button from "../uikit/Button/Button";
 import "./FormPassenger.css";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
-import InputDate from "../uikit/InputDate/InputDate";
+import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import clsx from "clsx";
 import ValidIcon from "../../assets/icons/small/ValidIcon";
 import ErrorIcon from "../../assets/icons/small/ErrorIcon";
@@ -25,6 +25,7 @@ export default function FormPassenger() {
     const [selectedDocumentTypeValue, setSelectedDocumentTypeValue] = useState<string>(DocumentType[0].value);
     const [selectedGender, setSelectedGender] = useState("male");
     const [isMobility, setIsMobility] = useState(false);
+    const [dateBirth, setDateBirth] = useState<Date | null>(null);
 
     const formId = useId();
 
@@ -32,7 +33,10 @@ export default function FormPassenger() {
         <form className="form-passenger">
             <div className="form-passenger__personal-box">
                 <CustomSelect
-                    className={clsx("form-passenger__select", "form-passenger__select--category")}
+                    className={clsx(
+                        "form-passenger__select",
+                        "form-passenger__select--category",
+                    )}
                     name="category"
                     options={optionsTicketType}
                     value={selectedTicketTypeValue}
@@ -88,9 +92,13 @@ export default function FormPassenger() {
                             label="Ж"
                         />
                     </div>
-                    <InputDate
-                        className={clsx("form-passenger__input", "form-passenger__input--birth")}
+                    <CustomDatepicker
+                        value={dateBirth}
+                        onChange={setDateBirth}
+                        placeholder="ДД/ММ/ГГ"
                         name="birth-date"
+                        icon={false}
+                        modifier="form"
                     />
                 </div>
                 <div className="form-passenger__personal-data">
@@ -105,13 +113,22 @@ export default function FormPassenger() {
                     />
                 </div>
             </div>
-            <div className={clsx("form-passenger__personal-box", "form-passenger__personal-box--document")}>
-                <div className="form-passenger__personal-select-box">    
+            <div
+                className={clsx(
+                    "form-passenger__personal-box",
+                    "form-passenger__personal-box--document",
+                )}
+            >
+                <div className="form-passenger__personal-select-box">
                     <span className="form-passenger__personal-document-label">
                         Тип документа
                     </span>
                     <CustomSelect
-                        className={clsx("form-passenger__select", "form-passenger__select--document-type", selectedDocumentTypeValue === "passport" && "size")}
+                        className={clsx(
+                            "form-passenger__select",
+                            "form-passenger__select--document-type",
+                            selectedDocumentTypeValue === "passport" && "size",
+                        )}
                         name="document-type"
                         options={DocumentType}
                         value={selectedDocumentTypeValue}
@@ -172,13 +189,14 @@ export default function FormPassenger() {
                         <ErrorIcon />
                         <p className="form-passenger__passport-error-message">
                             Паспортные данные указаны некорректно.<br />
-                            Пример: 1004 1000007.
+                            Пример: 1004 100006.
                         </p>
                     </div> */}
                     <div className="form-passenger__message-box">
                         <ErrorIcon />
                         <p className="form-passenger__birth-certificate-error-message">
-                            Номер свидетельства о рождении указан некорректно.<br /> 
+                            Номер свидетельства о рождении указан некорректно.
+                            <br />
                             Пример: VIII-ЫП-123456.
                         </p>
                     </div>

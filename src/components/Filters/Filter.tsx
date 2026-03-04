@@ -1,6 +1,5 @@
 import { useState } from "react";
-import InputDate from "../uikit/InputDate/InputDate";
-import CalendarIconSmall from "../../assets/icons/small/CalendarIconSmall";
+import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import RangeSlider from "../uikit/RangeSlider/RangeSlider";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import clsx from "clsx";
@@ -19,6 +18,7 @@ import Collapse from "../uikit/Collapse/Collapse";
 import TimeRangeSlider from "../uikit/TimeRangeSlider/TimeRangeSlider";
 import SubtractIcon from "../../assets/icons/small/SubtractIcon";
 
+//Моки
 const filterItems = [
     {
         iconUrl: coupeIcon,
@@ -58,22 +58,44 @@ const filterItems = [
     },
 ]
 
-/**  */
-
 export default function Filter () {
     const [openForth, setOpenForth] = useState(false);
     const [openBack, setOpenBack] = useState(false);
+    const [dateForth, setDateForth] = useState<Date | null>(null);
+    const [dateBack, setDateBack] = useState<Date | null>(null);
+
+    const currentYear = new Date().getFullYear();
+    const maxDate = new Date(currentYear, 11, 31);
+    const minDate = new Date()
 
     return(
         <div className="filter">
             <div className="filter__date">
                 <div className="filter__date-box">
                     <Title className="filter__title" as="h3">Дата поездки</Title>
-                    <InputDate className="filter__input-date" id="dateForthAside" Icon={CalendarIconSmall} />
+                    <CustomDatepicker
+                        value={dateForth}
+                        onChange={setDateForth}
+                        placeholder="ДД/ММ/ГГ"
+                        name="date-forth"
+                        icon="small"
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        modifier="filter"
+                    />
                 </div>
                 <div className="filter__date-box">
                     <Title className="filter__title" as="h3">Дата возвращения</Title>
-                    <InputDate className="filter__input-date" id="dateBackAside" Icon={CalendarIconSmall} />
+                    <CustomDatepicker
+                        value={dateBack}
+                        onChange={setDateBack}
+                        placeholder="ДД/ММ/ГГ"
+                        name="date-back"
+                        icon="small"
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        modifier="filter"
+                    />
                 </div>
             </div>
             <ul className="filter__list">

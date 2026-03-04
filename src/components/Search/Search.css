@@ -47,10 +47,13 @@
 }
 
 .form-search__input {
-    display: block;
-    width: 323px;
+    display: flex;
+    align-items: center;
+    width: 324px;
     height: 60px;
-    padding: 19px 50px 11px 21px;
+    padding-right: 50px;
+    padding-left: 21px;
+    font-size: 18px;
 }
 
 .form-search__swap-btn {

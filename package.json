@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "flatpickr": "^4.6.13",
+    "date-fns": "^4.1.0",
     "rc-slider": "^11.1.9",
     "react": "^19.2.0",
+    "react-datepicker": "^9.1.0",
     "react-dom": "^19.2.0",
-    "react-flatpickr": "^4.0.11",
     "react-router": "^7.13.0",
     "uuid": "^13.0.0"
   },
