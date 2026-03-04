@@ -32,8 +32,8 @@ export default function FormPassenger() {
         <form className="form-passenger">
             <div className="form-passenger__personal-box">
                 <CustomSelect
-                    className={clsx("form-passenger__select", "form-passenger__select--ticket-type")}
-                    name="ticket-type"
+                    className={clsx("form-passenger__select", "form-passenger__select--category")}
+                    name="category"
                     options={optionsTicketType}
                     value={selectedTicketTypeValue}
                     onChange={(val) => setSelectedTicketTypeValue(val)}

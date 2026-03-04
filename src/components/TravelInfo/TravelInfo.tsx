@@ -31,17 +31,20 @@ export default function TravelInfo({ className, trainInfo, back = false, tripDet
         info = trainInfo.departure;
     }
 
+    const firstPoint = back ? info.to : info.from;
+    const secondPoint = back ? info.from : info.to;
+
     return (
-            <div className={clsx("travel-info", back && ".travel-info--back", className)}>
+            <div className={clsx("travel-info", back && "travel-info--back", className)}>
                 <div className="travel-info__way">
                     <div className="travel-info__way-box">
                         <time
                             className="travel-info__time"
                             dateTime={new Date(
-                                info.from.datetime * 1000,
+                                firstPoint.datetime * 1000,
                             ).toISOString()}
                         >
-                            {formatTime(info.from.datetime)}
+                            {formatTime(firstPoint.datetime)}
                         </time>
                         {tripDetails &&
                             <p className="travel-info__date">
@@ -49,10 +52,10 @@ export default function TravelInfo({ className, trainInfo, back = false, tripDet
                             </p>
                         }
                         <p className="travel-info__city">
-                            {info.from.city.name}
+                            {firstPoint.city.name}
                         </p>
                         <p className="travel-info__station">
-                            {info.from.railway_station_name} вокзал
+                            {firstPoint.railway_station_name} вокзал
                         </p>
                     </div>
                     <div className={clsx("travel-info__way-box", "travel-info__time-way")}>
@@ -71,10 +74,10 @@ export default function TravelInfo({ className, trainInfo, back = false, tripDet
                     <time
                         className="travel-info__time"
                         dateTime={new Date(
-                            info.to.datetime * 1000,
+                            secondPoint.datetime * 1000,
                         ).toISOString()}
                     >
-                        {formatTime(info.to.datetime)}
+                        {formatTime(secondPoint.datetime)}
                     </time>
                     {tripDetails &&
                         <p className="travel-info__date">
@@ -82,10 +85,10 @@ export default function TravelInfo({ className, trainInfo, back = false, tripDet
                         </p>
                     }    
                     <p className="travel-info__city">
-                        {info.to.city.name}
+                        {secondPoint.city.name}
                     </p>
                     <p className="travel-info__station">
-                        {info.to.railway_station_name} вокзал
+                        {secondPoint.railway_station_name} вокзал
                     </p>
                 </div>
             </div>

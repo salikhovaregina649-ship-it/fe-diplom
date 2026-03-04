@@ -13,12 +13,15 @@ import TravelInfo from "../TravelInfo/TravelInfo";
 interface TrainProps {
     className?: string;
     trainInfo: Train;
+    verifyStep?: boolean;
+    verifyStepHandle?: () => void;
 }
 
-export default function Train({ className, trainInfo }: TrainProps) {
+export default function Train({ className, trainInfo, verifyStep = false, verifyStepHandle }: TrainProps) {
     const id = trainInfo.departure._id;
 
     const navigate = useNavigate();
+
     const handle = () => {
         navigate(`seats/${id}`);
     }
@@ -100,14 +103,28 @@ export default function Train({ className, trainInfo }: TrainProps) {
                 <div className="train__options-icons">
                     <OptionsIcons />
                 </div>
-                <Button
-                    className="train__button"
-                    variant="yellow"
-                    type="button"
-                    onClick={handle}
-                >
-                    Выбрать места
-                </Button>
+                {verifyStep ? 
+                    (
+                        <Button
+                            className="train__button"
+                            variant="light"
+                            type="button"
+                            onClick={verifyStepHandle}
+                        >
+                            Изменить
+                        </Button>
+                    ) : (
+                        <Button
+                            className="train__button"
+                            variant="yellow"
+                            type="button"
+                            onClick={handle}
+                        >
+                            Выбрать места
+                        </Button>
+                    )
+                }    
+                    
             </div>
         </div>
     );

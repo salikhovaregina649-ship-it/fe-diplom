@@ -1,0 +1,34 @@
+.payment-step {
+    padding-top: 95px;
+    padding-bottom: 173px;
+    background-color: #F7F5F9;
+}
+
+.payment-step .container {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    column-gap: 87px;
+}
+
+.payment-step__aside-wrapper {
+    grid-column: 1 / 2;
+}
+
+.payment-step__aside {
+    height: max-content;
+    margin-bottom: 0;
+}
+
+.payment-step__main {
+    grid-column: 2 / 3;
+}
+
+.payment-step____then-btn {
+    height: 60px;
+    width: 323px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;    
+    text-transform: uppercase;
+}

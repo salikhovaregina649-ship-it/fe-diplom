@@ -1,6 +1,6 @@
 .passenger-step {
     padding-top: 95px;
-    padding-bottom: 193px;
+    padding-bottom: 173px;
     background-color: #F7F5F9;
 }
 
@@ -63,4 +63,5 @@
     align-items: center;
     justify-content: center;
     margin-left: auto;
+    text-transform: uppercase;
 }
