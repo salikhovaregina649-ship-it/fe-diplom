@@ -4,7 +4,7 @@
     padding: 18px 16px 16px 18px;
     background-color: #FFFFFF;
     border: 1px solid #C4C4C4;
-    box-shadow: 0 2px 0 0 rgba(62, 60, 65, 0.25);
+    box-shadow: 0 2px 2px 0 rgba(62, 60, 65, 0.25);
 }
 
 .last-ticket:last-child {

@@ -24,10 +24,11 @@ export default function PaymentStep() {
                     <FormPayment />
 
                     <Button
-                        className="passenger-step__then-btn"
+                        className="payment-step__then-btn "
                         type="button"
                         variant="yellow"
                         onClick={handleThen}
+                        uppercase={true}
                     >
                         Купить билеты
                     </Button>

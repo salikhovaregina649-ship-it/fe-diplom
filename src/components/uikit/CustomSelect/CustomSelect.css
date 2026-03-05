@@ -21,7 +21,7 @@
     border: 1px solid #ccc;
     overflow: hidden;
     z-index: 100;
-    box-shadow: 0 4px 0 0 #F7F5F9;
+    box-shadow: 0 4px 4px 0 #F7F5F9;
 }
 
 .custom-select__option {

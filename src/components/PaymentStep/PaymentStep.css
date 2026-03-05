@@ -23,12 +23,11 @@
     grid-column: 2 / 3;
 }
 
-.payment-step____then-btn {
+.payment-step__then-btn {
     height: 60px;
     width: 323px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;    
-    text-transform: uppercase;
 }

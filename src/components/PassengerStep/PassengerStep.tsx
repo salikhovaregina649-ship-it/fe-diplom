@@ -71,6 +71,7 @@ export default function PassengerStep() {
                         type="button"
                         variant="yellow"
                         onClick={handleThen}
+                        uppercase={true}
                     >
                         Далее
                     </Button>

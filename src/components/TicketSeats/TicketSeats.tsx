@@ -11,9 +11,13 @@ import "./TicketSeats.css";
 // icons
 import ArrowIconBig from "../../assets/icons/small/ArrowIconBig";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
+import trainIconSmal from "../../assets/icons/small/trainIconSmall.svg";
+import ArrowIconSmall from "../../assets/icons/small/ArrowIconSmall";
+import clock from "../../assets/icons/small/clock.svg";
 
 import routesResponse from "../../mocks/routesResponse.json";
 import seatsResponse from "../../mocks/seatsResponse.json";
+import clsx from "clsx";
 
 //Моки
 const trainInfo = routesResponse.items[0];
@@ -47,6 +51,14 @@ export default function TicketSeats() {
 
     const navigate = useNavigate();
 
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+    const handleThen = () => {
+        navigate("/booking/passengers");
+    };
+
     const handleClassChange = (value: string) => {
         setCurrentClass(value);
     };
@@ -61,41 +73,65 @@ export default function TicketSeats() {
         }
     };
 
-    const handleBack = () => {
-        navigate(-1);
-    };
-
-    const handleThen = () => {
-        navigate("/booking/passengers");
-    };
-
     return (
         <div className="ticket-seats">
-            <div className="container">
-                <Title as="h3" className="ticket-seats__title">
-                    Выбор мест
-                </Title>
-                <div className="ticket-seats__train">
-                    <div className="ticket-seats__choose-another">
+            <Title as="h3" className="ticket-seats__title" uppercase={true}>
+                Выбор мест
+            </Title>
+
+            <div className="ticket-seats__box">
+                <div className="ticket-seats__choose-another">
+                    <div className="ticket-seats__icon-box">
                         <ArrowIconBig />
-                        <Button
-                            type="button"
-                            className="ticket-seats__btn"
-                            variant="transparent"
-                            onClick={handleBack}
-                        >
-                            Выбрать другой поезд
-                        </Button>
                     </div>
+                    <Button
+                        type="button"
+                        className="ticket-seats__btn"
+                        variant="light"
+                        onClick={handleBack}
+                    >
+                        Выбрать другой поезд
+                    </Button>
+                </div>
 
-                    <div className="ticket-seats__travel-info-box">
-                        <TravelInfo
-                            className="ticket-seats__travel-info"
-                            trainInfo={trainInfo}
-                        />
+                <div className="ticket-seats__train">
+                    <div className="ticket-seats__train-info">
+                        <div className="ticket-seats__train-info-icon-box">
+                            <img
+                                className="ticket-seats__icon"
+                                src={trainIconSmal}
+                                alt=""
+                            />
+                        </div>
+                        <div className="ticket-seats__train-info-box">
+                            <p className="ticket-seats__number">
+                                {trainInfo.departure.train.name}
+                            </p>
+                            {/** Проверить Train, там вопрос
+                                 *  <p className=".ticket-seats__city ticket-seats__starting-city">
+                                 *      {Город}
+                                            <ArrowIconSmall />    
+                                    </p>
+                                */}
+                            <p className="ticket-seats__city">
+                                {trainInfo.departure.from.city.name}
+                                <ArrowIconSmall />
+                            </p>
+                            <p className="ticket-seats__city">
+                                {trainInfo.departure.to.city.name}
+                            </p>
+                        </div>
                     </div>
-
+                    <TravelInfo
+                        className="ticket-seats__travel-info"
+                        trainInfo={trainInfo}
+                    />
                     <div className="ticket-seats__time-way">
+                        <img
+                            className="ticket-seats__icon"
+                            src={clock}
+                            alt=""
+                        />
                         <time
                             className="ticket-seats__time-way-time"
                             dateTime={new Date(
@@ -107,7 +143,6 @@ export default function TicketSeats() {
                     </div>
                 </div>
 
-                {/**Вопрос!! Что тут должно отображаться? Это статичные данные или их вводит покупатель?*/}
                 <div className="ticket-seats__tickets-number">
                     <Title
                         as="h3"
@@ -115,7 +150,56 @@ export default function TicketSeats() {
                     >
                         Количество билетов
                     </Title>
-                    <div>{/**form? input?*/}</div>
+                    {/**Вопрос!! Что за блок такой, не понимаю что он делает. Это форма? Инпуты должны быть или кнопки?*/}
+                    <form className="form-ticket-category">
+                        <div className="form-ticket-category__box">
+                            <label className="form-ticket-category__label">
+                                <span>Взрослых — </span>
+                                <input
+                                    className="form-ticket-category__input"
+                                    type="number"
+                                    placeholder="0"
+                                    name="adult"
+                                    value="3"
+                                />
+                            </label>
+                            <p className="form-ticket-category__text">
+                                Можно добавить еще 3 пассажиров
+                            </p>
+                        </div>
+                        <div className="form-ticket-category__box">
+                            <label className="form-ticket-category__label">
+                                <span>Детских — </span>
+                                <input
+                                    className="form-ticket-category__input"
+                                    type="number"
+                                    placeholder="0"
+                                    name="childlike-with-seat"
+                                    value="1"
+                                />
+                            </label>
+                            <p className={clsx("form-ticket-category__text", "form-ticket-category__text--ligth")}>
+                                Можно добавить еще 3 детей
+                                <br />
+                                до 10 лет. Свое место в вагоне,
+                                <br />
+                                как у взрослых, но дешевле
+                                <br />в среднем на 50-65%
+                            </p>
+                        </div>
+                        <div className="form-ticket-category__box">
+                            <label className="form-ticket-category__label">
+                                <span>Детских «без места» — </span>
+                                <input
+                                    className="form-ticket-category__input"
+                                    type="number"
+                                    placeholder="0"
+                                    name="childlike-not-seat"
+                                    value="0"
+                                />
+                            </label>
+                        </div>
+                    </form>
                 </div>
 
                 <div className="ticket-seats__class">
@@ -146,6 +230,7 @@ export default function TicketSeats() {
                                     </span>
                                     {/**Вопрос!! coach.name = "ПУВБМ-59" - это номер вагона? На макете норме просто число*/}
                                     {seatsInfo.map((item, index) => (
+                                        
                                         <Checkbox
                                             key={index}
                                             className="ticket-seats__coach-checkbox"
@@ -241,15 +326,17 @@ export default function TicketSeats() {
                          * и блок ticket-seats__choose-another справа */}
                     </div>
                 </div>
-                <Button 
-                    className="ticket-seats__then-btn" 
-                    type="button"
-                    variant="yellow"
-                    onClick={handleThen}
-                >
-                    Далее
-                </Button>
             </div>
+
+            <Button
+                className="ticket-seats__then-btn"
+                type="button"
+                variant="yellow"
+                onClick={handleThen}
+                uppercase={true}
+            >
+                Далее
+            </Button>
         </div>
     );
 }

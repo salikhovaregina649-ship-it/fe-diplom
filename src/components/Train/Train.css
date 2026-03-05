@@ -3,7 +3,7 @@
     grid-template-columns: 197px 479px 283px;
     grid-template-rows: repeat(2, auto);
     border: 1px solid #C4C4C4;
-    box-shadow: 0 2px 0 0 solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px 0 solid rgba(0, 0, 0, 0.3);
     background-color: #FFFFFF;
 }
 
