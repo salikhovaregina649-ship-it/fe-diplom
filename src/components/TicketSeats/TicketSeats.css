@@ -147,7 +147,7 @@ h3.title.ticket-seats__tickets-number-title {
     border: 1px solid rgba(255, 168, 0, 0.79);
 }
 
-.form-ticket-category__box:has(.form-ticket-category__input:active) {
+.form-ticket-category__box:first-child {
     background-color: #F7F6F6;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
@@ -162,6 +162,7 @@ h3.title.ticket-seats__tickets-number-title {
     font-weight: 400;
     color: #292929;
     border: 1px solid #928F94;
+    background-color: #FFFFFF;
 }
 
 .form-ticket-category__input {
@@ -201,17 +202,42 @@ h3.title.ticket-seats__tickets-number-title {
 
 .ticket-seats__class-box {}
 
-.ticket-seats__class-selection {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.ticket-seats__class-list {
+    display: flex;
+
+    /* display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap: 120px; */
     padding-left: 35px;
     margin-bottom: 25px;
+
+    
 }
 
-.ticket-seats__class-selection-item {
+.ticket-seats__class-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 150px;
+}
+
+.ticket-seats__class-item .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 18px;
+    color: #918F94;
+}
+
+.ticket-seats__class-radio {
     font-size: 24px;
     font-weight: 400;
-    color: #292929;
+    color: #918F94;
+}
+
+.ticket-seats__class-radio .radio__input:checked + .radio__label,
+.ticket-seats__class-item:has(.radio__input:checked) .icon {
+    color: #FFA800;
 }
 
 
@@ -222,6 +248,7 @@ h3.title.ticket-seats__tickets-number-title {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 101px;
     margin-left: auto;
     width: 222px;
     height: 60px;

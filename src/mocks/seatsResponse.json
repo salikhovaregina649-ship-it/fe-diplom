@@ -594,5 +594,369 @@
         "available": true
       }
     ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8fb01",
+      "name": "КНУИ-15",
+      "class_type": "first",
+      "have_wifi": false,
+      "have_air_conditioning": false,
+      "price": 4725,
+      "top_price": 2615,
+      "bottom_price": 4775,
+      "side_price": 0,
+      "linens_price": 193,
+      "wifi_price": 285,
+      "is_linens_included": true,
+      "available_seats": 6,
+      "train": "67ceb6588c75f00047c9016f"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": true
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": true
+      },
+      {
+        "index": 4,
+        "available": true
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": true
+      }
+    ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8fb02",
+      "name": "ЙМ-34",
+      "class_type": "fourth",
+      "have_wifi": true,
+      "have_air_conditioning": true,
+      "price": 0,
+      "top_price": 834,
+      "bottom_price": 675,
+      "side_price": 0,
+      "linens_price": 0,
+      "wifi_price": 59,
+      "is_linens_included": false,
+      "available_seats": 50,
+      "train": "67ceb6588c75f00047c9016f"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": true
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": true
+      },
+      {
+        "index": 4,
+        "available": true
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": true
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": true
+      },
+      {
+        "index": 11,
+        "available": true
+      },
+      {
+        "index": 12,
+        "available": true
+      },
+      {
+        "index": 13,
+        "available": true
+      },
+      {
+        "index": 14,
+        "available": true
+      },
+      {
+        "index": 15,
+        "available": true
+      },
+      {
+        "index": 16,
+        "available": true
+      },
+      {
+        "index": 17,
+        "available": true
+      },
+      {
+        "index": 18,
+        "available": true
+      },
+      {
+        "index": 19,
+        "available": true
+      },
+      {
+        "index": 20,
+        "available": true
+      },
+      {
+        "index": 21,
+        "available": true
+      },
+      {
+        "index": 22,
+        "available": true
+      },
+      {
+        "index": 23,
+        "available": true
+      },
+      {
+        "index": 24,
+        "available": true
+      },
+      {
+        "index": 25,
+        "available": true
+      },
+      {
+        "index": 26,
+        "available": true
+      },
+      {
+        "index": 27,
+        "available": true
+      },
+      {
+        "index": 28,
+        "available": true
+      },
+      {
+        "index": 29,
+        "available": true
+      },
+      {
+        "index": 30,
+        "available": true
+      },
+      {
+        "index": 31,
+        "available": true
+      },
+      {
+        "index": 32,
+        "available": true
+      },
+      {
+        "index": 33,
+        "available": true
+      },
+      {
+        "index": 34,
+        "available": true
+      },
+      {
+        "index": 35,
+        "available": true
+      },
+      {
+        "index": 36,
+        "available": true
+      },
+      {
+        "index": 37,
+        "available": true
+      },
+      {
+        "index": 38,
+        "available": true
+      },
+      {
+        "index": 39,
+        "available": true
+      },
+      {
+        "index": 40,
+        "available": true
+      },
+      {
+        "index": 41,
+        "available": true
+      },
+      {
+        "index": 42,
+        "available": true
+      },
+      {
+        "index": 43,
+        "available": true
+      },
+      {
+        "index": 44,
+        "available": true
+      },
+      {
+        "index": 45,
+        "available": true
+      },
+      {
+        "index": 46,
+        "available": true
+      },
+      {
+        "index": 47,
+        "available": true
+      },
+      {
+        "index": 48,
+        "available": true
+      },
+      {
+        "index": 49,
+        "available": true
+      },
+      {
+        "index": 50,
+        "available": true
+      }
+    ]
+  },
+  {
+    "coach": {
+      "_id": "67ceb6558c75f00047c8fb03",
+      "name": "ЙМУ-78",
+      "class_type": "second",
+      "have_wifi": false,
+      "have_air_conditioning": true,
+      "price": 0,
+      "top_price": 2745,
+      "bottom_price": 1935,
+      "side_price": 0,
+      "linens_price": 273,
+      "wifi_price": 208,
+      "is_linens_included": true,
+      "available_seats": 20,
+      "train": "67ceb6588c75f00047c9016f"
+    },
+    "seats": [
+      {
+        "index": 1,
+        "available": true
+      },
+      {
+        "index": 2,
+        "available": true
+      },
+      {
+        "index": 3,
+        "available": true
+      },
+      {
+        "index": 4,
+        "available": true
+      },
+      {
+        "index": 5,
+        "available": true
+      },
+      {
+        "index": 6,
+        "available": true
+      },
+      {
+        "index": 7,
+        "available": true
+      },
+      {
+        "index": 8,
+        "available": true
+      },
+      {
+        "index": 9,
+        "available": true
+      },
+      {
+        "index": 10,
+        "available": true
+      },
+      {
+        "index": 11,
+        "available": true
+      },
+      {
+        "index": 12,
+        "available": true
+      },
+      {
+        "index": 13,
+        "available": true
+      },
+      {
+        "index": 14,
+        "available": true
+      },
+      {
+        "index": 15,
+        "available": true
+      },
+      {
+        "index": 16,
+        "available": true
+      },
+      {
+        "index": 17,
+        "available": true
+      },
+      {
+        "index": 18,
+        "available": true
+      },
+      {
+        "index": 19,
+        "available": true
+      },
+      {
+        "index": 20,
+        "available": true
+      }
+    ]
   }
 ]

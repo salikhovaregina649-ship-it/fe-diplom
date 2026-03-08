@@ -4,54 +4,54 @@ import RangeSlider from "../uikit/RangeSlider/RangeSlider";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import clsx from "clsx";
 import Title from "../uikit/Title/Title";
-import "./Filter.css";
-
-//icons
-import coupeIcon from "../../assets/icons/filter/coupe.svg";
-import reservedSeatIcon from "../../assets/icons/filter/reserved-seat.svg";
-import sedentaryIcon from "../../assets/icons/filter/sedentary.svg";
-import luxuryIcon from "../../assets/icons/filter/luxury.svg";
-import wiFiIcon from "../../assets/icons/filter/wi-fi.svg";
-import expressIcon from "../../assets/icons/filter/express.svg";
 import Button from "../uikit/Button/Button";
 import Collapse from "../uikit/Collapse/Collapse";
 import TimeRangeSlider from "../uikit/TimeRangeSlider/TimeRangeSlider";
+import "./Filter.css";
+
+//icons
+import SedentaryIcon from "../../assets/icons/filter/SedentaryIcon";
+import CoupeIcon from "../../assets/icons/filter/CoupeIcon";
+import ReservedSeatIcon from "../../assets/icons/filter/ReservedSeatIcon";
+import LuxuryIcon from "../../assets/icons/filter/LuxuryIcon";
+import WiFiIcon from "../../assets/icons/filter/WiFiIcon";
+import ExpressIcon from "../../assets/icons/filter/ExpressIcon";
 import SubtractIcon from "../../assets/icons/small/SubtractIcon";
 
 //Моки
 const filterItems = [
     {
-        iconUrl: coupeIcon,
+        icon: CoupeIcon,
         name: "filter",
         value: "coupe",
         label: "Купе",
     },
     {
-        iconUrl: reservedSeatIcon,
+        icon: ReservedSeatIcon,
         name: "filter",
         value: "reservedSeat",
         label: "Плацкарт",
     },
     {
-        iconUrl: sedentaryIcon,
+        icon: SedentaryIcon,
         name: "filter",
         value: "sedentary",
         label: "Сидячий",
     },
     {
-        iconUrl: luxuryIcon,
+        icon: LuxuryIcon,
         name: "filter",
         value: "luxury",
         label: "Люкс",
     },
     {
-        iconUrl: wiFiIcon,
+        icon: WiFiIcon,
         name: "filter",
         value: "wiFi",
         label: "Wi-Fi",
     },
     {
-        iconUrl: expressIcon,
+        icon: ExpressIcon,
         name: "filter",
         value: "express",
         label: "Экспресс",
@@ -99,7 +99,7 @@ export default function Filter () {
             <ul className="filter__list">
                 {filterItems.map((item, index) => (
                     <li className="filter__item" key={index}>
-                        <img className="filter__checkbox-icon" src={item.iconUrl} alt="" />
+                        <item.icon />
                         <Checkbox className="filter__checkbox" name={item.name} value={item.value} label={item.label} switched={true} />
                     </li>
                 ))}

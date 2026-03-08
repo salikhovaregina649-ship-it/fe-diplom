@@ -8,7 +8,7 @@ export interface Seat {
 export interface Coach {
   _id: string;
   name: string;
-  class_type: 'first' | 'second' | 'third' | 'fourth';
+  class_type: string;
   have_wifi: boolean;
   have_air_conditioning: boolean;
   price: number;

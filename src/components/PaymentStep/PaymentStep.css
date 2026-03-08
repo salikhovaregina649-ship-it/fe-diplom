@@ -21,6 +21,7 @@
 
 .payment-step__main {
     grid-column: 2 / 3;
+    max-width: 959px;
 }
 
 .payment-step__then-btn {

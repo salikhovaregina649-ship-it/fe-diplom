@@ -21,4 +21,5 @@
 
 .ticket-step__main {
     grid-column: 2 / 3;
+    max-width: 959px;
 }
