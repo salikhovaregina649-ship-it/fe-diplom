@@ -1,0 +1,172 @@
+.coach {
+    /* height: 491px; */
+}
+
+/* Info */
+.coach__info {
+    display: flex;
+}
+
+.coach__main-number {
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    height: 161px;
+    margin-right: 85px;
+    padding-top: 30px;
+    padding-left: 37px;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    color: #292929;
+    background-color: #FFD98F;
+}
+
+.coach__main-number span {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.coach__seat-box,
+.coach__price-box,
+.coach__options-box {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-top: 33px;
+    margin-right: ;
+}
+
+.coach__title {
+    font-size: 18px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.coach__available-seats span {
+    margin-left: 5px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.coach__available-seats-top,
+.coach__available-seats-bottom {
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.coach__available-seats-top span,
+.coach__available-seats-bottom span {
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+/* Info Price */
+.coach__price-box {
+    
+}
+
+.coach__price-top {}
+
+.coach__price-bottom {}
+
+.coach__options-box {}
+
+.coach__options {}
+
+/* Message */
+.coach__message-box {}
+
+.coach__message {}
+
+/* Sheme */
+.coach__scheme {
+    position: relative;
+    width: 921px;
+    height: 145px;
+}
+
+.coach__number {
+    position: absolute;
+    top: 0;
+    left: 39px;
+    width: 35px;
+    height: 25px;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #333333;
+}
+
+.coach__center{
+    position: absolute;
+    top: 3px;
+    left: 0;
+    display: flex;
+    width: 921px;
+    height: 119px;
+}
+
+.coach__cabin{
+    background-image: url("../../../assets/icons/big/coach.svg");
+    background-repeat: no-repeat;
+}
+
+.coach__cabin--left {
+    width: 129px;
+    height: 124px;
+    background-position: bottom left;
+}
+
+.coach__cabin--right {
+    width: 70px;
+    height: 124px;
+    background-position: bottom right;
+}
+
+.coach__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    margin-top: 3px;
+}
+
+.coach__row-top {
+    display: flex;
+    justify-content: space-between;
+    height: 68px;
+
+    border-top: 5px solid #989898;
+    border-right: 5px solid #989898;
+    border-left: 5px solid #989898;
+}
+
+.coach__row-bottom {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 2px;
+
+    border-bottom: 5px solid #989898;
+    border-right: 5px solid #989898;
+    border-left: 5px solid #989898;
+}
+
+.coach__row-bottom::after,
+.coach__row-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 28px;
+    background-color: #FFFFFF;
+}
+
+.coach__row-bottom::before {
+    left: -5px;
+    height: 44.6px;
+}

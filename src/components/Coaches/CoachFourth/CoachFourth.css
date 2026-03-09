@@ -1,0 +1,61 @@
+.coach-fourth {}
+
+.coach-fourth__cell {}
+
+
+.coach-fourth .seat-cell__wrappe {
+    max-height: 22px;
+}
+
+.coach-fourth .coach__row-top .seat-cell__wrapper {
+    padding-top: 4px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.coach-fourth .coach__row-top .seat-cell__wrapper:nth-child(2n) {
+    padding-top: 2px;
+}
+
+.coach-fourth .coach__row-bottom .seat-cell__wrapper {
+    margin-bottom: 2px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.coach-fourth .coach__row-bottom .seat-cell__wrapper:nth-child(2n) {
+    margin-bottom: 4px;
+}
+
+.coach-fourth .seat-cell__seat {
+    width: 26px;
+    height: 18px;
+    border: none;
+}
+
+/* .coach-fourth__row-top .coach-fourth__seat-wrapper {
+    padding-top: 4px;
+    padding-left: 9px;
+    padding-right: 9px;
+    
+} */
+
+/* .coach-fourth__row-bottom .coach-fourth__seat-wrapper {
+    margin-bottom: 2px;
+    padding-left: 9px;
+    padding-right: 9px;
+} */
+
+/* .coach-fourth__row-top .coach-fourth__seat-wrapper:nth-child(2n) {
+    padding-top: 2px;
+} */
+
+/* .coach-fourth__row-bottom .coach-fourth__seat-wrapper:nth-child(2n) {
+    margin-bottom: 4px;
+} */
+
+.coach-fourth__seat{
+    width: 26px;
+    height: 18px;
+    border: none;
+}

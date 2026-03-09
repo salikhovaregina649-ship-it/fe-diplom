@@ -1,21 +1,19 @@
 import clsx from "clsx";
 import "./Checkbox.css";
+import type React from "react";
 
-interface CheckboxProps {
+interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
     className?: string;
-    name?: string;
-    value: string;
-    checked?: boolean;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label?: string;
     switched?: boolean;
     checkMark?: boolean;
+    children?: React.ReactNode;
 }
 
-export default function Checkbox({className, name, value, checked, onChange, label, switched = false, checkMark = false}: CheckboxProps) {
+export default function Checkbox({className, name, value, checked, onChange, label, switched = false, checkMark = false, children, ...props}: CheckboxProps) {
     return(
         <label className={clsx("checkbox", className)} >
-            <span className="checkbox__label">{label}</span>
+            {label && <span className="checkbox__label">{label}</span>} 
             <input 
                 className="checkbox__input" 
                 type="checkbox"
@@ -23,9 +21,11 @@ export default function Checkbox({className, name, value, checked, onChange, lab
                 value={value}
                 checked={checked}
                 onChange={onChange}
+                {...props}
             />
             {checkMark && <span className="checkbox__check-mark" />}
             {switched && <span className="checkbox__switch" />}
+            {children && <span>{children}</span>}
         </label>
     )
 }

@@ -1,9 +1,38 @@
+.coach-list__coach-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 5px;
+    padding-right: 17px;
+    padding-bottom: 5px;
+    padding-left: 33px;
+    background-color: rgba(255, 168, 0, 0.44);
+}
 
+.coach-list__wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
 
+.coach-list__label {
+    font-size: 18px;
+    font-weight: 400;
+    color: #292929;
+}
 
+.coach-list__checkbox {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+}
 
+.coach-list__checkbox:has(.checkbox__input:checked) {
+    color: #FFFFFF;
+}
 
-.ticket-seats__coach-fourth {
-    margin-bottom: 19px;
-    margin-left: 20px;
+.coach-list__text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #292929;
 }

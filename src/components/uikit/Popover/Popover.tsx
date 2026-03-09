@@ -1,45 +1,99 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './Popover.css';
-import clsx from 'clsx';
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import clsx from "clsx";
+import "./Popover.css";
 
 interface PopoverProps {
     className?: string;
-    elementWithPopoverRef: React.RefObject<HTMLElement | null>;
-    isOpen: boolean;
+    anchorRef: React.RefObject<HTMLElement | null>;
+    trigger?: "hover" | "click" | "manual";
+    isOpen?: boolean;
     children: React.ReactNode;
 }
 
-const Popover: React.FC<PopoverProps> = ({className, elementWithPopoverRef, isOpen, children}) => {
+export default function Popover({
+    className,
+    anchorRef,
+    trigger = "hover",
+    isOpen: controlledOpen,
+    children,
+}: PopoverProps) {
     const popoverRef = useRef<HTMLDivElement>(null);
-    const [position, setPosition] = useState({top: 0, left: 0});
 
-    useEffect(() => {
-        if (!isOpen || !elementWithPopoverRef.current || !popoverRef.current) return;
+    const [internalOpen, setInternalOpen] = useState(false);
 
-        const elementWithPopoverRect = elementWithPopoverRef.current.getBoundingClientRect();
-        const popoverRect = popoverRef.current.getBoundingClientRect();
+    const isOpen = trigger === "manual" ? controlledOpen : internalOpen;
 
-        const left = elementWithPopoverRect.left + elementWithPopoverRect.width / 2 - popoverRect.width / 2 + window.scrollX;
+    const [position, setPosition] = useState({ top: 0, left: 0 });
 
-        const top = elementWithPopoverRect.bottom + 10 + window.scrollY;
+    const updatePosition = () => {
+        if (!anchorRef.current || !popoverRef.current) return;
+
+        const anchor = anchorRef.current.getBoundingClientRect();
+        const pop = popoverRef.current.getBoundingClientRect();
+
+        const left =
+            anchor.left + anchor.width / 2 - pop.width / 2 + window.scrollX;
+        const top = anchor.bottom + 8 + window.scrollY;
 
         setPosition({ top, left });
-    }, [isOpen, elementWithPopoverRef]);
+    };
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        updatePosition();
+
+        window.addEventListener("scroll", updatePosition);
+        window.addEventListener("resize", updatePosition);
+
+        return () => {
+            window.removeEventListener("scroll", updatePosition);
+            window.removeEventListener("resize", updatePosition);
+        };
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (!anchorRef.current || trigger === "manual") return;
+
+        const el = anchorRef.current;
+
+        if (trigger === "hover") {
+            const enter = () => setInternalOpen(true);
+            const leave = () => setInternalOpen(false);
+
+            el.addEventListener("mouseenter", enter);
+            el.addEventListener("mouseleave", leave);
+
+            return () => {
+                el.removeEventListener("mouseenter", enter);
+                el.removeEventListener("mouseleave", leave);
+            };
+        }
+
+        if (trigger === "click") {
+            const click = () => setInternalOpen((v) => !v);
+
+            el.addEventListener("click", click);
+
+            return () => el.removeEventListener("click", click);
+        }
+    }, [trigger, anchorRef]);
 
     if (!isOpen) return null;
 
-    return (
+    return createPortal(
         <div
             ref={popoverRef}
             className={clsx("popover", className)}
             style={{
+                position: "absolute",
                 top: position.top,
                 left: position.left,
             }}
         >
-            <div className="popover__content">{children}</div>
-        </div>
+            {children}
+        </div>,
+        document.body,
     );
-};
-
-export default Popover;
+}

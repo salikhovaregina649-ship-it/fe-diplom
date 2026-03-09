@@ -42,7 +42,7 @@ export default function AllVievComponents() {
                     Открыть popover
                 </button>
 
-                <Popover elementWithPopoverRef={buttonRef} isOpen={isOpen}>
+                <Popover anchorRef={buttonRef} trigger="manual" isOpen={isOpen}>
                     Это содержимое popover
                 </Popover>
             </div>
