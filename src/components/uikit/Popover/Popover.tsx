@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";
 import "./Popover.css";
@@ -26,7 +26,7 @@ export default function Popover({
 
     const [position, setPosition] = useState({ top: 0, left: 0 });
 
-    const updatePosition = () => {
+    const updatePosition = useCallback(() => {
         if (!anchorRef.current || !popoverRef.current) return;
 
         const anchor = anchorRef.current.getBoundingClientRect();
@@ -37,7 +37,7 @@ export default function Popover({
         const top = anchor.bottom + 8 + window.scrollY;
 
         setPosition({ top, left });
-    };
+    }, [anchorRef]);
 
     useEffect(() => {
         if (!isOpen) return;
@@ -51,7 +51,7 @@ export default function Popover({
             window.removeEventListener("scroll", updatePosition);
             window.removeEventListener("resize", updatePosition);
         };
-    }, [isOpen]);
+    }, [isOpen, updatePosition]);
 
     useEffect(() => {
         if (!anchorRef.current || trigger === "manual") return;

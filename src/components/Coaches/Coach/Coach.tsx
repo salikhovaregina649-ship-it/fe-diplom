@@ -1,18 +1,26 @@
+import { useState } from "react";
 import clsx from "clsx";
 import RubleIcon from "../../../assets/icons/small/RubleIcon";
-import WiFiIcon from "../../../assets/icons/filter/WiFiIcon";
+import WiFiIcon from "../../../assets/icons/options/WiFiOptionIcon";
 import ConditioningIcon from "../../../assets/icons/options/ConditioningIcon";
 import LinenIcon from "../../../assets/icons/options/LinenIcon";
 import FoodIcon from "../../../assets/icons/options/FoodIcon";
 import CoachOption from "../CoachOption/CoachOption";
 
-import type { CoachProps } from "../types";
+import type { CoachProps } from "../types.ts";
 import "./Coach.css";
-
 
 /**
  * Общий компонент для классов
  */
+
+type Options = {
+    conditioning: boolean;
+    wifi: boolean;
+    linen: boolean;
+    food: boolean;
+};
+
 export default function Coach({
     children,
     className,
@@ -31,6 +39,20 @@ export default function Coach({
             topSeats++;
         }
     });
+
+    const [options, setOptions] = useState({
+        conditioning: false,
+        wifi: false,
+        linen: false,
+        food: false,
+    });
+
+    const toggleOption = (name: keyof Options) => {
+        setOptions((prev) => ({
+            ...prev,
+            [name]: !prev[name],
+        }));
+    };
 
     return (
         <div className={clsx("coach", className)}>
@@ -70,14 +92,35 @@ export default function Coach({
                         <span>фпк</span>
                     </p>
                     <div className="coach__options">
-                        <CoachOption icon={<ConditioningIcon />} label="кондиционер" />
-                        <CoachOption icon={<WiFiIcon />} label="Wi-Fi" />
-                        <CoachOption icon={<LinenIcon />} label="белье" />
-                        <CoachOption icon={<FoodIcon />} label="питание" />
+                        <CoachOption
+                            icon={<ConditioningIcon />}
+                            label="кондиционер"
+                            checked={options.conditioning}
+                            onChange={() => toggleOption("conditioning")}
+                        />
+                        <CoachOption
+                            icon={<WiFiIcon />}
+                            label="wi-fi"
+                            checked={options.wifi}
+                            onChange={() => toggleOption("wifi")}
+                        />
+                        <CoachOption
+                            icon={<LinenIcon />}
+                            label="белье"
+                            checked={options.linen}
+                            onChange={() => toggleOption("linen")}
+                        />
+                        <CoachOption
+                            icon={<FoodIcon />}
+                            label="питание"
+                            checked={options.food}
+                            onChange={() => toggleOption("food")}
+                        />
                     </div>
                 </div>
             </div>
             <div className="coach__message-box">
+                {/* Вопрос!! Где брать информацию сколько человек выбирают места в этом поезде? */}
                 <p className="coach__message">{message}</p>
             </div>
             <div className="coach__scheme">

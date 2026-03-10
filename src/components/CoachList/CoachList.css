@@ -25,6 +25,7 @@
     font-size: 24px;
     font-weight: 700;
     color: #000000;
+    cursor: pointer;
 }
 
 .coach-list__checkbox:has(.checkbox__input:checked) {
@@ -35,4 +36,22 @@
     font-size: 16px;
     font-weight: 400;
     color: #292929;
+}
+
+.coach__checked-total-price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 32px;
+    padding-bottom: 19px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFA800;
+}
+
+.coach__checked-total-price .icon {
+    width: 14px;
+    height: 17px;
+    margin-left: 10px;
+    color: #928F94;
 }

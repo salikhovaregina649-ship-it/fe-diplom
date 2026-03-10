@@ -1,5 +1,50 @@
-.coach-option-checkbox {}
+.coach-option-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 34px;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-.coach-option-checkbox__icon {}
+.coach-option-checkbox .icon {
+    color: #292929;
+}
 
-.coach-option-checkboxn__popover {}
+.coach-option-checkbox:has(.checkbox__input:checked) {
+    background-color: #FDB935;
+    border: 1px solid #FDB935;
+}
+
+.coach-option-checkbox:has(.checkbox__input:checked) .icon {
+    color: #FFFFFF;
+}
+
+.coach-option-checkbox:has(.checkbox__input:checked):hover,
+.coach-option-checkbox:hover {
+    background-color: #FFA800;
+    border: 1px solid #292929;
+}
+
+.coach-option-checkbox:has(.checkbox__input:checked):hover .icon,
+.coach-option-checkbox:hover .icon {
+    color: #292929;
+}
+
+.coach-option-checkbox:has(.checkbox__input:disabled) {
+    background-color: #FCDC9D;
+    border: 1px solid #FCDC9D;
+}
+
+.coach-option-checkbox:has(.checkbox__input:disabled) .icon {
+    color: #928F94;
+}
+
+.coach-option-checkbox__popover {
+    padding: 9px 10px;
+    font-size: 16px;
+    color: #292929;
+    white-space: nowrap;
+}

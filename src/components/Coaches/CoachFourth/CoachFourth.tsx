@@ -1,9 +1,8 @@
 import Coach from "../Coach/Coach";
 import PairSeatCell from "../SeatCell/PairSeatCell";
 import SingleSeatCell from "../SeatCell/SingleSeatCell";
-import type { CoachClassProps } from "../types";
+import type { CoachClassProps } from "../types.ts";
 import "./CoachFourth.css";
-
 /**
  * Компонент вагона класса Сидячий
  */
@@ -13,71 +12,106 @@ export default function CoachFourth({
     selectedSeats = [],
     message,
 }: CoachClassProps) {
-    const totalSeats = coach.seats.length;
+    const seats = coach.seats;
+    const totalSeats = seats.length;
 
-    const halfSize = Math.ceil(totalSeats / 2);
+    const handleSeatClick = (index: number, available: boolean) => {
+        if (available && onSeatSelect) {
+            onSeatSelect(index);
+        }
+    };
 
-    // Верхний ряд - все места парами
-    const topRowSeats = coach.seats.slice(0, halfSize);
-    const topRowCells = [];
-    for (let i = 0; i < topRowSeats.length; i += 2) {
-        topRowCells.push({
-            type: "pair" as const,
-            topSeat: topRowSeats[i] || null,
-            bottomSeat: topRowSeats[i + 1] || null,
-        });
-    }
+    // Верхний ряд: половина мест (обязательно чётное количество, округляем вверх)
+    const halfSeats = Math.floor(totalSeats / 2);
+    const topRowSeats = halfSeats % 2 === 0 ? halfSeats : halfSeats + 1;
+
+    // Места для верхнего ряда
+    const topSeats = seats.slice(0, topRowSeats);
+
+    // Места для нижнего ряда
+    const bottomSeats = seats.slice(topRowSeats);
+
+    // Верхний ряд
+    const renderTopRow = () => {
+        const cells: React.ReactNode[] = [];
+        
+        for (let i = 0; i < topSeats.length; i += 2) {
+            const firstSeat = topSeats[i];
+            const secondSeat = topSeats[i + 1];
+
+            cells.push(
+                <PairSeatCell
+                    key={`top-pair-${i}`}
+                    topSeat={secondSeat}
+                    bottomSeat={firstSeat}
+                    selectedSeats={selectedSeats}
+                    onSeatClick={handleSeatClick}
+                />
+            );
+        }
+
+        return cells;
+    };
 
     // Нижний ряд
-    const bottomRowSeats = coach.seats.slice(halfSize);
-    const bottomRowCells: Array<{
-        type: "pair" | "single-bottom";
-        topSeat?: { index: number; available: boolean } | null;
-        bottomSeat?: { index: number; available: boolean } | null;
-        seat?: { index: number; available: boolean };
-    }> = [];
+    const renderBottomRow = () => {
+        const cells: React.ReactNode[] = [];
 
-    if (bottomRowSeats.length > 0) {
-        // Первое место - одиночное
-        bottomRowCells.push({
-            type: "single-bottom" as const,
-            seat: bottomRowSeats[0],
-        });
+        if (bottomSeats.length === 0) return cells;
 
-        // Середина - пары мест
-        const middleSeats = bottomRowSeats.slice(1, -1);
+        // Первый - всегда одиночный
+        cells.push(
+            <SingleSeatCell
+                key="bottom-single-first"
+                seat={bottomSeats[0]}
+                selectedSeats={selectedSeats}
+                onSeatClick={handleSeatClick}
+            />
+        );
+
+        // Средние места по 2
+        const middleSeats = bottomSeats.slice(1, -1);
+
         for (let i = 0; i < middleSeats.length; i += 2) {
-            bottomRowCells.push({
-                type: "pair" as const,
-                topSeat: middleSeats[i] || null,
-                bottomSeat: middleSeats[i + 1] || null,
-            });
-        }
+            const firstSeat = middleSeats[i];
+            const secondSeat = middleSeats[i + 1];
 
-        // Последнее место - одиночное
-        // Показываем ТОЛЬКО если предыдущая пара ПОЛНАЯ (оба места есть)
-        if (bottomRowSeats.length > 1) {
-            const lastCell = bottomRowCells[bottomRowCells.length - 1];
-            const isLastPairFull =
-                lastCell.type === "pair" &&
-                lastCell.topSeat !== null &&
-                lastCell.bottomSeat !== null;
-
-            if (isLastPairFull) {
-                // Предыдущая пара полная - показываем последнюю одиночную
-                bottomRowCells.push({
-                    type: "single-bottom" as const,
-                    seat: bottomRowSeats[bottomRowSeats.length - 1],
-                });
+            if (secondSeat) {
+                cells.push(
+                    <PairSeatCell
+                        key={`bottom-pair-${i}`}
+                        topSeat={firstSeat}
+                        bottomSeat={secondSeat}
+                        selectedSeats={selectedSeats}
+                        onSeatClick={handleSeatClick}
+                    />
+                );
+            } else {
+                // Одно место осталось
+                cells.push(
+                    <SingleSeatCell
+                        key={`bottom-single-middle-${i}`}
+                        seat={firstSeat}
+                        selectedSeats={selectedSeats}
+                        onSeatClick={handleSeatClick}
+                    />
+                );
             }
-            // Иначе - НЕ показываем
         }
-    }
 
-    const handleSeatClick = (seatIndex: number, available: boolean) => {
-        if (available && onSeatSelect) {
-            onSeatSelect(seatIndex);
+        // Последний - всегда одиночный
+        if (bottomSeats.length > 1) {
+            cells.push(
+                <SingleSeatCell
+                    key="bottom-single-last"
+                    seat={bottomSeats[bottomSeats.length - 1]}
+                    selectedSeats={selectedSeats}
+                    onSeatClick={handleSeatClick}
+                />
+            );
         }
+
+        return cells;
     };
 
     return (
@@ -86,45 +120,8 @@ export default function CoachFourth({
             message={message}
             coach={coach}
         >
-            {/* Верхний ряд */}
-            <div className="coach__row-top">
-                {topRowCells.map((cell, i) => (
-                    <PairSeatCell
-                        key={i}
-                        topSeat={cell.topSeat}
-                        bottomSeat={cell.bottomSeat}
-                        selectedSeats={selectedSeats}
-                        onSeatClick={handleSeatClick}
-                        className="coach-fourth__cell"
-                    />
-                ))}
-            </div>
-            {/* Нижний ряд */}
-            <div className="coach__row-bottom">
-                {bottomRowCells.map((cell, i) => {
-                    if (cell.type === "single-bottom" && cell.seat) {
-                        return (
-                            <SingleSeatCell
-                                key={i}
-                                seat={cell.seat}
-                                selectedSeats={selectedSeats}
-                                onSeatClick={handleSeatClick}
-                                className="coach-fourth__cell"
-                            />
-                        );
-                    }
-                    return (
-                        <PairSeatCell
-                            key={i}
-                            topSeat={cell.topSeat ?? null}
-                            bottomSeat={cell.bottomSeat ?? null}
-                            selectedSeats={selectedSeats}
-                            onSeatClick={handleSeatClick}
-                            className="coach-fourth__cell"
-                        />
-                    );
-                })}
-            </div>
+            <div className="coach__row-top">{renderTopRow()}</div>
+            <div className="coach__row-bottom">{renderBottomRow()}</div>
         </Coach>
     );
 }

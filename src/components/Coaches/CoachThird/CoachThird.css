@@ -1,5 +1,46 @@
-.coach-third {}
+/* Строки */
+.coach-third .coach__row-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr)) minmax(27px, 1fr);
+}
 
-.coach-third__row {}
+.coach-third .coach__row-bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
+}
 
-.coach-third__cell {}
+/* Ячейки */
+.coach-third .coach__row-top .seat-cell__wrapper .seat-cell__seat--bottom {
+    border-bottom: 4px solid #989898;
+}
+
+.coach-third .coach__row-top .seat-cell--pair:nth-child(even) {
+    justify-self: end;
+    border-right: 4px solid #989898;
+}
+
+.coach-third .coach__row-bottom .seat-cell--pair {
+    border-right: 4px solid #989898;
+}
+
+.coach-third .coach__row-bottom .seat-cell--pair:last-child {
+    border: none;
+}
+
+
+.coach-third .coach__row-top .seat-cell__seat--top {
+    height: 33px;
+}
+
+.coach-third .coach__row-top .seat-cell__seat--bottom {
+    height: 30px;
+}
+
+.coach-third .coach__row-bottom .seat-cell__wrapper {
+    width: 100%;
+}
+
+.coach-third .coach__row-bottom .seat-cell__seat {
+    height: 24px;
+    width: 100%;
+}

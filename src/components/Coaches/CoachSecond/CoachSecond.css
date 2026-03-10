@@ -1,0 +1,62 @@
+.coach-second .coach__row-bottom::before {
+    left: -4px;
+    height: 22px;
+}
+
+.coach-second .coach__row-top {
+    position: relative;
+}
+
+.coach-second .coach__row-top::before {
+    content: "";
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #eeeeee;
+}
+
+/* Строки */
+.coach-second .coach__row-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr)) minmax(27px, 1fr);
+}
+
+.coach-second .coach__row-bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
+}
+
+/* Ячейки */
+.coach-second .coach__row-top .seat-cell__wrapper .seat-cell__seat--bottom {
+    border-bottom: 4px solid #989898;
+}
+
+.coach-second .coach__row-top .seat-cell--pair:nth-child(even) {
+    position: relative;
+    justify-self: end;
+    border-right: 4px solid #989898;
+}
+
+.coach-second .coach__row-top .seat-cell--pair:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    bottom: -46px;
+    right: -4px;
+    width: 4px;
+    height: 24px;
+    background-color: #989898;
+}
+
+.coach-second .coach__row-bottom .seat-cell--pair:last-child {
+    border: none;
+}
+
+.coach-second .coach__row-top .seat-cell__seat--top {
+    height: 33px;
+}
+
+.coach-second .coach__row-top .seat-cell__seat--bottom {
+    height: 30px;
+}

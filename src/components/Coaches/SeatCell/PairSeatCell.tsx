@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { PairSeatCellProps } from "../types";
+import type { PairSeatCellProps } from "../types.ts";
 import "./SeatCell.css";
 
 /**

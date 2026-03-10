@@ -1,9 +1,9 @@
 import Coach from "../Coach/Coach";
 import PairSeatCell from "../SeatCell/PairSeatCell";
-import type { CoachClassProps } from "../types";
+import type { CoachClassProps } from "../types.ts";
 import "./CoachFirst.css";
 /**
- * Компонент вагона класса "Люкс" (СВ)
+ * Компонент вагона класса "Люкс"
  */
 export default function CoachFirst({
     coach,
@@ -11,26 +11,35 @@ export default function CoachFirst({
     selectedSeats = [],
     message,
 }: CoachClassProps) {
-    const totalSeats = coach.seats.length;
+    const seats = coach.seats;
 
-    // Группируем места по парам (нечетное + четное = купе)
-    const coupeCount = Math.ceil(totalSeats / 2);
-
-    // Создаем массив купе
-    const coupes = Array.from({ length: coupeCount }, (_, i) => {
-        const leftSeat = coach.seats.find((s) => s.index === i * 2 + 1);
-        const rightSeat = coach.seats.find((s) => s.index === i * 2 + 2);
-        return {
-            number: i + 1,
-            leftSeat: leftSeat || null,
-            rightSeat: rightSeat || null,
-        };
-    });
-
-    const handleSeatClick = (seatIndex: number, available: boolean) => {
+    const handleSeatClick = (index: number, available: boolean) => {
         if (available && onSeatSelect) {
-            onSeatSelect(seatIndex);
+            onSeatSelect(index);
         }
+    };
+
+    const renderSeatsAsPairs = () => {
+        const cells: React.ReactNode[] = [];
+
+        for (let i = 0; i < seats.length; i += 2) {
+            const firstSeat = seats[i];
+            const secondSeat = seats[i + 1];
+
+            if (firstSeat && secondSeat) {
+                cells.push(
+                    <PairSeatCell
+                        key={`pair-${firstSeat.index}-${secondSeat.index}`}
+                        topSeat={secondSeat}
+                        bottomSeat={firstSeat}
+                        selectedSeats={selectedSeats}
+                        onSeatClick={handleSeatClick}
+                    />
+                );
+            }
+        }
+
+        return cells;
     };
 
     return (
@@ -39,19 +48,9 @@ export default function CoachFirst({
             message={message}
             coach={coach}
         >
-            <div className="coach__row-top">
-                {coupes.map((coupe) => (
-                    <PairSeatCell
-                        key={coupe.number}
-                        topSeat={coupe.leftSeat}
-                        bottomSeat={coupe.rightSeat}
-                        selectedSeats={selectedSeats}
-                        onSeatClick={handleSeatClick}
-                        className="coach-first__coupe"
-                    />
-                ))}
-            </div>
-            <div className="coach__row-bottom" />
+            <div className="coach__row-top">{renderSeatsAsPairs()}</div>
+            <div className="coach__row-bottom"></div>
         </Coach>
     );
 }
+

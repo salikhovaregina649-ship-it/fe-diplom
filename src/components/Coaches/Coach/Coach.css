@@ -1,5 +1,15 @@
 .coach {
-    /* height: 491px; */
+    padding-bottom: 73px;
+    border-bottom: 1px dashed #C4C4C4;
+}
+
+.coach:last-child {
+    padding-bottom: 25px;
+    border-bottom: none;
+}
+
+.coach:not(.coach:first-child) {
+    padding-top: 33px;
 }
 
 /* Info */
@@ -12,7 +22,6 @@
     flex-direction: column;
     width: 190px;
     height: 161px;
-    margin-right: 85px;
     padding-top: 30px;
     padding-left: 37px;
     font-size: 72px;
@@ -34,7 +43,11 @@
     flex-direction: column;
     gap: 21px;
     margin-top: 33px;
-    margin-right: ;
+    margin-left: 113px;
+}
+
+.coach__seat-box {
+    margin-left: 85px;
 }
 
 .coach__title {
@@ -63,44 +76,74 @@
 }
 
 /* Info Price */
-.coach__price-box {
-    
+
+.coach__price-top,
+.coach__price-bottom {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
 }
 
-.coach__price-top {}
+.coach__price-box .icon {
+    width: 14px;
+    height: 17px;
+    color: #928F94;
+}
 
-.coach__price-bottom {}
+.coach__options-box .coach__title span {
+    margin-left: 8px;
+    color: #C4C4C4;
+    text-transform: uppercase;
+}
 
-.coach__options-box {}
-
-.coach__options {}
+.coach__options {
+    display: flex;
+    gap: 13px;
+}
 
 /* Message */
-.coach__message-box {}
+.coach__message-box {
+    width: 199px;
+    margin-right: 42px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    padding: 16px;
+}
 
-.coach__message {}
+.coach__message {
+    font-size: 16px;
+    font-weight: 400;
+    color: #292929;
+}
 
 /* Sheme */
 .coach__scheme {
     position: relative;
     width: 921px;
-    height: 145px;
+    height: 122px;
+    margin-left: 20px;
 }
 
 .coach__number {
     position: absolute;
-    top: 0;
+    top: -18px;
     left: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 35px;
     height: 25px;
     font-size: 14px;
     color: #FFFFFF;
     background-color: #333333;
+    z-index: 5;
 }
 
 .coach__center{
     position: absolute;
-    top: 3px;
+    top: 4px;
     left: 0;
     display: flex;
     width: 921px;
@@ -135,11 +178,11 @@
 .coach__row-top {
     display: flex;
     justify-content: space-between;
-    height: 68px;
+    height: 67px;
 
-    border-top: 5px solid #989898;
-    border-right: 5px solid #989898;
-    border-left: 5px solid #989898;
+    border-top: 4px solid #989898;
+    border-right: 4px solid #989898;
+    border-left: 4px solid #989898;
 }
 
 .coach__row-bottom {
@@ -147,12 +190,12 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    height: 50px;
+    height: 51px;
     margin-bottom: 2px;
 
-    border-bottom: 5px solid #989898;
-    border-right: 5px solid #989898;
-    border-left: 5px solid #989898;
+    border-bottom: 4px solid #989898;
+    border-right: 4px solid #989898;
+    border-left: 4px solid #989898;
 }
 
 .coach__row-bottom::after,
@@ -160,13 +203,13 @@
     content: "";
     position: absolute;
     top: 0;
-    right: -5px;
-    width: 5px;
-    height: 28px;
+    right: -4px;
+    width: 4px;
+    height: 22px;
     background-color: #FFFFFF;
 }
 
 .coach__row-bottom::before {
-    left: -5px;
-    height: 44.6px;
+    left: -4px;
+    height: 46px;
 }

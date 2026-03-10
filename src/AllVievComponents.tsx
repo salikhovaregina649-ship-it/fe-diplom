@@ -3,8 +3,8 @@ import Button from "./components/uikit/Button/Button";
 import YoutubeIcon from "./assets/icons/social/YoutubeIcon";
 import Title from "./components/uikit/Title/Title";
 import Checkbox from "./components/uikit/Checkbox/Checkbox";
-import Popover from "./components/uikit/Popover/Popover";
-import Popup from "./components/uikit/Popup/Popup";
+import Popover from "./components/uikit/Popover/Popover";;
+import PopupInfo from "./components/Popups/PopupInfo";
 
 export default function AllVievComponents() {
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -53,37 +53,7 @@ export default function AllVievComponents() {
                     Это содержимое popover
                 </Popover>
 
-                {isPopupOpen && (
-                    <>
-                        <Popup
-                            variant="error"
-                            onClose={handleClosePopup}
-                            title="Таким образом консультация с широким активом в
-                                значительной степени обуславливает создание
-                                модели развития."
-                        >
-                            <p>
-                                Повседневная практика показывает, что
-                                сложившаяся структура организации играет важную
-                                роль в формировании существенных финансовых и
-                                административных
-                            </p>
-                        </Popup>
-                        {/* <Popup variant="info" onClose={handleClosePopup}>
-                            <p>
-                                Таким образом консультация с широким активом в
-                                значительной степени обуславливает создание
-                                модели развития.
-                            </p>
-                            <p>
-                                Повседневная практика показывает, что
-                                сложившаяся структура организации играет важную
-                                роль в формировании существенных финансовых и
-                                административных
-                            </p>
-                        </Popup> */}
-                    </>
-                )}
+                {isPopupOpen && <PopupInfo handleClose={handleClosePopup} />}
             </div>
         </>
     );

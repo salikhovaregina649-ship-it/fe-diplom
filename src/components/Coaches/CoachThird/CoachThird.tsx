@@ -1,10 +1,10 @@
 import Coach from "../Coach/Coach";
 import PairSeatCell from "../SeatCell/PairSeatCell";
-import type { CoachClassProps } from "../types";
+import SingleSeatCell from "../SeatCell/SingleSeatCell.tsx";
+import type { CoachClassProps } from "../types.ts";
 import "./CoachThird.css";
 /**
  * Компонент вагона класса Плацкарт
- * 4 ряда мест (2 сверху, 2 снизу), сгруппированных в ячейки по 2 места
  */
 export default function CoachThird({
     coach,
@@ -12,40 +12,57 @@ export default function CoachThird({
     selectedSeats = [],
     message,
 }: CoachClassProps) {
-    const totalSeats = coach.seats.length;
+    const seats = coach.seats;
+    const totalSeats = seats.length;
 
-    // Делим места на 4 ряда
-    const quarterSize = Math.ceil(totalSeats / 4);
-
-    // Создаем ячейки для каждого ряда
-    const createRowCells = (startIndex: number, count: number) => {
-        const cells = [];
-        for (let i = 0; i < count; i++) {
-            const topSeat = coach.seats.find(
-                (s) => s.index === startIndex + i * 2 + 1,
-            );
-            const bottomSeat = coach.seats.find(
-                (s) => s.index === startIndex + i * 2 + 2,
-            );
-            cells.push({
-                number: `${startIndex}-${i}`,
-                topSeat: topSeat || null,
-                bottomSeat: bottomSeat || null,
-            });
+    const handleSeatClick = (index: number, available: boolean) => {
+        if (available && onSeatSelect) {
+            onSeatSelect(index);
         }
-        return cells;
     };
 
-    // 4 ряда ячеек
-    const row1 = createRowCells(0, Math.ceil(quarterSize / 2));
-    const row2 = createRowCells(quarterSize, Math.ceil(quarterSize / 2));
-    const row3 = createRowCells(quarterSize * 2, Math.ceil(quarterSize / 2));
-    const row4 = createRowCells(quarterSize * 3, Math.ceil(quarterSize / 2));
+    // Верхний ряд: 2/3 мест (обязательно чётное количество, округляем вверх)
+    const topRowCount = Math.floor((totalSeats * 2) / 3);
+    const topRowSeatsEven = topRowCount % 2 === 0 ? topRowCount : topRowCount + 1;
 
-    const handleSeatClick = (seatIndex: number, available: boolean) => {
-        if (available && onSeatSelect) {
-            onSeatSelect(seatIndex);
+    // Места для верхнего ряда
+    const topSeats = seats.slice(0, topRowSeatsEven);
+
+    // Места для нижнего ряда
+    const bottomSeats = seats.slice(topRowSeatsEven);
+
+    // Нечетный индекс = нижнее место, четный = верхнее место
+    const renderSeatsAsPairs = (seatsList: typeof seats) => {
+        const cells: React.ReactNode[] = [];
+
+        for (let i = 0; i < seatsList.length; i += 2) {
+            const firstSeat = seatsList[i];
+            const secondSeat = seatsList[i + 1];
+
+            if (firstSeat && secondSeat) {
+                cells.push(
+                    <PairSeatCell
+                        key={`pair-${firstSeat.index}-${secondSeat.index}`}
+                        topSeat={secondSeat}
+                        bottomSeat={firstSeat}
+                        selectedSeats={selectedSeats}
+                        onSeatClick={handleSeatClick}
+                    />
+                );
+            } else if (firstSeat) {
+                // Осталось одно место
+                cells.push(
+                    <SingleSeatCell
+                        key={`single-${firstSeat.index}`}
+                        seat={firstSeat}
+                        selectedSeats={selectedSeats}
+                        onSeatClick={handleSeatClick}
+                    />
+                );
+            }
         }
+
+        return cells;
     };
 
     return (
@@ -54,61 +71,8 @@ export default function CoachThird({
             message={message}
             coach={coach}
         >
-            {/* Верхние ряды */}
-            <div className="coach__row-top">
-                <div className="coach-third__row">
-                    {row1.map((cell) => (
-                        <PairSeatCell
-                            key={cell.number}
-                            topSeat={cell.topSeat}
-                            bottomSeat={cell.bottomSeat}
-                            selectedSeats={selectedSeats}
-                            onSeatClick={handleSeatClick}
-                            className="coach-third__cell"
-                        />
-                    ))}
-                </div>
-                <div className="coach-third__row">
-                    {row2.map((cell) => (
-                        <PairSeatCell
-                            key={cell.number}
-                            topSeat={cell.topSeat}
-                            bottomSeat={cell.bottomSeat}
-                            selectedSeats={selectedSeats}
-                            onSeatClick={handleSeatClick}
-                            className="coach-third__cell"
-                        />
-                    ))}
-                </div>
-            </div>
-
-            {/* Нижние ряды */}
-            <div className="coach__row-bottom">
-                <div className="coach-third__row">
-                    {row3.map((cell) => (
-                        <PairSeatCell
-                            key={cell.number}
-                            topSeat={cell.topSeat}
-                            bottomSeat={cell.bottomSeat}
-                            selectedSeats={selectedSeats}
-                            onSeatClick={handleSeatClick}
-                            className="coach-third__cell"
-                        />
-                    ))}
-                </div>
-                <div className="coach-third__row">
-                    {row4.map((cell) => (
-                        <PairSeatCell
-                            key={cell.number}
-                            topSeat={cell.topSeat}
-                            bottomSeat={cell.bottomSeat}
-                            selectedSeats={selectedSeats}
-                            onSeatClick={handleSeatClick}
-                            className="coach-third__cell"
-                        />
-                    ))}
-                </div>
-            </div>
+            <div className="coach__row-top">{renderSeatsAsPairs(topSeats)}</div>
+            <div className="coach__row-bottom">{renderSeatsAsPairs(bottomSeats)}</div>
         </Coach>
     );
 }

@@ -25,7 +25,7 @@ export default function Checkbox({className, name, value, checked, onChange, lab
             />
             {checkMark && <span className="checkbox__check-mark" />}
             {switched && <span className="checkbox__switch" />}
-            {children && <span>{children}</span>}
+            {children && <>{children}</>}
         </label>
     )
 }
