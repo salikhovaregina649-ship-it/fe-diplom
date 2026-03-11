@@ -6,8 +6,8 @@ import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import clsx from "clsx";
-import ValidIcon from "../../assets/icons/small/ValidIcon";
-import ErrorIcon from "../../assets/icons/small/ErrorIcon";
+// import ValidIcon from "../../assets/icons/small/ValidIcon";
+// import ErrorIcon from "../../assets/icons/small/ErrorIcon";
 
 //Моки
 const optionsTicketType = [
@@ -192,14 +192,14 @@ export default function FormPassenger() {
                             Пример: 1004 100006.
                         </p>
                     </div> */}
-                    <div className="form-passenger__message-box">
+                    {/* <div className="form-passenger__message-box">
                         <ErrorIcon />
                         <p className="form-passenger__birth-certificate-error-message">
                             Номер свидетельства о рождении указан некорректно.
                             <br />
                             Пример: VIII-ЫП-123456.
                         </p>
-                    </div>
+                    </div> */}
                     {/* <div className="form-passenger__message-box">
                         <ValidIcon />
                         <p className="form-passenger__valid">Готово</p>

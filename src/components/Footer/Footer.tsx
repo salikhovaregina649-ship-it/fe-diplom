@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import FormSubscription from "../FormSubscription/FormSubscription";
 import Title from "../uikit/Title/Title.tsx";
 import "./Footer.css";
@@ -18,6 +19,12 @@ import Logo from "../../assets/icons/Logo.tsx";
 import arrowTop from "../../assets/icons/small/btn__arrow-top.svg";
 
 export default function Footer() {
+    const handleBackToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
 
     return (
         <footer className="footer">
@@ -92,8 +99,10 @@ export default function Footer() {
             </div>
             <div className="footer__bottom">
                 <div className="footer__row container">
-                    <Logo />
-                    <button className="footer__back-to-top" type="button">
+                    <NavLink to="/" className="footer__logo">
+                        <Logo />
+                    </NavLink>
+                    <button className="footer__back-to-top" type="button" onClick={handleBackToTop}>
                         <img className="footer__arrow-top" src={arrowTop} alt="Вверх"/>
                     </button>
                     <span className="footer__year">2018 WEB</span>

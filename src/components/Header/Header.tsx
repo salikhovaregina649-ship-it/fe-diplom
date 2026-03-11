@@ -1,8 +1,10 @@
 import "./Header.css"
 import Logo from "../../assets/icons/Logo.tsx";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
+import { AnchorLink } from "../../AnchorLink.tsx";
 
 export default function Header () {
+    const location = useLocation();
 
     return (
         <header className="header">
@@ -15,16 +17,16 @@ export default function Header () {
                 <div className="container">
                     <ul className="header__list">
                         <li className="header__item">
-                            <NavLink to="/#about" className="header__nav-link">О нас</NavLink> {/**сначала на главную страницу, потом к якорю */}
+                            <AnchorLink to="/" anchor="about" className="header__nav-link">О нас</AnchorLink>
                         </li>
                         <li className="header__item">
-                            <NavLink to="/#how" className="header__nav-link">Как это работает</NavLink>
+                            <AnchorLink to="/" anchor="how" className="header__nav-link">Как это работает</AnchorLink>
                         </li>
                         <li className="header__item">
-                            <NavLink to="/#reviews" className="header__nav-link">Отзывы</NavLink>
+                            <AnchorLink  to="/" anchor="reviews" className="header__nav-link">Отзывы</AnchorLink>
                         </li>
                         <li className="header__item">
-                            <NavLink to="/#contacts" className="header__nav-link">Контакты</NavLink> {/**футер есть везде, поэтом удолжен быть просто сколл к нему */}
+                            <AnchorLink to={location.pathname} anchor="contacts" className="header__nav-link">Контакты</AnchorLink>
                         </li>
                     </ul>
                 </div>
