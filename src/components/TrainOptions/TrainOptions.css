@@ -19,7 +19,7 @@
     background-color: transparent;
     border: none;
     text-align: center;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 .train__class-ticket-price {
@@ -36,4 +36,35 @@
 .train__class-ticket-price .icon {
     width: 16px;
     height: 19px;
+}
+
+.train__class-ticket-count-popover{
+    width: 276px;
+    margin-left: 12px;
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-left: 32px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 #00000040;
+}
+
+.train__class-ticket-count-popover div {
+    display: grid;
+    grid-template-columns: 70px 60px 1fr;
+    align-items: baseline;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.train__class-ticket-count-popover div:last-child {
+    margin-bottom: 0;
+}
+
+.train__class-ticket-count-popover .icon {
+    margin-left: 5px;
+}
+
+.train__class-ticket-count-popover .train__class-ticket-price {
+    margin-left: 12px;
 }

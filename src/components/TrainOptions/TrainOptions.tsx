@@ -1,5 +1,5 @@
-// import { useRef, useState } from "react";
-// import Popover from "../components/uikit/Popover/Popover";
+import { useRef } from "react";
+import Popover from "../uikit/Popover/Popover";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
 import "./TrainOptions.css";
 
@@ -17,50 +17,42 @@ interface TrainOptionsProps {
 }
 
 export default function TrainOptions({coachClass, seatsCount, priceInfo}: TrainOptionsProps) {
-    // const elementWithPopoverRef = useRef<HTMLButtonElement>(null);
-    // const [activePopover, setActivePopover] = useState<null | number>(null);
+    const ref = useRef<HTMLDivElement>(null);
+
     return (
         <>
-            {/**.map c классами*/}
             <div className="train__class">
                 <p className="train__class-name">
                     {coachClass}
                 </p>
-                <p className="train__class-ticket-count">
+                <p className="train__class-ticket-count" ref={ref}>
                     {seatsCount}
                 </p>
-
-                {/** Вопрос!! В ответе нет информации о верхних и нижних местах */}
-                {/*<button
-                    className="train__class-ticket-count"
-                    type="button"
-                    ref={elementWithPopoverRef}
-                    onClick={() =>
-                        setActivePopover(activePopover === 1 ? null : 1)
-                    }
-                >
-                    88
-                </button>
-                <Popover 
-                    className="train__class-ticket-count-popover"
-                    elementWithPopoverRef={elementWithPopoverRef}
-                    isOpen={activePopover === 1}
-                >
-                    <div>
-                        <p>верхние</p>
-                        <p>44</p>
-                        <div className="train__class-ticket-price">
-                            <span>1920</span> <RubleIcon />
+                {coachClass !== "Люкс" && coachClass !== "Сидячий" &&
+                    <Popover 
+                        className="train__class-ticket-count-popover"
+                        anchorRef={ref}
+                        trigger="hover"
+                    >
+                        <div>
+                            <p>верхние</p>
+                            {/*Вопрос!! Где взять кол-во свободных мест верхних и нижних, эти данных нет в ответе routes */}
+                            <p className="train__class-ticket-count">44</p>
+                            <p className="train__class-ticket-price">
+                                <span>{priceInfo?.top_price}</span>
+                                <RubleIcon />
+                            </p>
                         </div>
-                    </div>
-                    <div>
-                        <p>нижние</p>
-                        <p>44</p>
-                        <div className="train__class-ticket-price">
-                            <span>2920</span> <RubleIcon />
+                        <div>
+                            <p>нижние</p>
+                            <p className="train__class-ticket-count">44</p>
+                            <p className="train__class-ticket-price">
+                                <span>{priceInfo?.bottom_price}</span>
+                                <RubleIcon />
+                            </p>
                         </div>
-                    </div>
-                </Popover> */}
+                    </Popover>
+                }
                 <div className="train__class-ticket-price">
                     от <span>
                         {Math.min(
