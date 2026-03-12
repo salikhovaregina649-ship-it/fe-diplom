@@ -54,6 +54,11 @@
     padding-right: 50px;
     padding-left: 21px;
     font-size: 18px;
+    border-radius: 3px;
+}
+
+.form-search__input::placeholder {
+    color: #C4C4C4;
 }
 
 .form-search__swap-btn {

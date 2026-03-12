@@ -1,6 +1,5 @@
 import "./OrderSuccessPage.css";
 import { Link } from "react-router";
-import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
 import Title from "../../components/uikit/Title/Title";
 import Button from "../../components/uikit/Button/Button";
@@ -93,7 +92,7 @@ export default function OrderSuccess() {
                         <Button
                             className="order-success__btn"
                             type="button"
-                            variant="yellow"
+                            variant="transparent"
                             uppercase={true}
                         >
                             <Link to="/" className="order-success__link">
@@ -103,7 +102,6 @@ export default function OrderSuccess() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

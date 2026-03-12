@@ -1,36 +1,37 @@
+import { useNavigate } from "react-router";
 import OptionsIcons from "../../assets/icons/small/OptionsIcons";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
+import type Train from "../../types/typeTrain";
 import "./LastTicket.css";
 
 interface LastTicketProps {
-    ticket: {
-        cityForth: string;
-        cityBack: string;
-        stationForth: string;
-        stationBack: string;
-        minPrice: string;
-    };
+    ticket: Train;
 }
 
 export default function LastTicket({ticket}: LastTicketProps) {
-    const {cityForth, cityBack, stationForth, stationBack, minPrice} = ticket;
+    const id = ticket.departure._id;
+    const navigate = useNavigate();
+
+    const handle = () => {
+        navigate(`seats/${id}`);
+    }
 
     return(
-        <div className="last-ticket">
+        <div className="last-ticket" onClick={handle}>
             <div className="last-ticket__city">
-                <span>{cityForth}</span>
-                <span>{cityBack}</span>
+                <span>{ticket.departure.from.city.name}</span>
+                <span>{ticket.departure.to.city.name}</span>
             </div>  
             <div className="last-ticket__station">
-                <span>{stationForth}</span>
-                <span>{stationBack}</span>
+                <span>{ticket.departure.from.railway_station_name}</span>
+                <span>{ticket.departure.to.railway_station_name}</span>
             </div>
             <div className="last-ticket__grid-box">
                 <div className="last-ticket__icons">
                     <OptionsIcons />
                 </div>
                 <div className="last-ticket__price">
-                    от <span>{minPrice}</span> <RubleIcon />
+                    от <span>{ticket.min_price}</span> <RubleIcon />
                 </div>
             </div>     
         </div>

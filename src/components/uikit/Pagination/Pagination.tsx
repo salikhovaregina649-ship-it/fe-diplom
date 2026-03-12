@@ -21,7 +21,7 @@ export default function Pagination({
 
     useEffect(() => {
         window.scrollTo({
-            top: 150,
+            top: 596,
             behavior: "smooth",
         });
     }, [currentPage]);

@@ -123,13 +123,13 @@ export default function Filter () {
                 <Collapse className="filter__collapse" isOpen={openForth}>
                     <div className="filter__collapse-box">
                         <div className="filter__slider-label filter__slider-label--direction">
-                            <span>Время прибытия</span>
+                            <span>Время отбытия</span>
                         </div>
                         <TimeRangeSlider />
                     </div>
                     <div className="filter__collapse-box">   
                         <div className="filter__slider-label filter__slider-label--direction">
-                            <span>Время отбытия</span>
+                            <span>Время прибытия</span>
                         </div>
                         <TimeRangeSlider />
                     </div>
@@ -146,13 +146,13 @@ export default function Filter () {
                 <Collapse className="filter__collapse" isOpen={openBack}>
                     <div className="filter__collapse-box">
                         <div className="filter__slider-label filter__slider-label--direction">
-                            <span>Время прибытия</span>
+                            <span>Время отбытия</span>
                         </div>
                         <TimeRangeSlider />
                     </div>
                     <div className="filter__collapse-box">   
                         <div className="filter__slider-label filter__slider-label--direction">
-                            <span>Время отбытия</span>
+                            <span>Время прибытия</span>
                         </div>
                         <TimeRangeSlider />
                     </div> 

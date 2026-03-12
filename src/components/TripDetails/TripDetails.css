@@ -21,7 +21,7 @@
 .trip-details__box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     padding-right: 27px;
     padding-bottom: 16px;
     padding-left: 28px;
@@ -32,9 +32,14 @@
     padding-bottom: 50px;
 }
 
+.trip-details__passenger .trip-details__box.is-open,
+.trip-details__direction--back .trip-details__box.is-open {
+    padding-bottom: 32px;
+}
+
 .trip-details__row-wrapper {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .trip-details__direction h3.title.trip-details__title {
@@ -98,7 +103,11 @@
 /* TravelInfo */
 .trip-details__collapse-travel-info {
     position: relative;
-    gap: 0;
+    gap: 20px;
+}
+
+.travel-info.trip-details__collapse-travel-info {
+    grid-template-columns: 1fr 1fr;
 }
 
 .trip-details__collapse-travel-info .travel-info__time-way {
@@ -108,6 +117,9 @@
     transform: translateX(-50%);
 }
 .trip-details__collapse-travel-info .travel-info__way {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     padding-top: 25px;
 }
 
@@ -115,10 +127,8 @@
     display: block;
 }
 
-.trip-details__collapse-travel-info .travel-info__way {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+.trip-details__collapse-travel-info .travel-info__date {
+    color: #928F94;
 }
 
 .trip-details__collapse-travel-info .travel-info__way:last-child .travel-info__city,

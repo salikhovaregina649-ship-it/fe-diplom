@@ -1,7 +1,7 @@
 .travel-info {
     display: grid;
     grid-template-columns: 1fr 45%;
-    gap: 20px;
+    gap: 30px;
 }
 
 .travel-info:first-child {
@@ -58,7 +58,7 @@
 }
 
 .travel-info__time-way .icon {
-    color: rgba(255, 168, 0, 0.79);
+    color: #FFA800C9;
 }
 
 .travel-info--back .travel-info__time-way .icon  {

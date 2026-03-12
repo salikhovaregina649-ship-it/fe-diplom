@@ -70,21 +70,34 @@ export default function Coach({
                     >
                         Места <span>{coach.coach.available_seats}</span>
                     </p>
-                    <p className="coach__available-seats-top">
-                        Верхние <span>{topSeats}</span>
-                    </p>
-                    <p className="coach__available-seats-bottom">
-                        Нижние <span>{bottomSeats}</span>
-                    </p>
+                    {coach.coach.class_type !== "first" &&
+                    coach.coach.class_type !== "fourth" && (
+                        <>
+                            <p className="coach__available-seats-top">
+                            Верхние <span>{topSeats}</span>
+                            </p>
+                            <p className="coach__available-seats-bottom">
+                            Нижние <span>{bottomSeats}</span>
+                            </p>
+                        </>
+                    )}
                 </div>
                 <div className="coach__price-box">
                     <p className="coach__title">Стоимость</p>
-                    <p className="coach__price-top">
-                        {coach.coach.top_price} <RubleIcon />
-                    </p>
-                    <p className="coach__price-bottom">
-                        {coach.coach.bottom_price} <RubleIcon />
-                    </p>
+                    {coach.coach.class_type === "first" || coach.coach.class_type === "fourth" ? (
+                        <p className="coach__price">
+                            {coach.coach.price} <RubleIcon />
+                        </p>
+                    ) : (
+                        <>
+                            <p className="coach__price-top">
+                            {coach.coach.top_price} <RubleIcon />
+                            </p>
+                            <p className="coach__price-bottom">
+                            {coach.coach.bottom_price} <RubleIcon />
+                            </p>
+                        </>
+                    )}
                 </div>
                 <div className="coach__options-box">
                     <p className="coach__title">
@@ -104,12 +117,14 @@ export default function Coach({
                             checked={options.wifi}
                             onChange={() => toggleOption("wifi")}
                         />
-                        <CoachOption
-                            icon={<LinenIcon />}
-                            label="белье"
-                            checked={options.linen}
-                            onChange={() => toggleOption("linen")}
-                        />
+                        {coach.coach.class_type !== "fourth" &&
+                            <CoachOption
+                                icon={<LinenIcon />}
+                                label="белье"
+                                checked={options.linen}
+                                onChange={() => toggleOption("linen")}
+                            />
+                        }
                         <CoachOption
                             icon={<FoodIcon />}
                             label="питание"

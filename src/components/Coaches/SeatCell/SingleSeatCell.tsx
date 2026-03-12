@@ -4,7 +4,6 @@ import "./SeatCell.css";
 
 /**
  * Компонент одиночного места (прижато к низу ячейки)
- * Используется для сидячего вагона (CoachFourth)
  */
 
 export default function SingleSeatCell({

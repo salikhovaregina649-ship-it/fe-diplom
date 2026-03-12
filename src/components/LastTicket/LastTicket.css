@@ -5,6 +5,8 @@
     background-color: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-shadow: 0 2px 2px 0 rgba(62, 60, 65, 0.25);
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
 .last-ticket:last-child {
@@ -33,7 +35,7 @@
 }
 
 .last-ticket__icons {
-    color: #928F94;
+    color: #C4C4C4;
 }
 
 .last-ticket__price {
@@ -43,6 +45,7 @@
 }
 
 .last-ticket__price span {
+    margin-left: 5px;
     font-size: 36px;
     font-weight: 700;
     color: #FFA800;

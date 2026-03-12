@@ -20,7 +20,7 @@
 /* Строки */
 .coach-first .coach__row-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr)) minmax(27px, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
 }
 
 .coach-first .coach__row-bottom {
@@ -29,17 +29,23 @@
 }
 
 /* Ячейки */
-.coach-first .coach__row-top .seat-cell__wrapper .seat-cell__seat--bottom {
+.coach-first .coach__row-top .seat-cell__wrapper .seat-cell__seat {
+    height: 63px;
     border-bottom: 4px solid #989898;
 }
 
-.coach-first .coach__row-top .seat-cell--pair:nth-child(even) {
+
+.coach-first .coach__row-top .seat-cell:nth-child(even) {
     position: relative;
     justify-self: end;
     border-right: 4px solid #989898;
 }
 
-.coach-first .coach__row-top .seat-cell--pair:nth-child(even)::before {
+.coach-first .coach__row-top .seat-cell:nth-child(even):last-child {
+    border-right: none;
+}
+
+.coach-first .coach__row-top .seat-cell:nth-child(even)::before {
     content: "";
     position: absolute;
     bottom: -46px;
@@ -47,16 +53,4 @@
     width: 4px;
     height: 24px;
     background-color: #989898;
-}
-
-.coach-first .coach__row-bottom .seat-cell--pair:last-child {
-    border: none;
-}
-
-.coach-first .coach__row-top .seat-cell__seat--top {
-    height: 33px;
-}
-
-.coach-first .coach__row-top .seat-cell__seat--bottom {
-    height: 30px;
 }

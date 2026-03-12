@@ -11,7 +11,7 @@
 }
 
 .form-passenger__select {
-    max-width: 280px;
+    max-width: 444px;
     height: 50px;
     margin-bottom: 45px;
     font-size: 24px;
@@ -76,8 +76,7 @@
     flex-direction: column;
 }
 
-.form-passenger__label span {
-    display: inline-block;
+.form-passenger__title {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 400;
@@ -107,7 +106,7 @@
     border-bottom: 1px dashed #928F94;
 }
 
-.form-passenger__radio-box {
+.form-passenger__radio {
     display: flex;
 }
 
@@ -118,7 +117,6 @@
     font-size: 30px;
     font-weight: 900;
     cursor: pointer;
-
 }
 
 .form-passenger__gender .radio__label {
@@ -180,6 +178,10 @@
     order: 2;
 }
 
+.form-passenger__mobility:has(.checkbox__input:checked) .checkbox__label {
+    color: #FFA800;
+}
+
 /* Document */
 .form-passenger__personal-box--document {
     display: flex;
@@ -189,14 +191,6 @@
     display: flex;
     flex-direction: column;
     margin-right: 35px;
-}
-
-.form-passenger__personal-document-label {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #928F94;
 }
 
 .form-passenger__select.form-passenger__select--document-type {
@@ -237,6 +231,10 @@
 
 .form-passenger__personal-document--birth-certificate .form-passenger__input {
     min-width: 207px;
+}
+
+.form-passenger__personal-document--birth-certificate .form-passenger__input::placeholder {
+    font-size: 16px;
 }
 
 .form-passenger__btn-box {

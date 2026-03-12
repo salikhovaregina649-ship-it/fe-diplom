@@ -12,6 +12,12 @@
     padding-left: 19px;
 }
 
+.ticket-seats-box--arrival .ticket-seats-box__choose-another {
+    justify-content: end;  
+    padding-left: 0;
+    padding-right: 24px;
+}
+
 .ticket-seats-box__icon-box {
     display: flex;
     align-items: center;
@@ -27,6 +33,7 @@
     width: 30px;
     height: 20px;
     color: #FFFFFF;
+    transform: rotate(180deg);
 }
 
 .ticket-seats-box__btn {
@@ -40,14 +47,13 @@
     grid-template-columns: 240px 480px 237px;
     height: 123px;
     margin-bottom: 40px;
-    padding-left: 35px;
-    padding-right: 35px;
     background-color: #F7F6F6;
 }
 
 .ticket-seats-box__train-info {
     display: flex;
     align-items: center;
+    padding-left: 35px;
     border-right: 1px solid #FFFFFF;
 }
 
@@ -59,8 +65,6 @@
     width: 30px;
     height: 30px;
 }
-
-.ticket-seats-box__train-info-box {}
 
 .ticket-seats-box__number {
     margin-bottom: 5px;
@@ -88,6 +92,14 @@
     padding-left: 36px;
     padding-right: 36px;
     border-right: 1px solid #FFFFFF;
+}
+
+.ticket-seats-box .travel-info__time-way-time {
+    opacity: 0;
+}
+
+.ticket-seats-box__travel-info .travel-info__way-box .icon {
+    transform: rotate(180deg);
 }
 
 /* Time */
@@ -156,6 +168,7 @@ h3.title.ticket-seats-box__tickets-number-title {
     color: #292929;
     border: 1px solid #928F94;
     background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .form-ticket-category__input {
@@ -193,18 +206,10 @@ h3.title.ticket-seats-box__tickets-number-title {
     padding-left: 19px;
 }
 
-.ticket-seats-box__class-box {}
-
 .ticket-seats-box__class-list {
     display: flex;
-
-    /* display: grid;
-    grid-template-columns: repeat(4, 120px);
-    gap: 120px; */
     padding-left: 35px;
     margin-bottom: 25px;
-
-    
 }
 
 .ticket-seats-box__class-item {

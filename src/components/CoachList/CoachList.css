@@ -38,15 +38,24 @@
     color: #292929;
 }
 
+.coach-list__coach-wrapper {
+    position: relative;
+}
+
 .coach__checked-total-price {
+    position: absolute;
+    bottom: 19px;
+    right: 32px;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    margin-right: 32px;
-    padding-bottom: 19px;
     font-size: 24px;
     font-weight: 700;
     color: #FFA800;
+    opacity: 0;
+}
+
+.coach-list:has(.checkbox__input:checked) .coach__checked-total-price {
+    opacity: 1;
 }
 
 .coach__checked-total-price .icon {

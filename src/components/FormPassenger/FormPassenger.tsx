@@ -44,7 +44,7 @@ export default function FormPassenger() {
                 />
                 <div className="form-passenger__personal-data">
                     <label className="form-passenger__label">
-                        <span>Фамилия</span>
+                        <p className="form-passenger__title">Фамилия</p>
                         <input
                             className="form-passenger__input"
                             type="text"
@@ -53,7 +53,7 @@ export default function FormPassenger() {
                         />
                     </label>
                     <label className="form-passenger__label">
-                        <span>Имя</span>
+                        <p className="form-passenger__title">Имя</p>
                         <input
                             className="form-passenger__input"
                             type="text"
@@ -62,7 +62,7 @@ export default function FormPassenger() {
                         />
                     </label>
                     <label className="form-passenger__label">
-                        <span>Отчество</span>
+                        <p className="form-passenger__title">Отчество</p>
                         <input
                             className="form-passenger__input"
                             type="text"
@@ -73,33 +73,39 @@ export default function FormPassenger() {
                 </div>
                 <div className="form-passenger__personal-data">
                     <div className="form-passenger__radio-box">
-                        <Radio
-                            className="form-passenger__gender"
-                            name={`gender-${formId}`}
-                            id={`male-${formId}`}
-                            value="male"
-                            checked={selectedGender === "male"}
-                            onChange={setSelectedGender}
-                            label="М"
-                        />
-                        <Radio
-                            className="form-passenger__gender"
-                            name={`gender-${formId}`}
-                            id={`female-${formId}`}
-                            value="female"
-                            checked={selectedGender === "female"}
-                            onChange={setSelectedGender}
-                            label="Ж"
+                        <p className="form-passenger__title">Пол</p>
+                        <div className="form-passenger__radio">
+                            <Radio
+                                className="form-passenger__gender"
+                                name={`gender-${formId}`}
+                                id={`male-${formId}`}
+                                value="male"
+                                checked={selectedGender === "male"}
+                                onChange={setSelectedGender}
+                                label="М"
+                            />
+                            <Radio
+                                className="form-passenger__gender"
+                                name={`gender-${formId}`}
+                                id={`female-${formId}`}
+                                value="female"
+                                checked={selectedGender === "female"}
+                                onChange={setSelectedGender}
+                                label="Ж"
+                            />
+                        </div>
+                    </div>
+                    <div className="form-passenger__date-box">
+                        <p className="form-passenger__title">Дата рождения</p>
+                        <CustomDatepicker
+                            value={dateBirth}
+                            onChange={setDateBirth}
+                            placeholder="ДД/ММ/ГГ"
+                            name="birth-date"
+                            icon={false}
+                            modifier="form"
                         />
                     </div>
-                    <CustomDatepicker
-                        value={dateBirth}
-                        onChange={setDateBirth}
-                        placeholder="ДД/ММ/ГГ"
-                        name="birth-date"
-                        icon={false}
-                        modifier="form"
-                    />
                 </div>
                 <div className="form-passenger__personal-data">
                     <Checkbox
@@ -120,9 +126,9 @@ export default function FormPassenger() {
                 )}
             >
                 <div className="form-passenger__personal-select-box">
-                    <span className="form-passenger__personal-document-label">
+                    <p className="form-passenger__title">
                         Тип документа
-                    </span>
+                    </p>
                     <CustomSelect
                         className={clsx(
                             "form-passenger__select",
@@ -143,7 +149,7 @@ export default function FormPassenger() {
                         )}
                     >
                         <label className="form-passenger__label">
-                            <span>Серия</span>
+                            <p className="form-passenger__title">Серия</p>
                             <input
                                 className="form-passenger__input"
                                 type="text"
@@ -152,7 +158,7 @@ export default function FormPassenger() {
                             />
                         </label>
                         <label className="form-passenger__label">
-                            <span>Номер</span>
+                            <p className="form-passenger__title">Номер</p>
                             <input
                                 className="form-passenger__input"
                                 type="text"
@@ -171,7 +177,7 @@ export default function FormPassenger() {
                         )}
                     >
                         <label className="form-passenger__label">
-                            <span>Номер</span>
+                            <p className="form-passenger__title">Номер</p>
                             <input
                                 className="form-passenger__input"
                                 type="text"
@@ -184,27 +190,27 @@ export default function FormPassenger() {
                 )}
             </div>
             <div className="form-passenger__btn-box">
-                <div className="form-passenger__message">
-                    {/* <div className="form-passenger__message-box">
+                {/* <div className="form-passenger__message">
+                    <div className="form-passenger__message-box">
                         <ErrorIcon />
                         <p className="form-passenger__passport-error-message">
                             Паспортные данные указаны некорректно.<br />
                             Пример: 1004 100006.
                         </p>
-                    </div> */}
-                    {/* <div className="form-passenger__message-box">
+                    </div>
+                    <div className="form-passenger__message-box">
                         <ErrorIcon />
                         <p className="form-passenger__birth-certificate-error-message">
                             Номер свидетельства о рождении указан некорректно.
                             <br />
                             Пример: VIII-ЫП-123456.
                         </p>
-                    </div> */}
-                    {/* <div className="form-passenger__message-box">
+                    </div>
+                    <div className="form-passenger__message-box">
                         <ValidIcon />
                         <p className="form-passenger__valid">Готово</p>
-                    </div> */}
-                </div>
+                    </div>
+                </div> */}
                 {/**Вопрос!! Что делает данная кнопка? Валидацию?*/}
                 <Button
                     className="form-passenger__btn"

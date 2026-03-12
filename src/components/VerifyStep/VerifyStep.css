@@ -1,6 +1,6 @@
 .verify-step {
     padding-top: 95px;
-    padding-bottom: 173px;
+    padding-bottom: 181px;
     background-color: #F7F5F9;
 }
 
@@ -118,6 +118,11 @@
 .verify-step__passenger-document {
     margin-bottom: 5px;
     color: #928F94;
+    text-transform: lowercase;
+}
+
+.verify-step__passenger-gender span {
+    text-transform: capitalize;
 }
 
 .verify-step__passenger-document {
@@ -157,7 +162,7 @@
 
 .verify-step__payment-method-content {
     grid-column: 1 / 2;
-    padding-top: 30px;
+    padding-top: 40px;
     padding-right: 300x;
     padding-bottom: 0;
     padding-left: 30px;

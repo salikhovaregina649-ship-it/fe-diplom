@@ -9,11 +9,12 @@
     grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
 }
 
-/* Ячейки */
-.coach-third .coach__row-top .seat-cell__wrapper .seat-cell__seat--bottom {
-    border-bottom: 4px solid #989898;
+.coach-third .coach__row-bottom::before {
+    left: -4px;
+    height: 22px;
 }
 
+/* Ячейки */
 .coach-third .coach__row-top .seat-cell--pair:nth-child(even) {
     justify-self: end;
     border-right: 4px solid #989898;
@@ -26,7 +27,6 @@
 .coach-third .coach__row-bottom .seat-cell--pair:last-child {
     border: none;
 }
-
 
 .coach-third .coach__row-top .seat-cell__seat--top {
     height: 33px;

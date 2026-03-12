@@ -63,7 +63,7 @@ export default function Search({ className }: SearchProps) {
                         type="text"
                         placeholder="Куда"
                         value={cityBack}
-                        onChange={(e) => setCityForth(e.target.value)}
+                        onChange={(e) => setCityBack(e.target.value)}
                     />
                     <GeolocationIcon />
                 </div>

@@ -19,7 +19,6 @@ interface CustomInputProps {
     modifier?: string;
 }
 
-// Выносим компонент ЗА пределы CustomDatepicker
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     ({ value, onClick, name, placeholder, icon, modifier }, ref) => (
         <div className={clsx("custom-datepicker", modifier && `custom-datepicker--${modifier}`)}>
@@ -65,7 +64,7 @@ export default function CustomDatepicker({
     onChange,
     minDate,
     maxDate,
-    placeholder,
+    placeholder = "ДД/ММ/ГГ",
     name,
     icon = false,
     modifier,
@@ -75,7 +74,7 @@ export default function CustomDatepicker({
             locale="ru"
             selected={value}
             onChange={(date: Date | null) => onChange(date)}
-            dateFormat="dd/MM/yyyy"
+            dateFormat="dd.MM.yyyy"
             minDate={minDate}
             maxDate={maxDate}
             placeholderText={placeholder}

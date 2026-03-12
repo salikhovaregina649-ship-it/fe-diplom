@@ -92,8 +92,8 @@ export default function CoachList({
     };
 
     return (
-        <>
-            <div className="coach-list">
+        <div className="coach-list">
+            <div className="coach-list-row">
                 <div className="coach-list__coach-header">
                     <div className="coach-list__wrapper">
                         <span className="coach-list__label">Вагоны</span>
@@ -123,21 +123,24 @@ export default function CoachList({
                 </div>
             </div>
 
-            <div className="coach-list__coach">
-                {coaches
-                    .filter((item) => {
-                        const coachNumber =
-                            item.coach.name.match(/\d+/)?.[0] ?? "";
-                        return selectedCoaches.includes(coachNumber);
-                    })
-                    .map(renderCoach)}
+            <div className="coach-list__coach-wrapper">
+                <div className="coach-list__coach">
+                    {coaches
+                        .filter((item) => {
+                            const coachNumber =
+                                item.coach.name.match(/\d+/)?.[0] ?? "";
+                            return selectedCoaches.includes(coachNumber);
+                        })
+                        .map(renderCoach)
+                    }
+                </div> 
+                {/* Должно будет подсчитываться */}
+                {Object.values(selectedSeats).flat().length > 0 && (
+                    <div className="coach__checked-total-price">
+                        8 080 <RubleIcon />
+                    </div>
+                )}
             </div>
-            {/* Должно будет подсчитываться */}
-            {Object.values(selectedSeats).flat().length > 0 && (
-                <div className="coach__checked-total-price">
-                    8 080 <RubleIcon />
-                </div>
-            )}
-        </>
+        </div>
     );
 }

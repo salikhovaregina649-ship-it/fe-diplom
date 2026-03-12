@@ -16,8 +16,6 @@
     background-color: #F9F9F9;
 }
 
-.passenger__row.active {}
-
 .passenger__box {
     display: flex;
 }
@@ -25,17 +23,4 @@
 .passenger__collapse-btn {
     margin-right: 16px;
 }
-
-.passenger__collapse-btn.active {}
-
-.passenger__title {}
-
-.passenger_delete-btn {
-
-}
-
-.passenger__collapse {
-}
-
-.passenger__collapse-box {}
 

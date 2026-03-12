@@ -20,9 +20,8 @@
 }
 
 .train__icon-wrapper {
-    display: flex;
-    justify-content: center;
     margin-bottom: 17px;
+    margin-left: 17px;
 }
 
 .train__number {
@@ -33,7 +32,6 @@
     color: #3E3C41;
 }
 
-.train__directions {}
 .train__city {
     font-size: 16px;
     font-weight: 400;

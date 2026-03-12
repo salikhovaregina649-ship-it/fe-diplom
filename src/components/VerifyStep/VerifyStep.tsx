@@ -77,10 +77,11 @@ export default function VerifyStep() {
                                                 {ticket.passenger.patronymic}
                                             </p>
                                             <p className="verify-step__passenger-gender">
-                                                Пол {ticket.passenger.gender}
+                                                <span>Пол</span>{" "}
+                                                {ticket.passenger.gender}
                                             </p>
                                             <p className="verify-step__passenger-birth-date">
-                                                Дата рождения
+                                                <span>Дата рождения</span>{" "}
                                                 {ticket.passenger.birth_date}
                                             </p>
                                             <p className="verify-step__passenger-document">

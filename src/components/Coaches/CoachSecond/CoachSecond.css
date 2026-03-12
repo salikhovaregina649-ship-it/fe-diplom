@@ -20,7 +20,7 @@
 /* Строки */
 .coach-second .coach__row-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr)) minmax(27px, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(27px, 1fr));
 }
 
 .coach-second .coach__row-bottom {
@@ -39,6 +39,10 @@
     border-right: 4px solid #989898;
 }
 
+.coach-second .coach__row-top .seat-cell--pair:nth-child(even):last-child {
+    border-right: none;
+}
+
 .coach-second .coach__row-top .seat-cell--pair:nth-child(even)::before {
     content: "";
     position: absolute;
@@ -47,10 +51,6 @@
     width: 4px;
     height: 24px;
     background-color: #989898;
-}
-
-.coach-second .coach__row-bottom .seat-cell--pair:last-child {
-    border: none;
 }
 
 .coach-second .coach__row-top .seat-cell__seat--top {

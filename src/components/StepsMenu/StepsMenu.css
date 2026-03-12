@@ -23,10 +23,6 @@
     z-index: 1;
 }
 
-.steps-menu__step--active {}
-
-.steps-menu__step--completed {}
-
 .steps-menu__number {
     display: flex;
     justify-content: center;
@@ -74,7 +70,6 @@
     background-color: #FFA800;
     z-index: -2;
 }
-
 
 .steps-menu:has(.steps-menu__step--active:last-child) {
     background-color: #FFA800;

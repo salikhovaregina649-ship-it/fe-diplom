@@ -1,5 +1,3 @@
-.order-success {}
-
 .order-success__hero {
     height: 834px;
     background-image: url("/images/bg-order-success-hero.jpg");
@@ -51,6 +49,10 @@
     color: #928F94;
 }
 
+.order-success__order-amount span {
+    margin-left: 5px;
+}
+
 .order-success__steps {
     display: flex;
     justify-content: space-between;
@@ -92,7 +94,7 @@
     color: #292929;
 }
 
-.order-success__customer-name {
+h2.title.order-success__customer-name {
     margin-bottom: 50px;
     font-size: 36px;
     font-weight: 700;
@@ -134,13 +136,9 @@
     color: #292929;
 }
 
-.order-success__rating {}
-
-.order-success__btn {
+.button.order-success__btn {
     padding-right: 11px;
     padding-left: 12px;
     color: #292929;
     border-color: #3E3C41;
 }
-
-.order-success__link {}

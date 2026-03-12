@@ -10,10 +10,6 @@
     font-weight: 400;
     color: #928F94;
 }
-.train-list__found-result {
-
-}
-
 
 .train-list__controls {
     display: flex;
@@ -25,7 +21,7 @@
 }
 
 .train-list__sorting__label {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .train-list__sorting-select {

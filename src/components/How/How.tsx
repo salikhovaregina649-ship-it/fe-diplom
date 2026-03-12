@@ -15,7 +15,8 @@ export default function How() {
                 <ul className="how__list">
                     <li className="how__item">
                         <img className="how__item-icon" src={monitorIcon} alt="" />
-                        Удобный заказ на сайте
+                        Удобный заказ <br />
+                        на сайте
                     </li>
                     <li className="how__item">
                         <img className="how__item-icon" src={officeIcon} alt="" />
