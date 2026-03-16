@@ -24,7 +24,6 @@ type Options = {
 export default function Coach({
     children,
     className,
-    message,
     coach,
 }: CoachProps) {
     const coachNumber = coach.coach.name.match(/\d+/)?.[0];
@@ -133,10 +132,6 @@ export default function Coach({
                         />
                     </div>
                 </div>
-            </div>
-            <div className="coach__message-box">
-                {/* Вопрос!! Где брать информацию сколько человек выбирают места в этом поезде? */}
-                <p className="coach__message">{message}</p>
             </div>
             <div className="coach__scheme">
                 <div className="coach__number">{coachNumber}</div>

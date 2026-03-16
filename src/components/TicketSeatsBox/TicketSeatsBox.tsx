@@ -100,12 +100,6 @@ export default function TicketSeatsBox({
                         <p className="ticket-seats-box__number">
                             {trainInfo.departure.train.name}
                         </p>
-                        {/** Проверить Train, там вопрос
-                                 *  <p className=".ticket-seats-box__city ticket-seats-box__starting-city">
-                                 *      {Город}
-                                            <ArrowIconSmall />    
-                                    </p>
-                                */}
                         <p className="ticket-seats-box__city">
                             {trainInfo.departure.from.city.name}
                             <ArrowIconSmall />

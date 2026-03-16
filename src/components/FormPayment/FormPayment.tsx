@@ -84,7 +84,6 @@ export default function FormPayment() {
                         checkMark={true}
                     />
                     <ul className="form-payment__payment-list">
-                        {/*Вопрос!! Это чекбоксы? */}
                         <li>Банковской<br /> картой</li>
                         <li>PayPal</li>
                         <li>Visa QIWI Wallet</li>

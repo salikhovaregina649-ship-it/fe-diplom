@@ -9,7 +9,6 @@ export default function CoachFirst({
     coach,
     onSeatSelect,
     selectedSeats = [],
-    message,
 }: CoachClassProps) {
     const seats = coach.seats;
 
@@ -22,7 +21,6 @@ export default function CoachFirst({
     return (
         <Coach
             className="coach-first"
-            message={message}
             coach={coach}
         >
             <div className="coach__row-top">

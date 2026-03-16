@@ -4,7 +4,6 @@ import type { CoachWithSeats, Seat } from "../../types/typeSeat";
 export interface CoachProps {
     children: React.ReactNode;
     className?: string;
-    message?: string;
     coach: CoachWithSeats;
 }
 
@@ -12,7 +11,6 @@ export interface CoachClassProps {
     coach: CoachWithSeats;
     onSeatSelect?: (seatIndex: number) => void;
     selectedSeats?: number[];
-    message?: string;
 }
 
 export interface PairSeatCellProps {

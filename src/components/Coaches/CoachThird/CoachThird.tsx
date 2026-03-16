@@ -10,7 +10,6 @@ export default function CoachThird({
     coach,
     onSeatSelect,
     selectedSeats = [],
-    message,
 }: CoachClassProps) {
     const seats = coach.seats;
     const totalSeats = seats.length;
@@ -68,7 +67,6 @@ export default function CoachThird({
     return (
         <Coach
             className="coach-third"
-            message={message}
             coach={coach}
         >
             <div className="coach__row-top">{renderSeatsAsPairs(topSeats)}</div>

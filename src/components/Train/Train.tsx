@@ -36,12 +36,6 @@ export default function Train({ className, trainInfo, verifyStep = false, verify
                     {trainInfo.departure.train.name}
                 </p>
                 <div className="train__directions">
-                    {/**Вопрос!! Город из которого отправляется поезд изначально (Что это в ответе?)
-                     *  <p className=".train__city train__starting-city">
-                     *      {Город}
-                            <ArrowIconSmall />    
-                        </p>
-                    */}
                     <p className="train__city">
                         {/** Город из которого хочет отправится пассажир*/}
                         {trainInfo.departure.from.city.name}

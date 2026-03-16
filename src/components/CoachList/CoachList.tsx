@@ -49,7 +49,6 @@ export default function CoachList({
                         coach={item}
                         onSeatSelect={(seat) => handleSeatSelect(item.coach._id, seat)}
                         selectedSeats={selectedSeats[item.coach._id] || []}
-                        message="11 человек выбирают места в этом поезде"
                     />
                 );
 
@@ -60,7 +59,6 @@ export default function CoachList({
                         coach={item}
                         onSeatSelect={(seat) => handleSeatSelect(item.coach._id, seat)}
                         selectedSeats={selectedSeats[item.coach._id] || []}
-                        message="11 человек выбирают места в этом поезде"
                     />
                 );
 
@@ -71,7 +69,6 @@ export default function CoachList({
                         coach={item}
                         onSeatSelect={(seat) => handleSeatSelect(item.coach._id, seat)}
                         selectedSeats={selectedSeats[item.coach._id] || []}
-                        message="11 человек выбирают места в этом поезде"
                     />
                 );
 
@@ -82,7 +79,6 @@ export default function CoachList({
                         coach={item}
                         onSeatSelect={(seat) => handleSeatSelect(item.coach._id, seat)}
                         selectedSeats={selectedSeats[item.coach._id] || []}
-                        message="11 человек выбирают места в этом поезде"
                     />
                 );
 

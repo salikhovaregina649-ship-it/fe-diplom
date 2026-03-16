@@ -9,7 +9,6 @@ export default function CoachSecond({
     coach,
     onSeatSelect,
     selectedSeats = [],
-    message,
 }: CoachClassProps) {
     const seats = coach.seats;
 
@@ -46,7 +45,6 @@ export default function CoachSecond({
     return (
         <Coach
             className="coach-second"
-            message={message}
             coach={coach}
         >
             <div className="coach__row-top">{renderSeatsAsPairs()}</div>

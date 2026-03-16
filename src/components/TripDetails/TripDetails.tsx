@@ -81,7 +81,6 @@ export default function TripDetails() {
                                 "trip-details__collapse-cities",
                             )}
                         >
-                            {/* Вопрос!! Где взять название поезда? в Train похожий вопрос */}
                             <p>{trainInfo.departure.from.city.name}</p>
                             <p>{trainInfo.departure.to.city.name}</p>
                         </div>
@@ -137,7 +136,6 @@ export default function TripDetails() {
                                 "trip-details__collapse-cities",
                             )}
                         >
-                            {/* Вопрос!! Где взять название поезда? в Train похожий вопрос */}
                             <p>{trainInfo.departure.from.city.name}</p>
                             <p>{trainInfo.departure.to.city.name}</p>
                         </div>
