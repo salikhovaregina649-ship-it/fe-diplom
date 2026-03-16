@@ -152,9 +152,13 @@ h3.title.ticket-seats-box__tickets-number-title {
     border: 1px solid rgba(255, 168, 0, 0.79);
 }
 
-.form-ticket-category__box:first-child {
+.form-ticket-category__box:focus-within {
     background-color: #F7F6F6;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.form-ticket-category__box:focus-within:hover {
+    border: 1px solid transparent;
 }
 
 .form-ticket-category__label {
@@ -172,7 +176,7 @@ h3.title.ticket-seats-box__tickets-number-title {
 }
 
 .form-ticket-category__input {
-    width: 20px;
+    width: 25px;
     height: 100%;
     font-size: 18px;
     font-weight: 400;
@@ -189,10 +193,15 @@ h3.title.ticket-seats-box__tickets-number-title {
 .form-ticket-category__text {
     font-size: 16px;
     font-weight: 400;
+    color: transparent;
+}
+
+.form-ticket-category__box:focus-within:hover .form-ticket-category__text,
+.form-ticket-category__box:focus-within .form-ticket-category__text {
     color: #000000;
 }
 
-.form-ticket-category__text--ligth {
+.form-ticket-category__box:hover .form-ticket-category__text {
     color: #928F94;
 }
 

@@ -66,6 +66,23 @@ export default function TicketSeatsBox({
         (item) => item.coach.class_type === currentClass,
     );
 
+    const [tickets, setTickets] = useState({
+        adult: 1,
+        childWithSeat: 0,
+        childWithoutSeat: 0,
+    });
+
+    const handleTicketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const number = Number(value);
+        if (number > 6) return;
+
+        setTickets((prev) => ({
+            ...prev,
+            [name]: Number(value),
+        }));
+    };
+
     return (
         <div
             className={clsx(
@@ -137,7 +154,6 @@ export default function TicketSeatsBox({
                 >
                     Количество билетов
                 </Title>
-                {/**Вопрос!! Что за блок такой, не понимаю что он делает. Это форма? Инпуты должны быть или кнопки?*/}
                 <form className="form-ticket-category">
                     <div className="form-ticket-category__box">
                         <label className="form-ticket-category__label">
@@ -145,13 +161,17 @@ export default function TicketSeatsBox({
                             <input
                                 className="form-ticket-category__input"
                                 type="number"
-                                placeholder="0"
                                 name="adult"
-                                value="3"
+                                min={1}
+                                max={6}
+                                value={tickets.adult}
+                                onChange={handleTicketChange}
                             />
                         </label>
                         <p className="form-ticket-category__text">
-                            Можно добавить еще 3 пассажиров
+                            Можно добавить еще
+                            <br />
+                            3 пассажиров
                         </p>
                     </div>
                     <div className="form-ticket-category__box">
@@ -160,17 +180,14 @@ export default function TicketSeatsBox({
                             <input
                                 className="form-ticket-category__input"
                                 type="number"
-                                placeholder="0"
-                                name="childlike-with-seat"
-                                value="1"
+                                name="childWithSeat"
+                                min={0}
+                                max={5}
+                                value={tickets.childWithSeat}
+                                onChange={handleTicketChange}
                             />
                         </label>
-                        <p
-                            className={clsx(
-                                "form-ticket-category__text",
-                                "form-ticket-category__text--ligth",
-                            )}
-                        >
+                        <p className="form-ticket-category__text">
                             Можно добавить еще 3 детей
                             <br />
                             до 10 лет. Свое место в вагоне,
@@ -185,9 +202,12 @@ export default function TicketSeatsBox({
                             <input
                                 className="form-ticket-category__input"
                                 type="number"
-                                placeholder="0"
-                                name="childlike-not-seat"
-                                value="0"
+                                name="childWithoutSeat"
+                                min={0}
+                                max={6}
+                                disabled={tickets.adult === 0}
+                                value={tickets.childWithoutSeat}
+                                onChange={handleTicketChange}
                             />
                         </label>
                     </div>

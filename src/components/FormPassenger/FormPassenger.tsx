@@ -211,12 +211,11 @@ export default function FormPassenger() {
                         <p className="form-passenger__valid">Готово</p>
                     </div>
                 </div> */}
-                {/**Вопрос!! Что делает данная кнопка? Валидацию?*/}
+                {/**Делает фокус на следующей форме*/}
                 <Button
                     className="form-passenger__btn"
                     type="button"
                     variant="transparent"
-                    disabled
                 >
                     Следующий пассажир
                 </Button>
