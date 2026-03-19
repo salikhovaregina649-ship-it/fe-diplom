@@ -54,7 +54,9 @@
     padding-right: 50px;
     padding-left: 21px;
     font-size: 18px;
+    color: #292929;
     border-radius: 3px;
+    text-transform: capitalize;
 }
 
 .form-search__input::placeholder {
@@ -73,4 +75,35 @@
     margin-left: auto;
     margin-top: auto;
     color: #292929;
+}
+
+.form-search__autocomplete-list {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    padding-top: 14px;
+
+    padding-bottom: 14px;
+
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    z-index: 1000;
+}
+
+.form-search__autocomplete-item {
+    display: flex;
+    align-items: center;
+    width: 324px;
+    margin-bottom: 5px;
+    padding-right: 50px;
+    padding-left: 21px;
+    font-size: 18px;
+    line-height: 1;
+    color: #292929;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.form-search__autocomplete-item:last-child {
+    margin-bottom: 0;
 }
