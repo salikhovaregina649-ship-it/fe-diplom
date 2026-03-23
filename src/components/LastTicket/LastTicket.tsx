@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
 import OptionsIcons from "../../assets/icons/small/OptionsIcons";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
-import type Train from "../../types/typeTrain";
+import type { LastTicket } from "../../types/typeLastTicket";
 import "./LastTicket.css";
 
 interface LastTicketProps {
-    ticket: Train;
+    ticket: LastTicket;
 }
 
 export default function LastTicket({ticket}: LastTicketProps) {
