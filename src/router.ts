@@ -32,7 +32,7 @@ export const router = createHashRouter([
                         Component: TicketStep,
                         children: [
                             { index: true, Component: TrainList },
-                            { path: "seats/:trainId", Component: TicketSeats },
+                            { path: "seats/:id", Component: TicketSeats },
                         ],
                     },
                     { path: "passengers", Component: PassengerStep },

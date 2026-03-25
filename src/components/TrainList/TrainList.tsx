@@ -6,8 +6,8 @@ import Train from "../Train/Train";
 import Pagination from "../uikit/Pagination/Pagination";
 import { setSort, setLimit, setPage } from "../../store/routesSlice/routesSlice";
 import { useGetRoutesQuery } from "../../store/api/api";
+import { getRouteParams } from "../../utils/getRouteParams";
 import type { RootState } from "../../store/store";
-import type { RouteParams } from "../../store/api/types";
 import "./TrainList.css";
 
 const sortOptions = [
@@ -21,44 +21,9 @@ export default function TrainList() {
     const searchState = useSelector((state: RootState) => state.search);
     const routesState = useSelector((state: RootState) => state.routes);
 
-    const routeParams: RouteParams | undefined = useMemo(() => {
-        if (!searchState.from.selectedCity || !searchState.to.selectedCity) {
-            return undefined;
-        }
+    const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
 
-        return {
-            from_city_id: searchState.from.selectedCity._id,
-            to_city_id: searchState.to.selectedCity._id,
-            date_start: searchState.dateForth ? searchState.dateForth.toISOString().split("T")[0] : undefined,
-            date_end: searchState.dateBack ? searchState.dateBack.toISOString().split("T")[0] : undefined,
-            // date_start_arrival?: string; //неоткуда получить
-            // date_end_arrival?:string; //неоткуда получить
-            have_first_class: routesState.have_first_class ? true : undefined,
-            have_second_class: routesState.have_second_class ? true : undefined,
-            have_third_class: routesState.have_third_class ? true : undefined,
-            have_fourth_class: routesState.have_fourth_class ? true : undefined,
-            have_wifi: routesState.have_wifi ? true : undefined,
-            // have_air_conditioning: boolean; //неоткуда получить
-            have_express: routesState.have_express ? true : undefined,
-            price_from: routesState.price_from > 0 ? routesState.price_from : undefined,
-            price_to: routesState.price_to < 7000 ? routesState.price_to : undefined,
-            start_departure_hour_from: routesState.start_departure_hour_from > 0 ? routesState.start_departure_hour_from : undefined,
-            start_departure_hour_to: routesState.start_departure_hour_to < 24 ? routesState.start_departure_hour_to : undefined,
-            start_arrival_hour_from: routesState.start_arrival_hour_from > 0 ? routesState.start_arrival_hour_from : undefined,
-            start_arrival_hour_to: routesState.start_arrival_hour_to < 24 ? routesState.start_arrival_hour_to : undefined,
-            end_departure_hour_from: routesState.end_departure_hour_from > 0 ? routesState.end_departure_hour_from : undefined,
-            end_departure_hour_to: routesState.end_departure_hour_to < 24 ? routesState.end_departure_hour_to : undefined,
-            end_arrival_hour_from: routesState.end_arrival_hour_from > 0 ? routesState.end_arrival_hour_from : undefined,
-            end_arrival_hour_to: routesState.end_arrival_hour_to < 24 ? routesState.end_arrival_hour_to : undefined,
-            limit: routesState.limit,
-            offset: routesState.offset,
-            sort: routesState.sort,
-        }
-    }, [searchState.from.selectedCity, searchState.to.selectedCity, searchState.dateForth, searchState.dateBack, routesState]);
-
-    const { data, isLoading, error } = useGetRoutesQuery(routeParams!,
-        {skip: !routeParams}
-    );
+    const { data } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
 
     const currentPage = Math.floor(routesState.offset / routesState.limit) + 1;
     const totalPages = data ? Math.ceil(data.total_count / routesState.limit) : 0;
