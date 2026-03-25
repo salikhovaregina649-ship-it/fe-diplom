@@ -55,7 +55,7 @@ const routesSlice = createSlice({
             }
 
             if (action.payload.to !== undefined) { 
-                state.price_to = action.payload.to; 
+                state.price_to = action.payload.to;
             }
         },
         setTimeRange(state, action: PayloadAction<{ 
@@ -70,7 +70,7 @@ const routesSlice = createSlice({
             (state[fromKey] as number) = from;
             (state[toKey] as number) = to;
             state.offset = 0;
-        }
+        },
     },
 });
 

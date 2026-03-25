@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Slider from "rc-slider";
 import type { SliderProps } from "rc-slider";
 import React from "react";
@@ -12,23 +11,16 @@ interface RangeSliderProps {
     min: number;
     max: number;
     step: number;
-    value?: [number, number];
-    onChange?: (value: [number, number]) => void;
+    value: [number, number];
+    onChange: (value: [number, number]) => void;
     renderValue?: (value: number) => React.ReactNode;
 }
 
 export default function RangeSlider({className, modifier, min, max, step, value, onChange, renderValue}: RangeSliderProps) {
-    const [internalValue, setInternalValue] = useState<[number, number]>([min, max]);
-    const currentValue = value ?? internalValue;
-
     const handleChange: SliderProps["onChange"] = (val) => {
-        if (Array.isArray(val)) {
-            if (onChange) {
-                onChange([val[0], val[1]]);
-            } else {
-                setInternalValue([val[0], val[1]]);
-            }
-        }
+        if (!Array.isArray(val) || val.length !== 2) return;
+
+        onChange([val[0], val[1]]);
     };
 
     return(
@@ -45,7 +37,7 @@ export default function RangeSlider({className, modifier, min, max, step, value,
                 range
                 min={min}
                 max={max}
-                value={currentValue}
+                value={value}
                 step={step}
                 onChange={handleChange}
                 allowCross={false}

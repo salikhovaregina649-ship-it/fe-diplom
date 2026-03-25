@@ -1,18 +1,18 @@
-import type Train from "../../types/typeTrain";
+import type { Ticket } from "../../types/typeTicket";
 
 export interface RouteParams {
     from_city_id: string; // обязательный
     to_city_id: string; //обязательный
     date_start?: string; // YYYY-MM-DD
     date_end?: string;
-    date_start_arrival?: string;
-    date_end_arrival?:string;
+    // date_start_arrival?: string;
+    // date_end_arrival?:string;
     have_first_class?: boolean;
     have_second_class?: boolean;
     have_third_class?: boolean;
     have_fourth_class?: boolean;
     have_wifi?: boolean;
-    have_air_conditioning?: boolean;
+    // have_air_conditioning?: boolean;
     have_express?: boolean;
     price_from?: number;
     price_to?: number;
@@ -31,5 +31,5 @@ export interface RouteParams {
 
 export interface RoutesResponse {
     total_count: number;
-    items: Train[];
+    items: Ticket[];
 }

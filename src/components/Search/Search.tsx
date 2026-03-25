@@ -31,6 +31,7 @@ export default function Search({ className }: SearchProps) {
         }
 
         navigate("/booking");
+        console.log("был навигейт на /booking"); //удалить потом
     };
 
     const handleSwap = () => {
@@ -46,11 +47,12 @@ export default function Search({ className }: SearchProps) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedValues({
-            from: from.value,
-            to: to.value,
+                from: from.value,
+                to: to.value,
             });
         }, 300);
 
+        console.log("запрос на город"); //удалить потом
         return () => clearTimeout(timer);
     }, [from.value, to.value]);
 

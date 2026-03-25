@@ -12,7 +12,7 @@ import PassengerIconBig from "../../assets/icons/small/PassangerIconBig";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
 
 //Моки
-const trainInfo = routesResponse;
+const ticketInfo = routesResponse;
 
 export default function VerifyStep() {
     const navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function VerifyStep() {
                             Поезд
                         </Title>
                         <Train
-                            trainInfo={trainInfo.items[0]}
+                            ticketInfo={ticketInfo.items[0]}
                             verifyStep={true}
                             verifyStepHandle={trainHanle}
                         />

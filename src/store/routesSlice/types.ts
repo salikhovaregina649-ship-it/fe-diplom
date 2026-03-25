@@ -23,4 +23,16 @@ export interface RoutesState {
     sort: "date" | "price" | "duration";
 }
 
-export type TimeRangeKey = "start_departure" | "start_arrival" | "end_departure" | "end_arrival";
+export type TimeRangeKey =
+    | "start_departure"
+    | "start_arrival"
+    | "end_departure"
+    | "end_arrival";
+
+export type FilterKey =
+    | "have_first_class"
+    | "have_second_class"
+    | "have_third_class"
+    | "have_fourth_class"
+    | "have_wifi"
+    | "have_express";

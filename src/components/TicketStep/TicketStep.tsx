@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Aside from "../Aside/Aside";
-import Filter from "../Filters/Filter";
+import Filter from "../Filter/Filter";
 import LastTicketList from "../LastTicketList/LastTicketList";
 import "./TicketStep.css";
 

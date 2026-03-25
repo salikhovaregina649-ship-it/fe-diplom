@@ -1,14 +1,13 @@
 import { formatDate, formatTime, formatTimeCompact } from "../../utils/formatTime";
 import clsx from "clsx";
-import type Train from "../../types/typeTrain";
-import type { Departure } from "../../types/typeTrain";
+import type { Ticket, Departure } from "../../types/typeTicket";
 import "./TravelInfo.css";
 // icons
 import ArrowIconBig from "../../assets/icons/small/ArrowIconBig";
 
 interface TravelInfoProps {
     className?: string;
-    trainInfo: Train;
+    ticketInfo: Ticket;
     back?: boolean; //Если Группа направлений
     tripDetails?: boolean; //только для TripDetails
 }
@@ -19,16 +18,16 @@ const dates = {
     dateEnd: "2018-09-09",
 }
 
-export default function TravelInfo({ className, trainInfo, back = false, tripDetails = false }: TravelInfoProps) {
+export default function TravelInfo({ className, ticketInfo, back = false, tripDetails = false }: TravelInfoProps) {
     let info: Departure;
 
     if (back) {
-        if (!trainInfo.arrival) {
+        if (!ticketInfo.arrival) {
             return null;
         }
-        info = trainInfo.arrival;
+        info = ticketInfo.arrival;
     } else {
-        info = trainInfo.departure;
+        info = ticketInfo.departure;
     }
 
     const firstPoint = back ? info.to : info.from;

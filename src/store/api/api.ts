@@ -29,4 +29,4 @@ export const api = createApi({
     }),
 });
 
-export const { useGetCitiesQuery, useGetRoutesQuery, useGetLastRoutesQuery } = api;
+export const { useGetCitiesQuery, useGetRoutesQuery, useLazyGetRoutesQuery, useGetLastRoutesQuery } = api;

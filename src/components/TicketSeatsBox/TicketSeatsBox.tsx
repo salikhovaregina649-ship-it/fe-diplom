@@ -8,7 +8,7 @@ import TravelInfo from "../TravelInfo/TravelInfo";
 import Radio from "../uikit/Radio/Radio";
 import CoachList from "../CoachList/CoachList";
 import { formatTimeLong } from "../../utils/formatTime";
-import type Train from "../../types/typeTrain";
+import type { Ticket } from "../../types/typeTicket";
 import type { CoachesData } from "../../types/typeSeat";
 
 // icons
@@ -26,14 +26,14 @@ interface Class {
 }
 
 interface TicketSeatsBoxProps {
-    trainInfo: Train;
+    ticketInfo: Ticket;
     seatsInfo: CoachesData;
     classes: Class[];
     arrival?: boolean;
 }
 
 export default function TicketSeatsBox({
-    trainInfo,
+    ticketInfo,
     seatsInfo,
     classes,
     arrival = false,
@@ -115,20 +115,20 @@ export default function TicketSeatsBox({
                     </div>
                     <div className="ticket-seats-box__train-info-box">
                         <p className="ticket-seats-box__number">
-                            {trainInfo.departure.train.name}
+                            {ticketInfo.departure.train.name}
                         </p>
                         <p className="ticket-seats-box__city">
-                            {trainInfo.departure.from.city.name}
+                            {ticketInfo.departure.from.city.name}
                             <ArrowIconSmall />
                         </p>
                         <p className="ticket-seats-box__city">
-                            {trainInfo.departure.to.city.name}
+                            {ticketInfo.departure.to.city.name}
                         </p>
                     </div>
                 </div>
                 <TravelInfo
                     className="ticket-seats-box__travel-info"
-                    trainInfo={trainInfo}
+                    ticketInfo={ticketInfo}
                 />
                 <div className="ticket-seats-box__time-way">
                     <img
@@ -139,10 +139,10 @@ export default function TicketSeatsBox({
                     <time
                         className="ticket-seats-box__time-way-time"
                         dateTime={new Date(
-                            trainInfo.departure.duration * 1000,
+                            ticketInfo.departure.duration * 1000,
                         ).toISOString()}
                     >
-                        {formatTimeLong(trainInfo.departure.duration)}
+                        {formatTimeLong(ticketInfo.departure.duration)}
                     </time>
                 </div>
             </div>

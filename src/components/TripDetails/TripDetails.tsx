@@ -13,7 +13,7 @@ import PassengerIcon from "../../assets/icons/small/PassengerIcon";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
 
 //Моки
-const trainInfo = routesResponse.items[0];
+const ticketInfo = routesResponse.items[0];
 const dates = {
     dateStart : "2018-08-30", 
     dateEnd: "2018-09-09",
@@ -68,7 +68,7 @@ export default function TripDetails() {
                             № Поезда
                         </p>
                         <p className="trip-details__collapse-row-right">
-                            {trainInfo.departure.train.name}
+                            {ticketInfo.departure.train.name}
                         </p>
                     </div>
                     <div className="trip-details__collapse-row">
@@ -81,14 +81,14 @@ export default function TripDetails() {
                                 "trip-details__collapse-cities",
                             )}
                         >
-                            <p>{trainInfo.departure.from.city.name}</p>
-                            <p>{trainInfo.departure.to.city.name}</p>
+                            <p>{ticketInfo.departure.from.city.name}</p>
+                            <p>{ticketInfo.departure.to.city.name}</p>
                         </div>
                     </div>
                     <div className="trip-details__collapse-row-big">
                         <TravelInfo
                             className="trip-details__collapse-travel-info"
-                            trainInfo={trainInfo}
+                            ticketInfo={ticketInfo}
                             tripDetails={true}
                         />
                     </div>
@@ -123,7 +123,7 @@ export default function TripDetails() {
                             № Поезда
                         </p>
                         <p className="trip-details__collapse-row-right">
-                            {trainInfo.departure.train.name}
+                            {ticketInfo.departure.train.name}
                         </p>
                     </div>
                     <div className="trip-details__collapse-row">
@@ -136,14 +136,14 @@ export default function TripDetails() {
                                 "trip-details__collapse-cities",
                             )}
                         >
-                            <p>{trainInfo.departure.from.city.name}</p>
-                            <p>{trainInfo.departure.to.city.name}</p>
+                            <p>{ticketInfo.departure.from.city.name}</p>
+                            <p>{ticketInfo.departure.to.city.name}</p>
                         </div>
                     </div>
                     <div className="trip-details__collapse-row-big">
                         <TravelInfo
                             className="trip-details__collapse-travel-info"
-                            trainInfo={trainInfo}
+                            ticketInfo={ticketInfo}
                             tripDetails={true}
                             back={true}
                         />

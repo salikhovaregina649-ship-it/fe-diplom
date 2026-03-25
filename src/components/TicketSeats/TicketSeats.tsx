@@ -13,7 +13,7 @@ import routesResponse from "../../mocks/routesResponse.json";
 import seatsResponse from "../../mocks/seatsResponse.json";
 
 //Моки
-const trainInfo = routesResponse.items[0];
+const ticketInfo = routesResponse.items[0];
 const seatsInfo = seatsResponse;
 const classes = [
     {
@@ -56,13 +56,13 @@ export default function TicketSeats() {
             </Title>
 
             <TicketSeatsBox
-                trainInfo={trainInfo}
+                ticketInfo={ticketInfo}
                 seatsInfo={seatsInfo}
                 classes={classes}
             />
-            {trainInfo.arrival && (
+            {ticketInfo.arrival && (
                 <TicketSeatsBox
-                    trainInfo={trainInfo}
+                    ticketInfo={ticketInfo}
                     seatsInfo={seatsInfo}
                     classes={classes}
                     arrival={true}

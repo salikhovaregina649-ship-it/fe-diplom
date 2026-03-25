@@ -1,4 +1,4 @@
-export default interface Train {
+export interface Ticket {
     have_first_class: boolean;
     have_second_class: boolean;
     have_third_class: boolean;
@@ -40,12 +40,12 @@ export interface Departure {
         _id: string;
         name: string;
     };
-    from: StationInfo;
-    to: StationInfo;
+    from: CityInfo;
+    to: CityInfo;
     price_info: PriceInfo;
 }
 
-export interface StationInfo {
+export interface CityInfo {
     railway_station_name: string;
     city: {
         _id: string;
@@ -61,7 +61,6 @@ export interface PriceInfo {
         bottom_price?: number;
     };
     second?: {
-        price?: number;
         top_price?: number;
         bottom_price?: number;
     };
