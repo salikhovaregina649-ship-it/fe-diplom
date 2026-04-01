@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { City } from "../searchSlice/types";
-import type { RouteParams, RoutesResponse } from "./types";
+import type { RouteParams, RoutesResponse, FilterParams } from "./types";
 import type { LastTicket } from "../../types/typeLastTicket";
+import type { CoachesData } from "../../types/typeSeat";
 
 export const api = createApi({
     reducerPath: "citiesApi",
@@ -26,7 +27,13 @@ export const api = createApi({
                 url: "/routes/last",
             })
         }),
+        getSeats: builder.query<CoachesData, {id: string; filters: FilterParams}>({
+            query: ({ id, filters }) => ({
+                url: `/routes/${id}/seats`,
+                params: filters,
+            }),
+        }),
     }),
 });
 
-export const { useGetCitiesQuery, useGetRoutesQuery, useLazyGetRoutesQuery, useGetLastRoutesQuery } = api;
+export const { useGetCitiesQuery, useGetRoutesQuery, useLazyGetRoutesQuery, useGetLastRoutesQuery, useGetSeatsQuery } = api;

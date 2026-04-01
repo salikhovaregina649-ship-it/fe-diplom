@@ -16,7 +16,7 @@ import ArrowIconBig from "../../assets/icons/small/ArrowIconBig";
 import trainIconSmall from "../../assets/icons/small/trainIconSmall.svg";
 import ArrowIconSmall from "../../assets/icons/small/ArrowIconSmall";
 import clock from "../../assets/icons/small/clock.svg";
-import "./TicketSeatsBox.css";
+import "./FormTicketSeats.css";
 
 interface Class {
     icon: () => JSX.Element;
@@ -25,19 +25,19 @@ interface Class {
     label: string;
 }
 
-interface TicketSeatsBoxProps {
+interface FormTicketSeatsProps {
     ticketInfo: Ticket;
     seatsInfo: CoachesData;
     classes: Class[];
     arrival?: boolean;
 }
 
-export default function TicketSeatsBox({
+export default function FormTicketSeats({
     ticketInfo,
     seatsInfo,
     classes,
     arrival = false,
-}: TicketSeatsBoxProps) {
+}: FormTicketSeatsProps) {
     const [currentClass, setCurrentClass] = useState<string | null>(null);
     const [selectedCoaches, setSelectedCoaches] = useState<string[]>([]);
 
@@ -84,7 +84,7 @@ export default function TicketSeatsBox({
     };
 
     return (
-        <div
+        <form
             className={clsx(
                 "ticket-seats-box",
                 arrival && "ticket-seats-box--arrival",
@@ -154,12 +154,12 @@ export default function TicketSeatsBox({
                 >
                     Количество билетов
                 </Title>
-                <form className="form-ticket-category">
-                    <div className="form-ticket-category__box">
-                        <label className="form-ticket-category__label">
+                <div className="ticket-seats-box__ticket-category">
+                    <div className="ticket-seats-box__ticket-category__box">
+                        <label className="ticket-seats-box__ticket-category__label">
                             <span>Взрослых — </span>
                             <input
-                                className="form-ticket-category__input"
+                                className="ticket-seats-box__ticket-category__input"
                                 type="number"
                                 name="adult"
                                 min={1}
@@ -168,17 +168,17 @@ export default function TicketSeatsBox({
                                 onChange={handleTicketChange}
                             />
                         </label>
-                        <p className="form-ticket-category__text">
+                        <p className="ticket-seats-box__ticket-category__text">
                             Можно добавить еще
                             <br />
                             3 пассажиров
                         </p>
                     </div>
-                    <div className="form-ticket-category__box">
-                        <label className="form-ticket-category__label">
+                    <div className="ticket-seats-box__ticket-category__box">
+                        <label className="ticket-seats-box__ticket-category__label">
                             <span>Детских — </span>
                             <input
-                                className="form-ticket-category__input"
+                                className="ticket-seats-box__ticket-category__input"
                                 type="number"
                                 name="childWithSeat"
                                 min={0}
@@ -187,7 +187,7 @@ export default function TicketSeatsBox({
                                 onChange={handleTicketChange}
                             />
                         </label>
-                        <p className="form-ticket-category__text">
+                        <p className="ticket-seats-box__ticket-category__text">
                             Можно добавить еще 3 детей
                             <br />
                             до 10 лет. Свое место в вагоне,
@@ -196,11 +196,11 @@ export default function TicketSeatsBox({
                             <br />в среднем на 50-65%
                         </p>
                     </div>
-                    <div className="form-ticket-category__box">
-                        <label className="form-ticket-category__label">
+                    <div className="ticket-seats-box__ticket-category__box">
+                        <label className="ticket-seats-box__ticket-category__label">
                             <span>Детских «без места» — </span>
                             <input
-                                className="form-ticket-category__input"
+                                className="ticket-seats-box__ticket-category__input"
                                 type="number"
                                 name="childWithoutSeat"
                                 min={0}
@@ -211,7 +211,7 @@ export default function TicketSeatsBox({
                             />
                         </label>
                     </div>
-                </form>
+                </div>
             </div>
 
             <div className="ticket-seats-box__class">
@@ -249,6 +249,6 @@ export default function TicketSeatsBox({
                     )}
                 </div>
             </div>
-        </div>
+        </form>
     );
 }

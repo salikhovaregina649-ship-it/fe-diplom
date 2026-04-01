@@ -1,7 +1,14 @@
-import { useNavigate } from "react-router";
+import { useMemo } from "react";
+import { useNavigate, useParams } from "react-router";
+import { useSelector } from "react-redux";
 import Title from "../uikit/Title/Title";
 import Button from "../uikit/Button/Button";
-import TicketSeatsBox from "../TicketSeatsBox/TicketSeatsBox";
+import FormTicketSeats from "../FormTicketSeats/FormTicketSeats";
+import { useGetRoutesQuery } from "../../store/api/api";
+import { useGetSeatsQuery } from "../../store/api/api";
+import { getRouteParams } from "../../utils/getRouteParams";
+import { getFiltersParams } from "../../utils/getFiltersParams";
+import type { RootState } from "../../store/store";
 import "./TicketSeats.css";
 // icons
 import SedentaryIcon from "../../assets/icons/filter/SedentaryIcon";
@@ -9,12 +16,6 @@ import CoupeIcon from "../../assets/icons/filter/CoupeIcon";
 import ReservedSeatIcon from "../../assets/icons/filter/ReservedSeatIcon";
 import LuxuryIcon from "../../assets/icons/filter/LuxuryIcon";
 
-import routesResponse from "../../mocks/routesResponse.json";
-import seatsResponse from "../../mocks/seatsResponse.json";
-
-//Моки
-const ticketInfo = routesResponse.items[0];
-const seatsInfo = seatsResponse;
 const classes = [
     {
         icon: SedentaryIcon,
@@ -43,11 +44,38 @@ const classes = [
 ];
 
 export default function TicketSeats() {
-    const navigate = useNavigate();
+    const {id} = useParams<{id: string}>();
 
+    const searchState = useSelector((state: RootState) => state.search);
+    const routesState = useSelector((state: RootState) => state.routes);
+
+    const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
+    const filtersParams = useMemo(() => getFiltersParams(routesState), [routesState]);
+
+    const { data: routesData, isLoading: routesLoading } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
+    const ticketInfo = routesData?.items?.find((item) => item.departure._id === id);
+
+    const { data: seatsInfo, isLoading: seatsLoading } = useGetSeatsQuery(
+        {id: id!, filters: filtersParams!},
+        {skip: !id}
+    );
+
+    const navigate = useNavigate();
     const handleThen = () => {
         navigate("/booking/passengers");
     };
+
+    if (routesLoading || seatsLoading || !ticketInfo || !seatsInfo) {
+        return <div>Загрузка...</div>;
+    }
+
+    const filteredClasses = classes.filter((cls) => {
+        if (cls.value === "first") return ticketInfo.departure.have_first_class;
+        if (cls.value === "second") return ticketInfo.departure.have_second_class;
+        if (cls.value === "third") return ticketInfo.departure.have_third_class;
+        if (cls.value === "fourth") return ticketInfo.departure.have_fourth_class;
+        return true;
+    });
 
     return (
         <div className="ticket-seats">
@@ -55,16 +83,16 @@ export default function TicketSeats() {
                 Выбор мест
             </Title>
 
-            <TicketSeatsBox
+            <FormTicketSeats
                 ticketInfo={ticketInfo}
                 seatsInfo={seatsInfo}
-                classes={classes}
+                classes={filteredClasses}
             />
             {ticketInfo.arrival && (
-                <TicketSeatsBox
+                <FormTicketSeats
                     ticketInfo={ticketInfo}
                     seatsInfo={seatsInfo}
-                    classes={classes}
+                    classes={filteredClasses}
                     arrival={true}
                 />
             )}

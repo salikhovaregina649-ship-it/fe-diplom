@@ -98,7 +98,7 @@
     opacity: 0;
 }
 
-.ticket-seats-box__travel-info .travel-info__way-box .icon {
+.ticket-seats-box--arrival .ticket-seats-box__travel-info .travel-info__way-box .icon {
     transform: rotate(180deg);
 }
 
@@ -132,36 +132,36 @@ h3.title.ticket-seats-box__tickets-number-title {
     padding-left: 19px;
 }
 
-.form-ticket-category {
+.ticket-seats-box__ticket-category {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.form-ticket-category__box {
+.ticket-seats-box__ticket-category__box {
     height: 192px;
     padding-top: 23px;
     padding-left: 31px;
     border: 1px solid transparent;
 }
 
-.form-ticket-category__box:first-child {
+.ticket-seats-box__ticket-category__box:first-child {
     padding-left: 35px;
 } 
 
-.form-ticket-category__box:hover {
+.ticket-seats-box__ticket-category__box:hover {
     border: 1px solid rgba(255, 168, 0, 0.79);
 }
 
-.form-ticket-category__box:focus-within {
+.ticket-seats-box__ticket-category__box:focus-within {
     background-color: #F7F6F6;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
-.form-ticket-category__box:focus-within:hover {
+.ticket-seats-box__ticket-category__box:focus-within:hover {
     border: 1px solid transparent;
 }
 
-.form-ticket-category__label {
+.ticket-seats-box__ticket-category__label {
     display: block;
     width: 240px;
     height: 50px;
@@ -175,7 +175,7 @@ h3.title.ticket-seats-box__tickets-number-title {
     border-radius: 5px;
 }
 
-.form-ticket-category__input {
+.ticket-seats-box__ticket-category__input {
     width: 25px;
     height: 100%;
     font-size: 18px;
@@ -184,24 +184,24 @@ h3.title.ticket-seats-box__tickets-number-title {
     margin: 0;
 }
 
-.form-ticket-category__input::-webkit-outer-spin-button,
-.form-ticket-category__input::-webkit-inner-spin-button {
+.ticket-seats-box__ticket-category__input::-webkit-outer-spin-button,
+.ticket-seats-box__ticket-category__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.form-ticket-category__text {
+.ticket-seats-box__ticket-category__text {
     font-size: 16px;
     font-weight: 400;
     color: transparent;
 }
 
-.form-ticket-category__box:focus-within:hover .form-ticket-category__text,
-.form-ticket-category__box:focus-within .form-ticket-category__text {
+.ticket-seats-box__ticket-category__box:focus-within:hover .ticket-seats-box__ticket-category__text,
+.ticket-seats-box__ticket-category__box:focus-within .ticket-seats-box__ticket-category__text {
     color: #000000;
 }
 
-.form-ticket-category__box:hover .form-ticket-category__text {
+.ticket-seats-box__ticket-category__box:hover .ticket-seats-box__ticket-category__text {
     color: #928F94;
 }
 
