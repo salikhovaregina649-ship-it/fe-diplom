@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import type { CoachesData } from "../../types/typeSeat";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import CoachFirst from "../Coaches/CoachFirst/CoachFirst";
@@ -7,6 +8,8 @@ import CoachThird from "../Coaches/CoachThird/CoachThird";
 import CoachFourth from "../Coaches/CoachFourth/CoachFourth";
 import type { CoachWithSeats } from "../../types/typeSeat";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
+import { setPrice, setSelectedSeatsCount, updateTickets } from "../../store/seatsSlice/seatsSlice";
+import type { RootState } from "../../store/store";
 import "./CoachList.css";
 
 export interface CoachListProps {
@@ -20,7 +23,16 @@ export default function CoachList({
     coaches,
     selectedCoaches,
     handleCoachChange,
+    arrival = false,
 }: CoachListProps) {
+    const dispatch = useDispatch();
+    const seatsData = useSelector((state: RootState) => state.seats);
+    console.log("seatsData", seatsData); // Потом убрать
+    const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
+    const tickets = currentSeatInfo?.tickets || { adult: 1, childWithSeat: 0, childWithoutSeat: 0 };
+
+    const prevCountRef = useRef(0);
+
     const [selectedSeats, setSelectedSeats] = useState<
         Record<string, number[]>
     >({});
@@ -37,6 +49,44 @@ export default function CoachList({
             };
         });
     };
+
+    const getSeatPrice = (coachId: string, seatIndex: number) => {
+        const coach = coaches.find(c => c.coach._id === coachId);
+        if (!coach) return 0;
+        if (coach.coach.class_type === "fourth") {
+            return coach.coach.bottom_price; // Для сидячих вагонов все места имеют одинаковую цену
+        }
+        if (coach.coach.class_type === "first") {
+            return coach.coach.price; // Для первого класса все места имеют одинаковую цену
+        }
+        const isBottom = seatIndex % 2 === 1; // Нечетные индексы — нижние места
+        return isBottom ? coach.coach.bottom_price : coach.coach.top_price;
+    };
+
+    const totalPrice = useMemo(() => {
+        let sum = 0;
+        for (const [coachId, seats] of Object.entries(selectedSeats)) {
+            for (const seatIndex of seats) {
+                sum += getSeatPrice(coachId, seatIndex);
+            }
+        }
+        return sum;
+    }, [selectedSeats, coaches]);
+
+    useEffect(() => {
+        dispatch(setPrice({ price: totalPrice, isArrival: !!arrival }));
+    }, [arrival, dispatch, totalPrice]);
+
+    useEffect(() => {
+        const count = Object.values(selectedSeats).flat().length;
+        dispatch(setSelectedSeatsCount({ count, isArrival: !!arrival }));
+
+        const requiredSeats = tickets.adult + tickets.childWithSeat;
+        if (count > requiredSeats && count > prevCountRef.current) {
+            dispatch(updateTickets({ tickets: { adult: tickets.adult + 1 }, isArrival: !!arrival }));
+        }
+        prevCountRef.current = count;
+    }, [arrival, dispatch, selectedSeats]); // tickets не в deps, чтобы избежать цикла
 
     const renderCoach = (item: CoachWithSeats) => {
         const type = item.coach.class_type;
@@ -131,9 +181,9 @@ export default function CoachList({
                     }
                 </div> 
                 {/* Должно будет подсчитываться */}
-                {Object.values(selectedSeats).flat().length > 0 && (
+                {totalPrice > 0 && (
                     <div className="coach__checked-total-price">
-                        8 080 <RubleIcon />
+                        {totalPrice.toLocaleString()} <RubleIcon />
                     </div>
                 )}
             </div>

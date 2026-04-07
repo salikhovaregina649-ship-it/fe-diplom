@@ -29,6 +29,7 @@ export default function Coach({
     const coachNumber = coach.coach.name.match(/\d+/)?.[0];
     let bottomSeats = 0; // четные доступные
     let topSeats = 0; // нечетные
+    console.log(coach.coach.price, coach.coach.top_price, coach.coach.bottom_price);
 
     coach.seats.forEach((seat) => {
         if (!seat.available) return;
@@ -40,8 +41,8 @@ export default function Coach({
     });
 
     const [options, setOptions] = useState({
-        conditioning: false,
-        wifi: false,
+        conditioning: coach.coach.have_air_conditioning,
+        wifi: coach.coach.have_wifi,
         linen: false,
         food: false,
     });
@@ -83,17 +84,21 @@ export default function Coach({
                 </div>
                 <div className="coach__price-box">
                     <p className="coach__title">Стоимость</p>
-                    {coach.coach.class_type === "first" || coach.coach.class_type === "fourth" ? (
+                    {coach.coach.class_type === "first" ? (
                         <p className="coach__price">
                             {coach.coach.price} <RubleIcon />
+                        </p>
+                    ) : coach.coach.class_type === "fourth" ? (
+                        <p className="coach__price">
+                            {coach.coach.bottom_price} <RubleIcon />
                         </p>
                     ) : (
                         <>
                             <p className="coach__price-top">
-                            {coach.coach.top_price} <RubleIcon />
+                                {coach.coach.top_price} <RubleIcon />
                             </p>
                             <p className="coach__price-bottom">
-                            {coach.coach.bottom_price} <RubleIcon />
+                                {coach.coach.bottom_price} <RubleIcon />
                             </p>
                         </>
                     )}
@@ -122,6 +127,7 @@ export default function Coach({
                                 label="белье"
                                 checked={options.linen}
                                 onChange={() => toggleOption("linen")}
+                                disabled={coach.coach.is_linens_included}
                             />
                         }
                         <CoachOption

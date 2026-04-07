@@ -40,6 +40,7 @@ export default function SingleSeatCell({
                     )}
                     onClick={handleClick}
                     disabled={!seat.available}
+                    type="button"
                 >
                     {seat.index}
                 </button>

@@ -1,6 +1,6 @@
-import { useState } from "react";
 import type { JSX } from "react";
 import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
 import clsx from "clsx";
 import Title from "../uikit/Title/Title";
 import Button from "../uikit/Button/Button";
@@ -10,7 +10,8 @@ import CoachList from "../CoachList/CoachList";
 import { formatTimeLong } from "../../utils/formatTime";
 import type { Ticket } from "../../types/typeTicket";
 import type { CoachesData } from "../../types/typeSeat";
-
+import { setCurrentClass, addCoach, removeCoach, updateTickets } from "../../store/seatsSlice/seatsSlice";
+import type { RootState } from "../../store/store";
 // icons
 import ArrowIconBig from "../../assets/icons/small/ArrowIconBig";
 import trainIconSmall from "../../assets/icons/small/trainIconSmall.svg";
@@ -38,8 +39,17 @@ export default function FormTicketSeats({
     classes,
     arrival = false,
 }: FormTicketSeatsProps) {
-    const [currentClass, setCurrentClass] = useState<string | null>(null);
-    const [selectedCoaches, setSelectedCoaches] = useState<string[]>([]);
+    const dispatch = useDispatch();
+    const seatsData = useSelector((state: RootState) => state.seats);
+    const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
+    
+    const { currentClass, selectedCoaches, tickets } = currentSeatInfo || {
+        currentClass: null,
+        selectedCoaches: [],
+        tickets: { adult: 1, childWithSeat: 0, childWithoutSeat: 0 },
+    };
+    
+    console.log(`${arrival ? "ARRIVAL" : "DEPARTURE"} состояние:`, { currentClass, selectedCoaches, tickets }); // удалить потом
 
     const radioName = arrival ? "class-arrival" : "class-departure";
 
@@ -49,16 +59,16 @@ export default function FormTicketSeats({
     };
 
     const handleClassChange = (value: string) => {
-        setCurrentClass(value);
+        dispatch(setCurrentClass({ value, isArrival: arrival }));
     };
 
     const handleCoachChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value, checked } = e.target;
 
         if (checked) {
-            setSelectedCoaches((prev) => [...prev, value]);
+            dispatch(addCoach({ coach: value, isArrival: arrival }));
         } else {
-            setSelectedCoaches((prev) => prev.filter((name) => name !== value));
+            dispatch(removeCoach({ coach: value, isArrival: arrival }));
         }
     };
 
@@ -66,20 +76,14 @@ export default function FormTicketSeats({
         (item) => item.coach.class_type === currentClass,
     );
 
-    const [tickets, setTickets] = useState({
-        adult: 1,
-        childWithSeat: 0,
-        childWithoutSeat: 0,
-    });
-
     const handleTicketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         const number = Number(value);
         if (number > 6) return;
 
-        setTickets((prev) => ({
-            ...prev,
-            [name]: Number(value),
+        dispatch(updateTickets({
+            tickets: { [name]: number } as Partial<typeof tickets>,
+            isArrival: arrival,
         }));
     };
 
@@ -185,6 +189,7 @@ export default function FormTicketSeats({
                                 max={5}
                                 value={tickets.childWithSeat}
                                 onChange={handleTicketChange}
+                                disabled={tickets.adult === 0}
                             />
                         </label>
                         <p className="ticket-seats-box__ticket-category__text">
@@ -245,6 +250,7 @@ export default function FormTicketSeats({
                             coaches={filteredCoaches}
                             selectedCoaches={selectedCoaches}
                             handleCoachChange={handleCoachChange}
+                            arrival={arrival}
                         />
                     )}
                 </div>

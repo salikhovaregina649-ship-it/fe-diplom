@@ -48,6 +48,7 @@ export default function TicketSeats() {
 
     const searchState = useSelector((state: RootState) => state.search);
     const routesState = useSelector((state: RootState) => state.routes);
+    const seatsState = useSelector((state: RootState) => state.seats);
 
     const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
     const filtersParams = useMemo(() => getFiltersParams(routesState), [routesState]);
@@ -59,6 +60,16 @@ export default function TicketSeats() {
         {id: id!, filters: filtersParams!},
         {skip: !id}
     );
+
+    const isValid = useMemo(() => {
+        const dep = seatsState.departure;
+        const arr = seatsState.arrival;
+        const depRequired = dep.tickets.adult + dep.tickets.childWithSeat;
+        const arrRequired = arr ? arr.tickets.adult + arr.tickets.childWithSeat : 0;
+        const departureValid = dep.selectedSeatsCount === depRequired && depRequired > 0;
+        const arrivalValid = !arr || arr.selectedSeatsCount === arrRequired;
+        return departureValid && arrivalValid;
+    }, [seatsState]);
 
     const navigate = useNavigate();
     const handleThen = () => {
@@ -103,6 +114,7 @@ export default function TicketSeats() {
                 variant="yellow"
                 onClick={handleThen}
                 uppercase={true}
+                disabled={!isValid}
             >
                 Далее
             </Button>

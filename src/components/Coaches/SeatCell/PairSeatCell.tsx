@@ -44,6 +44,7 @@ export default function PairSeatCell({
                         )}
                         onClick={handleTopClick}
                         disabled={!topSeat.available}
+                        type="button"
                     >
                         {topSeat.index}
                     </button>
@@ -66,6 +67,7 @@ export default function PairSeatCell({
                         )}
                         onClick={handleBottomClick}
                         disabled={!bottomSeat.available}
+                        type="button"
                     >
                         {bottomSeat.index}
                     </button>

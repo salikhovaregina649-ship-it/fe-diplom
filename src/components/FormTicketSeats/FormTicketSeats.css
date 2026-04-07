@@ -33,6 +33,9 @@
     width: 30px;
     height: 20px;
     color: #FFFFFF;
+}
+
+.ticket-seats-box--arrival .ticket-seats-box__icon-box .icon {
     transform: rotate(180deg);
 }
 

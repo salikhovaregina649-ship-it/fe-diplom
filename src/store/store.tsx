@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./searchSlice/searchSlice";
 import routesReducer from "./routesSlice/routesSlice";
+import seatsReducer from "./seatsSlice/seatsSlice";
 import { api } from "./api/api";
 
 export const store = configureStore({
     reducer: {
         search: searchReducer,
         routes: routesReducer,
+        seats: seatsReducer,
         [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
