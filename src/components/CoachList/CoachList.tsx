@@ -180,7 +180,6 @@ export default function CoachList({
                         .map(renderCoach)
                     }
                 </div> 
-                {/* Должно будет подсчитываться */}
                 {totalPrice > 0 && (
                     <div className="coach__checked-total-price">
                         {totalPrice.toLocaleString()} <RubleIcon />
