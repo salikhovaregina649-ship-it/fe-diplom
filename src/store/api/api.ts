@@ -33,7 +33,21 @@ export const api = createApi({
                 params: filters,
             }),
         }),
+        getSubscribe: builder.mutation<{ status: boolean }, string>({
+            query: (email) => ({
+                url: "/subscribe",
+                method: "POST",
+                params: { email },
+            }),
+        }),
     }),
 });
 
-export const { useGetCitiesQuery, useGetRoutesQuery, useLazyGetRoutesQuery, useGetLastRoutesQuery, useGetSeatsQuery } = api;
+export const {
+    useGetCitiesQuery,
+    useGetRoutesQuery,
+    useLazyGetRoutesQuery,
+    useGetLastRoutesQuery,
+    useGetSeatsQuery,
+    useGetSubscribeMutation
+} = api;
