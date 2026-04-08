@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./searchSlice/searchSlice";
 import routesReducer from "./routesSlice/routesSlice";
 import seatsReducer from "./seatsSlice/seatsSlice";
+import bookingReducer from "./bookingSlice/bookingSlice";
 import { api } from "./api/api";
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
         search: searchReducer,
         routes: routesReducer,
         seats: seatsReducer,
+        booking: bookingReducer,
         [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),

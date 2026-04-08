@@ -12,12 +12,6 @@ interface TravelInfoProps {
     tripDetails?: boolean; //только для TripDetails
 }
 
-//Моки
-const dates = {
-    dateStart : "2018-08-30", 
-    dateEnd: "2018-09-09",
-}
-
 export default function TravelInfo({ className, ticketInfo, back = false, tripDetails = false }: TravelInfoProps) {
     let info: Departure;
 
@@ -47,7 +41,7 @@ export default function TravelInfo({ className, ticketInfo, back = false, tripDe
                         </time>
                         {tripDetails &&
                             <p className="travel-info__date">
-                                {formatDate((dates.dateStart))}
+                                {formatDate(firstPoint.datetime)}
                             </p>
                         }
                         <p className="travel-info__city">
@@ -80,7 +74,7 @@ export default function TravelInfo({ className, ticketInfo, back = false, tripDe
                     </time>
                     {tripDetails &&
                         <p className="travel-info__date">
-                            {formatDate((dates.dateEnd))}
+                            {formatDate((secondPoint.datetime))}
                         </p>
                     }    
                     <p className="travel-info__city">

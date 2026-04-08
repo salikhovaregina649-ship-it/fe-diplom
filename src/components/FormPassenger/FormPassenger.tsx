@@ -9,7 +9,6 @@ import clsx from "clsx";
 // import ValidIcon from "../../assets/icons/small/ValidIcon";
 // import ErrorIcon from "../../assets/icons/small/ErrorIcon";
 
-//Моки
 const optionsTicketType = [
     { value: "adult", label: "Взрослый" },
     { value: "childlike", label: "Детский" },

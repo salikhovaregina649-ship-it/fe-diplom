@@ -78,7 +78,13 @@ export default function FormTicketSeats({
 
     const handleTicketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        const number = Number(value);
+        let number = Number(value);
+
+        if (name === "childWithoutSeat") {
+            // ограничение по числу взрослых
+            number = Math.min(number, tickets.adult);
+        }
+
         if (number > 6) return;
 
         dispatch(updateTickets({
@@ -186,7 +192,7 @@ export default function FormTicketSeats({
                                 type="number"
                                 name="childWithSeat"
                                 min={0}
-                                max={5}
+                                max={6}
                                 value={tickets.childWithSeat}
                                 onChange={handleTicketChange}
                                 disabled={tickets.adult === 0}
@@ -209,7 +215,7 @@ export default function FormTicketSeats({
                                 type="number"
                                 name="childWithoutSeat"
                                 min={0}
-                                max={6}
+                                max={tickets.adult}
                                 disabled={tickets.adult === 0}
                                 value={tickets.childWithoutSeat}
                                 onChange={handleTicketChange}

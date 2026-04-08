@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { seatsState, TicketsInfo, SeatInfo } from "./types";
+import type { SeatsState, TicketsInfo, SeatInfo } from "./types";
 
 const initialSeatInfo: SeatInfo = {
     currentClass: null,
@@ -10,13 +10,16 @@ const initialSeatInfo: SeatInfo = {
         childWithSeat: 0,
         childWithoutSeat: 0,
     },
+    totalTickets: 1,
     price: 0,
     selectedSeatsCount: 0,
+    selectedSeats: {},
 };
 
-const initialState: seatsState = {
+const initialState: SeatsState = {
     departure: initialSeatInfo,
     arrival: null,
+    totalPrice: 0,
 };
 
 const seatsSlice = createSlice({
@@ -58,6 +61,7 @@ const seatsSlice = createSlice({
                     ...target.tickets,
                     ...tickets,
                 };
+                target.totalTickets = target.tickets.adult + target.tickets.childWithSeat + target.tickets.childWithoutSeat;
             }
         },
         setPrice(state, action: PayloadAction<{ price: number; isArrival: boolean }>) {
@@ -66,6 +70,7 @@ const seatsSlice = createSlice({
             if (target) {
                 target.price = price;
             }
+            state.totalPrice = state.departure.price + (state.arrival ? state.arrival.price : 0);
         },
         setSelectedSeatsCount(state, action: PayloadAction<{ count: number; isArrival: boolean }>) {
             const { count, isArrival } = action.payload;
@@ -74,14 +79,27 @@ const seatsSlice = createSlice({
                 target.selectedSeatsCount = count;
             }
         },
-        resetSeatsForm(state, action: PayloadAction<{ isArrival: boolean }>) {
-            const { isArrival } = action.payload;
-            if (isArrival) {
-                state.arrival = null;
+        setSelectedSeats(state, action: PayloadAction<{ coachId: string; seatIndex: number; isArrival: boolean}>) {
+            const { coachId, seatIndex, isArrival } = action.payload;
+            const target = isArrival ? state.arrival : state.departure;
+
+            if (!target) return;
+
+            const coachSeats = target.selectedSeats[coachId] || [];
+
+            if (coachSeats.includes(seatIndex)) {
+                target.selectedSeats[coachId] = coachSeats.filter(
+                    (id) => id !== seatIndex
+                );
             } else {
-                state.departure = { ...initialSeatInfo };
+                target.selectedSeats[coachId] = [...coachSeats, seatIndex];
             }
         },
+        resetSeatsForm(state) {
+            state.departure = { ...initialSeatInfo };
+            state.arrival = null;
+            state.totalPrice = 0;
+        }
     },
 });
 
@@ -92,6 +110,7 @@ export const {
     updateTickets,
     setPrice,
     setSelectedSeatsCount,
+    setSelectedSeats,
     resetSeatsForm,
 } = seatsSlice.actions;
 

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Title from "../uikit/Title/Title";
 import Button from "../uikit/Button/Button";
 import FormTicketSeats from "../FormTicketSeats/FormTicketSeats";
@@ -8,6 +8,7 @@ import { useGetRoutesQuery } from "../../store/api/api";
 import { useGetSeatsQuery } from "../../store/api/api";
 import { getRouteParams } from "../../utils/getRouteParams";
 import { getFiltersParams } from "../../utils/getFiltersParams";
+import { setSelectedRouteId } from "../../store/bookingSlice/bookingSlice";
 import type { RootState } from "../../store/store";
 import "./TicketSeats.css";
 // icons
@@ -44,6 +45,7 @@ const classes = [
 ];
 
 export default function TicketSeats() {
+    const dispatch = useDispatch();
     const {id} = useParams<{id: string}>();
 
     const searchState = useSelector((state: RootState) => state.search);
@@ -73,6 +75,7 @@ export default function TicketSeats() {
 
     const navigate = useNavigate();
     const handleThen = () => {
+        dispatch(setSelectedRouteId(id!));
         navigate("/booking/passengers");
     };
 

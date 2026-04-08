@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { CoachesData } from "../../types/typeSeat";
 import Checkbox from "../uikit/Checkbox/Checkbox";
@@ -8,7 +8,7 @@ import CoachThird from "../Coaches/CoachThird/CoachThird";
 import CoachFourth from "../Coaches/CoachFourth/CoachFourth";
 import type { CoachWithSeats } from "../../types/typeSeat";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
-import { setPrice, setSelectedSeatsCount, updateTickets } from "../../store/seatsSlice/seatsSlice";
+import { setPrice, setSelectedSeatsCount, updateTickets, setSelectedSeats } from "../../store/seatsSlice/seatsSlice";
 import type { RootState } from "../../store/store";
 import "./CoachList.css";
 
@@ -28,26 +28,16 @@ export default function CoachList({
     const dispatch = useDispatch();
     const seatsData = useSelector((state: RootState) => state.seats);
     console.log("seatsData", seatsData); // Потом убрать
+
     const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
     const tickets = currentSeatInfo?.tickets || { adult: 1, childWithSeat: 0, childWithoutSeat: 0 };
 
     const prevCountRef = useRef(0);
 
-    const [selectedSeats, setSelectedSeats] = useState<
-        Record<string, number[]>
-    >({});
+    const selectedSeats = currentSeatInfo?.selectedSeats || {};
 
     const handleSeatSelect = (coachId: string, seatIndex: number) => {
-        setSelectedSeats((prev) => {
-            const coachSeats = prev[coachId] || [];
-
-            return {
-                ...prev,
-                [coachId]: coachSeats.includes(seatIndex)
-                    ? coachSeats.filter((id) => id !== seatIndex)
-                    : [...coachSeats, seatIndex],
-            };
-        });
+        dispatch(setSelectedSeats({coachId, seatIndex, isArrival: !!arrival}));
     };
 
     const getSeatPrice = (coachId: string, seatIndex: number) => {
@@ -86,7 +76,7 @@ export default function CoachList({
             dispatch(updateTickets({ tickets: { adult: tickets.adult + 1 }, isArrival: !!arrival }));
         }
         prevCountRef.current = count;
-    }, [arrival, dispatch, selectedSeats]); // tickets не в deps, чтобы избежать цикла
+    }, [arrival, dispatch, selectedSeats]);
 
     const renderCoach = (item: CoachWithSeats) => {
         const type = item.coach.class_type;

@@ -7,6 +7,7 @@ import Pagination from "../uikit/Pagination/Pagination";
 import { setSort, setLimit, setPage } from "../../store/routesSlice/routesSlice";
 import { useGetRoutesQuery } from "../../store/api/api";
 import { getRouteParams } from "../../utils/getRouteParams";
+import { resetSeatsForm } from "../../store/seatsSlice/seatsSlice";
 import type { RootState } from "../../store/store";
 import "./TrainList.css";
 
@@ -20,6 +21,8 @@ export default function TrainList() {
     const dispatch = useDispatch();
     const searchState = useSelector((state: RootState) => state.search);
     const routesState = useSelector((state: RootState) => state.routes);
+
+    dispatch(resetSeatsForm()); // Сброс данных о местах
 
     const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
 
