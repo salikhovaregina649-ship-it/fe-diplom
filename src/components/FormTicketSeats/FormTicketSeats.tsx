@@ -59,16 +59,16 @@ export default function FormTicketSeats({
     };
 
     const handleClassChange = (value: string) => {
-        dispatch(setCurrentClass({ value, isArrival: arrival }));
+        dispatch(setCurrentClass({value, isArrival: arrival}));
     };
 
     const handleCoachChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { value, checked } = e.target;
+        const {value, checked} = e.target;
 
         if (checked) {
-            dispatch(addCoach({ coach: value, isArrival: arrival }));
+            dispatch(addCoach({coach: value, isArrival: arrival}));
         } else {
-            dispatch(removeCoach({ coach: value, isArrival: arrival }));
+            dispatch(removeCoach({coach: value, isArrival: arrival}));
         }
     };
 
@@ -77,7 +77,7 @@ export default function FormTicketSeats({
     );
 
     const handleTicketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         let number = Number(value);
 
         if (name === "childWithoutSeat") {
@@ -88,7 +88,7 @@ export default function FormTicketSeats({
         if (number > 6) return;
 
         dispatch(updateTickets({
-            tickets: { [name]: number } as Partial<typeof tickets>,
+            tickets: {[name]: number} as Partial<typeof tickets>,
             isArrival: arrival,
         }));
     };

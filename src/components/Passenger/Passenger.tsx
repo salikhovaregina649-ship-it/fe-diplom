@@ -10,9 +10,10 @@ interface PassengerProps {
     className?: string;
     number: number;
     onDelete: () => void;
+    passengerId: string;
 }
 
-export default function Passenger({ className, number, onDelete }: PassengerProps) {
+export default function Passenger({ className, number, onDelete, passengerId }: PassengerProps) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -42,7 +43,7 @@ export default function Passenger({ className, number, onDelete }: PassengerProp
             </div>
             <Collapse className="passenger__collapse" isOpen={open}>
                 <div className="passenger__collapse-box">
-                    <FormPassenger />
+                    <FormPassenger passengerId={passengerId} />
                 </div>
             </Collapse>
         </div>

@@ -1,13 +1,20 @@
-import { useState, useId } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import clsx from "clsx";
 import CustomSelect from "../uikit/CustomSelect/CustomSelect";
 import Button from "../uikit/Button/Button";
-import "./FormPassenger.css";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
-import clsx from "clsx";
+import { updatePassenger } from "../../store/passengerSlice/passengerSlice";
+import type { RootState } from "../../store/store";
+import "./FormPassenger.css";
 // import ValidIcon from "../../assets/icons/small/ValidIcon";
 // import ErrorIcon from "../../assets/icons/small/ErrorIcon";
+
+interface FormPassengerProps {
+    passengerId: string;
+}
 
 const optionsTicketType = [
     { value: "adult", label: "Взрослый" },
@@ -19,14 +26,16 @@ const DocumentType = [
     { value: "birthCertificate", label: "Свидетельство о рождении" },
 ];
 
-export default function FormPassenger() {
-    const [selectedTicketTypeValue, setSelectedTicketTypeValue] = useState<string>(optionsTicketType[0].value);
-    const [selectedDocumentTypeValue, setSelectedDocumentTypeValue] = useState<string>(DocumentType[0].value);
-    const [selectedGender, setSelectedGender] = useState("male");
-    const [isMobility, setIsMobility] = useState(false);
-    const [dateBirth, setDateBirth] = useState<Date | null>(null);
+export default function FormPassenger({ passengerId }: FormPassengerProps) {
+    const [isMobility, setIsMobility] = useState(false); //Вопрос! такого значения для order нету, хотя в макете есть
 
-    const formId = useId();
+    const dispatch = useDispatch();
+
+    const passenger = useSelector((state: RootState) => 
+        state.passenger.passengers.find(p => p.id === passengerId)
+    );
+    // Если пассажир не найден
+    if (!passenger) return null;
 
     return (
         <form className="form-passenger">
@@ -38,8 +47,8 @@ export default function FormPassenger() {
                     )}
                     name="category"
                     options={optionsTicketType}
-                    value={selectedTicketTypeValue}
-                    onChange={(val) => setSelectedTicketTypeValue(val)}
+                    value={passenger.is_adult ? "adult" : "childlike"}
+                    onChange={(val) => dispatch(updatePassenger({id: passengerId, data: {is_adult: val === "adult"}}))}
                 />
                 <div className="form-passenger__personal-data">
                     <label className="form-passenger__label">
@@ -47,7 +56,9 @@ export default function FormPassenger() {
                         <input
                             className="form-passenger__input"
                             type="text"
-                            name="surname"
+                            name="first_name"
+                            value={passenger.first_name}
+                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {first_name: e.target.value}}))}
                             required
                         />
                     </label>
@@ -56,7 +67,9 @@ export default function FormPassenger() {
                         <input
                             className="form-passenger__input"
                             type="text"
-                            name="name"
+                            name="last_name"
+                            value={passenger.last_name}
+                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {last_name: e.target.value}}))}
                             required
                         />
                     </label>
@@ -66,6 +79,8 @@ export default function FormPassenger() {
                             className="form-passenger__input"
                             type="text"
                             name="patronymic"
+                            value={passenger.patronymic}
+                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {patronymic: e.target.value}}))}
                             required
                         />
                     </label>
@@ -76,20 +91,20 @@ export default function FormPassenger() {
                         <div className="form-passenger__radio">
                             <Radio
                                 className="form-passenger__gender"
-                                name={`gender-${formId}`}
-                                id={`male-${formId}`}
+                                name={`gender-${passengerId}`}
+                                id={`male-${passengerId}`}
                                 value="male"
-                                checked={selectedGender === "male"}
-                                onChange={setSelectedGender}
+                                checked={passenger.gender === true}
+                                onChange={() => dispatch(updatePassenger({id: passengerId, data: {gender: true}}))}
                                 label="М"
                             />
                             <Radio
                                 className="form-passenger__gender"
-                                name={`gender-${formId}`}
-                                id={`female-${formId}`}
+                                name={`gender-${passengerId}`}
+                                id={`female-${passengerId}`}
                                 value="female"
-                                checked={selectedGender === "female"}
-                                onChange={setSelectedGender}
+                                checked={passenger.gender === false}
+                                onChange={() => dispatch(updatePassenger({id: passengerId, data: {gender: false}}))}
                                 label="Ж"
                             />
                         </div>
@@ -97,8 +112,8 @@ export default function FormPassenger() {
                     <div className="form-passenger__date-box">
                         <p className="form-passenger__title">Дата рождения</p>
                         <CustomDatepicker
-                            value={dateBirth}
-                            onChange={setDateBirth}
+                            value={passenger.birthday ? new Date(passenger.birthday) : null}
+                            onChange={(date) => dispatch(updatePassenger({id: passengerId, data: {birthday: date ? date.toISOString() : ""}}))}
                             placeholder="ДД/ММ/ГГ"
                             name="birth-date"
                             icon={false}
@@ -132,15 +147,15 @@ export default function FormPassenger() {
                         className={clsx(
                             "form-passenger__select",
                             "form-passenger__select--document-type",
-                            selectedDocumentTypeValue === "passport" && "size",
+                            passenger.document_type === "паспорт" && "size",
                         )}
                         name="document-type"
                         options={DocumentType}
-                        value={selectedDocumentTypeValue}
-                        onChange={(val) => setSelectedDocumentTypeValue(val)}
+                        value={passenger.document_type}
+                        onChange={(val) => dispatch(updatePassenger({id: passengerId, data: {document_type: val === "passport" ? "паспорт" : "свидетельство о рождении"}}))}
                     />
                 </div>
-                {selectedDocumentTypeValue === "passport" && (
+                {passenger.document_type === "паспорт" && (
                     <div
                         className={clsx(
                             "form-passenger__personal-document",
@@ -168,7 +183,7 @@ export default function FormPassenger() {
                     </div>
                 )}
 
-                {selectedDocumentTypeValue === "birthCertificate" && (
+                {passenger.document_type === "свидетельство о рождении" && (
                     <div
                         className={clsx(
                             "form-passenger__personal-document",

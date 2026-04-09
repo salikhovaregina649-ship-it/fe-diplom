@@ -64,16 +64,16 @@ export default function CoachList({
     }, [selectedSeats, coaches]);
 
     useEffect(() => {
-        dispatch(setPrice({ price: totalPrice, isArrival: !!arrival }));
+        dispatch(setPrice({price: totalPrice, isArrival: !!arrival}));
     }, [arrival, dispatch, totalPrice]);
 
     useEffect(() => {
         const count = Object.values(selectedSeats).flat().length;
-        dispatch(setSelectedSeatsCount({ count, isArrival: !!arrival }));
+        dispatch(setSelectedSeatsCount({count, isArrival: !!arrival}));
 
         const requiredSeats = tickets.adult + tickets.childWithSeat;
         if (count > requiredSeats && count > prevCountRef.current) {
-            dispatch(updateTickets({ tickets: { adult: tickets.adult + 1 }, isArrival: !!arrival }));
+            dispatch(updateTickets({tickets: {adult: tickets.adult + 1}, isArrival: !!arrival}));
         }
         prevCountRef.current = count;
     }, [arrival, dispatch, selectedSeats]);

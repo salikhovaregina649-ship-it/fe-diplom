@@ -18,14 +18,14 @@ export function getRouteParams(
         date_end: searchState.dateBack
             ? searchState.dateBack.split("T")[0]
             : undefined,
-        // date_start_arrival?: string; //неоткуда получить
-        // date_end_arrival?:string; //неоткуда получить
+        // date_start_arrival?: string; //Вопрос! неоткуда получить
+        // date_end_arrival?:string; //Вопрос! неоткуда получить
         have_first_class: routesState.have_first_class ? true : undefined,
         have_second_class: routesState.have_second_class ? true : undefined,
         have_third_class: routesState.have_third_class ? true : undefined,
         have_fourth_class: routesState.have_fourth_class ? true : undefined,
         have_wifi: routesState.have_wifi ? true : undefined,
-        // have_air_conditioning: boolean; //неоткуда получить
+        // have_air_conditioning: boolean; //Вопрос! неоткуда получить
         have_express: routesState.have_express ? true : undefined,
         price_from:
             routesState.price_from > 0 ? routesState.price_from : undefined,
