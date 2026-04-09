@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CustomSelect from "../uikit/CustomSelect/CustomSelect";
 import Radio from "../uikit/Radio/Radio";
@@ -22,7 +22,9 @@ export default function TrainList() {
     const searchState = useSelector((state: RootState) => state.search);
     const routesState = useSelector((state: RootState) => state.routes);
 
-    dispatch(resetSeatsForm()); // Сброс данных о местах
+    useEffect(() => {
+        dispatch(resetSeatsForm()); // Сброс данных о местах
+    }, [dispatch]);
 
     const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
 

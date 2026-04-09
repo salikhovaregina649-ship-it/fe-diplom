@@ -155,8 +155,8 @@ export default function Search({ className }: SearchProps) {
                 </label>
                 <div className="form-search__input-wrapper form-search__wrapper--col-1">
                     <CustomDatepicker
-                        value={dateForth}
-                        onChange={(date) => dispatch(setDateForth(date))}
+                        value={dateForth ? new Date(dateForth) : null}
+                        onChange={(date) => dispatch(setDateForth(date ? date.toISOString() : null))}
                         name="date-forth"
                         icon="big"
                         minDate={minDate}
@@ -166,8 +166,8 @@ export default function Search({ className }: SearchProps) {
                 </div>
                 <div className="form-search__input-wrapper form-search__wrapper--col-2">
                     <CustomDatepicker
-                        value={dateBack}
-                        onChange={(date) => dispatch(setDateBack(date))}
+                        value={dateBack ? new Date(dateBack) : null}
+                        onChange={(date) => dispatch(setDateBack(date ? date.toISOString() : null))}
                         name="date-back"
                         icon="big"
                         minDate={minDate}
@@ -181,6 +181,7 @@ export default function Search({ className }: SearchProps) {
                 variant="yellow"
                 uppercase={true}
                 onClick={handleSearch}
+                type="button"
             >
                 Найти билеты
             </Button>

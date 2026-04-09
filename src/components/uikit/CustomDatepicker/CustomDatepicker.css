@@ -197,7 +197,7 @@
 /*  */
 svg.react-datepicker__triangle path {
     color: #FFFFFF;
-    stroke-width: 0;
+    strokeWidth: 0;
     stroke: none;
     fill: #FFFFFF;
     transform: scaleX(0.6);

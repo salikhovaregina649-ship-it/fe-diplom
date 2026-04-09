@@ -1,8 +1,13 @@
+import { useMemo } from "react";
 import { Outlet, useLocation } from "react-router";
+import { useSelector } from "react-redux";
 import Hero from "../../components/Hero/Hero";
 import Search from "../../components/Search/Search";
 import StepsMenu from "../../components/StepsMenu/StepsMenu";
-// import Loading from "../../components/Loading/Loading";
+import Loading from "../../components/Loading/Loading";
+import { useGetRoutesQuery } from "../../store/api/api";
+import { getRouteParams } from "../../utils/getRouteParams";
+import type { RootState } from "../../store/store";
 import "./BookingPage.css";
 
 export default function BookingPage() {
@@ -16,6 +21,11 @@ export default function BookingPage() {
         return 1;
     };
 
+    const searchState = useSelector((state: RootState) => state.search);
+    const routesState = useSelector((state: RootState) => state.routes);
+    const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
+    const { isLoading } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
+
     return (
         <div className="booking">
             <Hero className="booking__hero">
@@ -23,9 +33,15 @@ export default function BookingPage() {
                     <Search className="booking__search" />
                 </div>
             </Hero>
-            {/* <Loading /> */}
-            <StepsMenu currentStep={getCurrentStep()} />
-            <Outlet />
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <>
+                    <StepsMenu currentStep={getCurrentStep()} />
+                    <Outlet />
+                </>
+            )}
+            
         </div>
     );
 }

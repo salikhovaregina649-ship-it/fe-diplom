@@ -35,10 +35,10 @@ const searchSlice = createSlice({
             state.to.selectedCity = action.payload;
             state.to.value = action.payload.name;
         },
-        setDateForth(state, action: PayloadAction<Date | null>) {
+        setDateForth(state, action: PayloadAction<string | null>) {
             state.dateForth = action.payload;
         },
-        setDateBack(state, action: PayloadAction<Date | null>) {
+        setDateBack(state, action: PayloadAction<string | null>) {
             state.dateBack = action.payload;
         },
         swapCities(state) {

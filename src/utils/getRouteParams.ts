@@ -13,10 +13,10 @@ export function getRouteParams(
         from_city_id: searchState.from.selectedCity._id,
         to_city_id: searchState.to.selectedCity._id,
         date_start: searchState.dateForth
-            ? searchState.dateForth.toISOString().split("T")[0]
+            ? searchState.dateForth.split("T")[0]
             : undefined,
         date_end: searchState.dateBack
-            ? searchState.dateBack.toISOString().split("T")[0]
+            ? searchState.dateBack.split("T")[0]
             : undefined,
         // date_start_arrival?: string; //неоткуда получить
         // date_end_arrival?:string; //неоткуда получить

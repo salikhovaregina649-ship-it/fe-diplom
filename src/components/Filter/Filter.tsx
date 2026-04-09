@@ -11,7 +11,7 @@ import TimeRangeSlider from "../uikit/TimeRangeSlider/TimeRangeSlider";
 import { setDateForth, setDateBack } from "../../store/searchSlice/searchSlice";
 import { toggleFilter, setPriceRange, setTimeRange } from "../../store/routesSlice/routesSlice";
 import type { RootState } from "../../store/store";
-import type { FilterKey, TimeRangeKey } from "../../store/routesSlice/types";
+import type { FilterKey } from "../../store/routesSlice/types";
 import "./Filter.css";
 
 //icons
@@ -66,8 +66,6 @@ const filterItems: FilterItem[] = [
 export default function Filter () {
     const [openForth, setOpenForth] = useState(false);
     const [openBack, setOpenBack] = useState(false);
-    // const [dateForth, setDateForth] = useState<Date | null>(null);
-    // const [dateBack, setDateBack] = useState<Date | null>(null);
     const dispatch = useDispatch();
     const routesState = useSelector((state: RootState) => state.routes);
     const { dateForth, dateBack } = useSelector((state: RootState) => state.search);
@@ -84,8 +82,8 @@ export default function Filter () {
                 <div className="filter__date-box">
                     <Title className="filter__title" as="h3">Дата поездки</Title>
                     <CustomDatepicker
-                        value={dateForth}
-                        onChange={(date) => dispatch(setDateForth(date))}
+                        value={dateForth ? new Date(dateForth) : null}
+                        onChange={(date) => dispatch(setDateForth(date ? date.toISOString() : null))}
                         name="date-forth"
                         icon="small"
                         minDate={minDate}
@@ -96,8 +94,8 @@ export default function Filter () {
                 <div className="filter__date-box">
                     <Title className="filter__title" as="h3">Дата возвращения</Title>
                     <CustomDatepicker
-                        value={dateBack}
-                        onChange={(date) => dispatch(setDateBack(date))}
+                        value={dateBack ? new Date(dateBack) : null}
+                        onChange={(date) => dispatch(setDateBack(date ? date.toISOString() : null))}
                         name="date-back"
                         icon="small"
                         minDate={minDate}

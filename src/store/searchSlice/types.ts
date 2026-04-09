@@ -12,6 +12,6 @@ export interface SearchState {
         value: string;
         selectedCity: City | null;
     };
-    dateForth: Date | null;
-    dateBack: Date | null;
+    dateForth: string | null;
+    dateBack: string | null;
 }
