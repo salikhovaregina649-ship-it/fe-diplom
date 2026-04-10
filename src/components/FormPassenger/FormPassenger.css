@@ -244,14 +244,17 @@
     padding-top: 39px;
     padding-right: 31px;
     padding-bottom: 28px;
+    z-index: 1;
 }
 
 .form-passenger__btn {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 303px;
     height: 52px;
+    z-index: 1;
 }
 
 .form-passenger__btn.button {
@@ -267,6 +270,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 2;
 }
 
 .form-passenger__message-box {
@@ -276,6 +280,10 @@
     height: 100%;
     padding-left: 36px;
     font-size: 18px;
+}
+
+.form-passenger__message:has(.form-passenger__valid) {
+    z-index: -1;
 }
 
 .form-passenger__message-box:has(.form-passenger__valid) {
@@ -292,4 +300,14 @@
     width: 32px;
     height: 32px;
     margin-right: 15px;
+}
+
+/* errors */
+.form-passenger__input--error {
+    color: #FF3D0061;
+    border: 1px solid #FF3D0061;
+}
+
+.form-passenger__btn-box:has(.form-passenger__passport-error-message) .form-passenger__btn {
+    opacity: 0;;
 }

@@ -28,7 +28,7 @@ export default function PassengerStep() {
     const ticketInfo = routesData?.items?.find((item) => item.departure._id === selectedRouteId);
 
     const initialQuantityTickets = seatsState.departure.totalTickets;
-    console.log("initialQuantityTickets", initialQuantityTickets); // удалить потом
+
     // отобразится столько пассажиров, сколько пассажиров выбрано (не кол-во мест, а именно пассажиров)
     useEffect(() => {
         if (initialQuantityTickets === 0) return;

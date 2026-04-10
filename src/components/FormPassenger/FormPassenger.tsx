@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import CustomSelect from "../uikit/CustomSelect/CustomSelect";
@@ -6,11 +6,12 @@ import Button from "../uikit/Button/Button";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
+import { usePassengerValidation } from "../../utils/usePassengerValidation";
 import { updatePassenger } from "../../store/passengerSlice/passengerSlice";
 import type { RootState } from "../../store/store";
 import "./FormPassenger.css";
-// import ValidIcon from "../../assets/icons/small/ValidIcon";
-// import ErrorIcon from "../../assets/icons/small/ErrorIcon";
+import ValidIcon from "../../assets/icons/small/ValidIcon";
+import ErrorIcon from "../../assets/icons/small/ErrorIcon";
 
 interface FormPassengerProps {
     passengerId: string;
@@ -22,12 +23,18 @@ const optionsTicketType = [
 ];
 
 const DocumentType = [
-    { value: "passport", label: "Паспорт РФ" },
-    { value: "birthCertificate", label: "Свидетельство о рождении" },
+    { value: "паспорт", label: "Паспорт РФ" },
+    { value: "свидетельство о рождении", label: "Свидетельство о рождении" },
 ];
 
 export default function FormPassenger({ passengerId }: FormPassengerProps) {
     const [isMobility, setIsMobility] = useState(false); //Вопрос! такого значения для order нету, хотя в макете есть
+
+    const [passportSeries, setPassportSeries] = useState("");
+    const [passportNumber, setPassportNumber] = useState("");
+    const [birthNumber, setBirthNumber] = useState("");
+
+    const [isValid, setIsValid] = useState<boolean | null>(null);
 
     const dispatch = useDispatch();
 
@@ -36,6 +43,15 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
     );
     // Если пассажир не найден
     if (!passenger) return null;
+
+    const {errors, handleBlur, validateAll } = usePassengerValidation(passenger);
+
+    useEffect(() => {
+        if (isValid !== null) {
+            const hasErrors = Object.values(errors).some(Boolean);
+            setIsValid(!hasErrors);
+        }
+    }, [isValid, errors]);
 
     return (
         <form className="form-passenger">
@@ -48,39 +64,93 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                     name="category"
                     options={optionsTicketType}
                     value={passenger.is_adult ? "adult" : "childlike"}
-                    onChange={(val) => dispatch(updatePassenger({id: passengerId, data: {is_adult: val === "adult"}}))}
+                    onChange={(val) => {
+                        const isAdult = val === "adult";
+                        dispatch(
+                            updatePassenger({
+                                // для взрослого нужно вводит паспорт, а для детского - свидетельство о рождении
+                                id: passengerId,
+                                data: {
+                                    is_adult: isAdult,
+                                    document_type: isAdult
+                                        ? "паспорт"
+                                        : "свидетельство о рождении",
+                                    document_data: "",
+                                },
+                            }),
+                        );
+                        setPassportSeries("");
+                        setPassportNumber("");
+                        setBirthNumber("");
+                    }}
                 />
                 <div className="form-passenger__personal-data">
                     <label className="form-passenger__label">
                         <p className="form-passenger__title">Фамилия</p>
                         <input
-                            className="form-passenger__input"
+                            className={clsx(
+                                "form-passenger__input",
+                                errors.first_name &&
+                                    "form-passenger__input--error",
+                            )}
                             type="text"
                             name="first_name"
                             value={passenger.first_name}
-                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {first_name: e.target.value}}))}
+                            onChange={(e) =>
+                                dispatch(
+                                    updatePassenger({
+                                        id: passengerId,
+                                        data: { first_name: e.target.value },
+                                    }),
+                                )
+                            }
+                            onBlur={(e) => handleBlur("first_name", e.target.value)}
                             required
                         />
                     </label>
                     <label className="form-passenger__label">
                         <p className="form-passenger__title">Имя</p>
                         <input
-                            className="form-passenger__input"
+                            className={clsx(
+                                "form-passenger__input",
+                                errors.last_name &&
+                                    "form-passenger__input--error",
+                            )}
                             type="text"
                             name="last_name"
                             value={passenger.last_name}
-                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {last_name: e.target.value}}))}
+                            onChange={(e) =>
+                                dispatch(
+                                    updatePassenger({
+                                        id: passengerId,
+                                        data: { last_name: e.target.value },
+                                    }),
+                                )
+                            }
+                            onBlur={(e) => handleBlur("last_name", e.target.value)}
                             required
                         />
                     </label>
                     <label className="form-passenger__label">
                         <p className="form-passenger__title">Отчество</p>
                         <input
-                            className="form-passenger__input"
+                            className={clsx(
+                                "form-passenger__input",
+                                errors.patronymic &&
+                                    "form-passenger__input--error",
+                            )}
                             type="text"
                             name="patronymic"
                             value={passenger.patronymic}
-                            onChange={(e) => dispatch(updatePassenger({id: passengerId, data: {patronymic: e.target.value}}))}
+                            onChange={(e) =>
+                                dispatch(
+                                    updatePassenger({
+                                        id: passengerId,
+                                        data: { patronymic: e.target.value },
+                                    }),
+                                )
+                            }
+                            onBlur={(e) => handleBlur("patronymic", e.target.value)}
                             required
                         />
                     </label>
@@ -95,7 +165,14 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                 id={`male-${passengerId}`}
                                 value="male"
                                 checked={passenger.gender === true}
-                                onChange={() => dispatch(updatePassenger({id: passengerId, data: {gender: true}}))}
+                                onChange={() =>
+                                    dispatch(
+                                        updatePassenger({
+                                            id: passengerId,
+                                            data: { gender: true },
+                                        }),
+                                    )
+                                }
                                 label="М"
                             />
                             <Radio
@@ -104,7 +181,14 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                 id={`female-${passengerId}`}
                                 value="female"
                                 checked={passenger.gender === false}
-                                onChange={() => dispatch(updatePassenger({id: passengerId, data: {gender: false}}))}
+                                onChange={() =>
+                                    dispatch(
+                                        updatePassenger({
+                                            id: passengerId,
+                                            data: { gender: false },
+                                        }),
+                                    )
+                                }
                                 label="Ж"
                             />
                         </div>
@@ -112,8 +196,28 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                     <div className="form-passenger__date-box">
                         <p className="form-passenger__title">Дата рождения</p>
                         <CustomDatepicker
-                            value={passenger.birthday ? new Date(passenger.birthday) : null}
-                            onChange={(date) => dispatch(updatePassenger({id: passengerId, data: {birthday: date ? date.toISOString() : ""}}))}
+                            className={
+                                errors.birthday &&
+                                "form-passenger__input--error"
+                            }
+                            value={
+                                passenger.birthday
+                                    ? new Date(passenger.birthday)
+                                    : null
+                            }
+                            onChange={(date) =>
+                                dispatch(
+                                    updatePassenger({
+                                        id: passengerId,
+                                        data: {
+                                            birthday: date
+                                                ? date.toISOString()
+                                                : "",
+                                        },
+                                    }),
+                                )
+                            }
+                            onBlur={(e) => handleBlur("birthday", e.target.value)}
                             placeholder="ДД/ММ/ГГ"
                             name="birth-date"
                             icon={false}
@@ -140,9 +244,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                 )}
             >
                 <div className="form-passenger__personal-select-box">
-                    <p className="form-passenger__title">
-                        Тип документа
-                    </p>
+                    <p className="form-passenger__title">Тип документа</p>
                     <CustomSelect
                         className={clsx(
                             "form-passenger__select",
@@ -152,7 +254,24 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                         name="document-type"
                         options={DocumentType}
                         value={passenger.document_type}
-                        onChange={(val) => dispatch(updatePassenger({id: passengerId, data: {document_type: val === "passport" ? "паспорт" : "свидетельство о рождении"}}))}
+                        onChange={(val) => {
+                            const isPassport = val === "паспорт";
+                            dispatch(
+                                updatePassenger({
+                                    id: passengerId,
+                                    data: {
+                                        document_type: isPassport
+                                            ? "паспорт"
+                                            : "свидетельство о рождении",
+                                        is_adult: isPassport,
+                                        document_data: "",
+                                    },
+                                }),
+                            );
+                            setPassportSeries("");
+                            setPassportNumber("");
+                            setBirthNumber("");
+                        }}
                     />
                 </div>
                 {passenger.document_type === "паспорт" && (
@@ -165,18 +284,69 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                         <label className="form-passenger__label">
                             <p className="form-passenger__title">Серия</p>
                             <input
-                                className="form-passenger__input"
+                                className={clsx(
+                                    "form-passenger__input",
+                                    errors.document &&
+                                        "form-passenger__input--error",
+                                )}
                                 type="text"
                                 name="passport-series"
+                                value={passportSeries}
+                                onChange={(e) => {
+                                    const series = e.target.value.replace(/\D/g,"",);
+                                    setPassportSeries(series);
+                                    dispatch(
+                                        updatePassenger({
+                                            id: passengerId,
+                                            data: {
+                                                document_data:
+                                                    `${series} ${passportNumber}`.trim(),
+                                            },
+                                        }),
+                                    );
+                                }}
+                                onBlur={() =>
+                                    handleBlur(
+                                        "document",
+                                        `${passportSeries} ${passportNumber}`.trim()
+                                    )
+                                }
                                 required
                             />
                         </label>
                         <label className="form-passenger__label">
                             <p className="form-passenger__title">Номер</p>
                             <input
-                                className="form-passenger__input"
+                                className={clsx(
+                                    "form-passenger__input",
+                                    errors.document &&
+                                        "form-passenger__input--error",
+                                )}
                                 type="text"
                                 name="passport-number"
+                                value={passportNumber}
+                                onChange={(e) => {
+                                    const number = e.target.value.replace(
+                                        /\D/g,
+                                        "",
+                                    );
+                                    setPassportNumber(number);
+                                    dispatch(
+                                        updatePassenger({
+                                            id: passengerId,
+                                            data: {
+                                                document_data:
+                                                    `${passportSeries} ${number}`.trim(),
+                                            },
+                                        }),
+                                    );
+                                }}
+                                onBlur={() =>
+                                    handleBlur(
+                                        "document",
+                                        `${passportSeries} ${passportNumber}`.trim()
+                                    )
+                                }
                                 required
                             />
                         </label>
@@ -193,10 +363,31 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                         <label className="form-passenger__label">
                             <p className="form-passenger__title">Номер</p>
                             <input
-                                className="form-passenger__input"
+                                className={clsx(
+                                    "form-passenger__input",
+                                    errors.document &&
+                                        "form-passenger__input--error",
+                                )}
                                 type="text"
                                 name="birth-certificate-number"
                                 placeholder="12 символов"
+                                value={birthNumber}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    setBirthNumber(value);
+                                    dispatch(
+                                        updatePassenger({
+                                            id: passengerId,
+                                            data: { document_data: value },
+                                        }),
+                                    );
+                                }}
+                                onBlur={() =>
+                                    handleBlur(
+                                        "document",
+                                        birthNumber.trim()
+                                    )
+                                }
                                 required
                             />
                         </label>
@@ -204,35 +395,46 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                 )}
             </div>
             <div className="form-passenger__btn-box">
-                {/* <div className="form-passenger__message">
-                    <div className="form-passenger__message-box">
-                        <ErrorIcon />
-                        <p className="form-passenger__passport-error-message">
-                            Паспортные данные указаны некорректно.<br />
-                            Пример: 1004 100006.
-                        </p>
-                    </div>
-                    <div className="form-passenger__message-box">
-                        <ErrorIcon />
-                        <p className="form-passenger__birth-certificate-error-message">
-                            Номер свидетельства о рождении указан некорректно.
-                            <br />
-                            Пример: VIII-ЫП-123456.
-                        </p>
-                    </div>
-                    <div className="form-passenger__message-box">
-                        <ValidIcon />
-                        <p className="form-passenger__valid">Готово</p>
-                    </div>
-                </div> */}
-                {/**Делает фокус на следующей форме*/}
                 <Button
                     className="form-passenger__btn"
                     type="button"
                     variant="transparent"
+                    onClick={() => {
+                        const valid = validateAll();
+                        setIsValid(valid);
+                    }}
                 >
                     Следующий пассажир
                 </Button>
+                {isValid !== null && (
+                    <div className="form-passenger__message">
+                        {isValid ? (
+                            <div className="form-passenger__message-box">
+                                <ValidIcon />
+                                <p className="form-passenger__valid">Готово</p>
+                            </div>
+                        ) : passenger.document_type === "паспорт" ? (
+                            <div className="form-passenger__message-box">
+                                <ErrorIcon />
+                                <p className="form-passenger__passport-error-message">
+                                    Паспортные данные указаны некорректно.
+                                    <br />
+                                    Пример: 1004 100006.
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="form-passenger__message-box">
+                                <ErrorIcon />
+                                <p className="form-passenger__birth-certificate-error-message">
+                                    Номер свидетельства о рождении указан
+                                    некорректно.
+                                    <br />
+                                    Пример: VIII-ЫП-123456.
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
         </form>
     );
