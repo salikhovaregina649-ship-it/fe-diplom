@@ -4,6 +4,7 @@ import routesReducer from "./routesSlice/routesSlice";
 import seatsReducer from "./seatsSlice/seatsSlice";
 import bookingReducer from "./bookingSlice/bookingSlice";
 import passengerReducer from "./passengerSlice/passengerSlice";
+import paymentReducer from "./paymentSlice/paymentSlice";
 import { api } from "./api/api";
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
         seats: seatsReducer,
         booking: bookingReducer,
         passenger: passengerReducer,
+        payment: paymentReducer,
         [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),

@@ -1,20 +1,36 @@
+import { useMemo } from "react";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 import Aside from "../Aside/Aside";
 import Button from "../uikit/Button/Button";
 import TripDetails from "../TripDetails/TripDetails";
 import Train from "../Train/Train";
 import Title from "../uikit/Title/Title";
+import { useGetRoutesQuery } from "../../store/api/api";
+import { getRouteParams } from "../../utils/getRouteParams";
+import type { RootState } from "../../store/store";
 import "./VerifyStep.css";
 
-import routesResponse from "../../mocks/routesResponse.json";
-import { ticketsState } from "../../mocks/moks";
 import PassengerIconBig from "../../assets/icons/small/PassangerIconBig";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
 
-//Моки
-const ticketInfo = routesResponse;
-
 export default function VerifyStep() {
+    const searchState = useSelector((state: RootState) => state.search);
+    const routesState = useSelector((state: RootState) => state.routes);
+    const seatsState = useSelector((state: RootState) => state.seats);
+    const { selectedRouteId } = useSelector(
+        (state: RootState) => state.booking,
+    );
+
+    const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
+    const { data: routesData } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
+    const ticketInfo = routesData?.items?.find((item) => item.departure._id === selectedRouteId);
+
+    const passenferState = useSelector((state: RootState) => state.passenger);
+    console.log("Список пассажиров", passenferState);
+    const paymentState = useSelector((state: RootState) => state.payment);
+    console.log("Данные оплаты", paymentState);
+
     const navigate = useNavigate();
 
     const handleThen = () => {
@@ -38,7 +54,7 @@ export default function VerifyStep() {
             <div className="container">
                 <div className="verify-step__aside-wrapper">
                     <Aside className="verify-step__aside">
-                        <TripDetails />
+                        <TripDetails ticketInfo={ticketInfo!} seatsInfo={seatsState} />
                     </Aside>
                 </div>
                 <div className="verify-step__main">
@@ -47,7 +63,7 @@ export default function VerifyStep() {
                             Поезд
                         </Title>
                         <Train
-                            ticketInfo={ticketInfo.items[0]}
+                            ticketInfo={ticketInfo!}
                             verifyStep={true}
                             verifyStepHandle={trainHanle}
                         />
@@ -59,34 +75,34 @@ export default function VerifyStep() {
                         </Title>
                         <div className="verify-step__passenger-box">
                             <div className="verify-step__passenger-content">
-                                {ticketsState.map((ticket) => (
+                                {passenferState.passengers.map((passenger) => (
                                     <div
-                                        key={ticket.ticket_id}
+                                        key={passenger.id}
                                         className="verify-step__passenger-info"
                                     >
                                         <div className="verify-step__passenger-info-header">
                                             <PassengerIconBig />
                                             <p className="verify-step__passenger-category">
-                                                {ticket.category}
+                                                {passenger.is_adult ? "Взрослый" : "Детский"}
                                             </p>
                                         </div>
                                         <div className="verify-step__passenger-info-details">
                                             <p className="verify-step__passenger-full-name">
-                                                {ticket.passenger.last_name}{" "}
-                                                {ticket.passenger.first_name}{" "}
-                                                {ticket.passenger.patronymic}
+                                                {passenger.last_name}{" "}
+                                                {passenger.first_name}{" "}
+                                                {passenger.patronymic}
                                             </p>
                                             <p className="verify-step__passenger-gender">
                                                 <span>Пол</span>{" "}
-                                                {ticket.passenger.gender}
+                                                {passenger.gender ? "Мужской" : "Женский"}
                                             </p>
                                             <p className="verify-step__passenger-birth-date">
                                                 <span>Дата рождения</span>{" "}
-                                                {ticket.passenger.birth_date}
+                                                {passenger.birthday}
                                             </p>
                                             <p className="verify-step__passenger-document">
-                                                {ticket.document.type}{" "}
-                                                {ticket.document.number}
+                                                <span>{passenger.document_type ? "Паспорт РФ" : "Свидетельство о рождении"}{" "}</span>
+                                                {passenger.document_data}
                                             </p>
                                         </div>
                                     </div>
@@ -96,8 +112,7 @@ export default function VerifyStep() {
                                 <p className="verify-step__summ-text">Всего</p>
                                 <p className="verify-step__summ-number">
                                     {" "}
-                                    {/** Должно подтягиваться */}
-                                    7 760
+                                    {seatsState.departure.price}{" "}
                                     <RubleIcon />
                                 </p>
                             </div>
@@ -120,7 +135,7 @@ export default function VerifyStep() {
                         </Title>
                         <div className="verify-step__payment-box">
                             <div className="verify-step__payment-method-content">
-                                <p>Наличными</p> {/** Должно подтягиваться */}
+                                <p>{paymentState.paymentMethod === "online" ? "Онлайн" : "Наличными"}</p>
                             </div>
                             <div className="verify-step__grid-wrapper">
                                 <Button

@@ -7,6 +7,7 @@ import TripDetails from "../TripDetails/TripDetails";
 import FormPayment from "../FormPayment/FormPayment";
 import { useGetRoutesQuery } from "../../store/api/api";
 import { getRouteParams } from "../../utils/getRouteParams";
+import { selectIsPaymentValid } from "../../store/paymentSlice/paymentSlice"; 
 import type { RootState } from "../../store/store";
 import "./PaymentStep.css";
 
@@ -16,12 +17,15 @@ export default function PaymentStep() {
     const seatsState = useSelector((state: RootState) => state.seats);
     const {selectedRouteId} = useSelector((state: RootState) => state.booking);
 
+    const isFormValid = useSelector(selectIsPaymentValid);
+
     const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
     const { data: routesData } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
     const ticketInfo = routesData?.items?.find((item) => item.departure._id === selectedRouteId);
 
     const navigate = useNavigate();
     const handleThen = () => {
+        if (!isFormValid) return;
         navigate("/booking/verify");
     };
 
@@ -42,6 +46,7 @@ export default function PaymentStep() {
                         variant="yellow"
                         onClick={handleThen}
                         uppercase={true}
+                        disabled={!isFormValid}
                     >
                         Купить билеты
                     </Button>

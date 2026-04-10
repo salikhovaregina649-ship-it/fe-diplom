@@ -125,6 +125,11 @@
     text-transform: capitalize;
 }
 
+.verify-step__passenger-birth-date span,
+.verify-step__passenger-document span {
+    text-transform: none;
+}
+
 .verify-step__passenger-document {
     margin-bottom: 0;
 }

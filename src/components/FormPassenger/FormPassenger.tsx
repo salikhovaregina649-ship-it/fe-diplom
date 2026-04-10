@@ -5,6 +5,7 @@ import CustomSelect from "../uikit/CustomSelect/CustomSelect";
 import Button from "../uikit/Button/Button";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
+import { formatDateOrder } from "../../utils/formatTime";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import { usePassengerValidation } from "../../utils/usePassengerValidation";
 import { updatePassenger, clearPassenger } from "../../store/passengerSlice/passengerSlice";
@@ -221,16 +222,15 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     : null
                             }
                             onChange={(date) => {
-                                const isoString = date ? date.toISOString() : "";
                                 dispatch(
                                     updatePassenger({
                                         id: passengerId,
                                         data: {
-                                            birthday: isoString,
+                                            birthday: date ? formatDateOrder(date) : "",
                                         },
                                     }),
                                 )
-                                handleBlur("birthday", isoString);
+                                handleBlur("birthday", date ? formatDateOrder(date) : "");
 
                             }}
                             placeholder="ДД/ММ/ГГ"
