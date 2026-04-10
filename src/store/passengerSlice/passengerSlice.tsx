@@ -5,6 +5,7 @@ import type { PassengerInfoState, PassengerState } from "./types";
 // person_info {} из ордера + id каждого пассажира
 export const initialInfoState: PassengerInfoState = {
     id: "",
+    is_valid: false,
     is_adult: true,
     first_name: "",
     last_name: "",
@@ -40,8 +41,17 @@ const passengerSlice = createSlice({
         removePassenger: (state, action: PayloadAction<string>) => {
             state.passengers = state.passengers.filter(p => p.id !== action.payload);
         },
-        clearPassenger: (state) => {
-            state.passengers = [];
+        clearPassenger: (state, action: PayloadAction<string>) => {
+            const passengerId = action.payload;
+            const passengerIndex = state.passengers.findIndex(p => p.id === passengerId);
+            
+            if (passengerIndex !== -1) {
+                // Полностью заменяем объект пассажира на начальный, сохраняя только ID
+                state.passengers[passengerIndex] = {
+                    ...initialInfoState,
+                    id: passengerId
+                };
+            }
         }
     }
 });

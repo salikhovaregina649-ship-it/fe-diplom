@@ -56,8 +56,11 @@ export default function PassengerStep() {
         }
     }, [dispatch, initialQuantityTickets, passengers]); 
 
+    const isAllPassengersValid = passengers.length > 0 && passengers.every(p => p.is_valid === true);
+
     const navigate = useNavigate();
     const handleThen = () => {
+        if (!isAllPassengersValid) return;
         navigate("/booking/payment");
         console.log(passengers); // удалить потом
     };
@@ -109,6 +112,7 @@ export default function PassengerStep() {
                         variant="yellow"
                         onClick={handleThen}
                         uppercase={true}
+                        disabled={!isAllPassengersValid}
                     >
                         Далее
                     </Button>

@@ -7,7 +7,7 @@ import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import { usePassengerValidation } from "../../utils/usePassengerValidation";
-import { updatePassenger } from "../../store/passengerSlice/passengerSlice";
+import { updatePassenger, clearPassenger } from "../../store/passengerSlice/passengerSlice";
 import type { RootState } from "../../store/store";
 import "./FormPassenger.css";
 import ValidIcon from "../../assets/icons/small/ValidIcon";
@@ -43,15 +43,28 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
     );
     // Если пассажир не найден
     if (!passenger) return null;
-
+    console.log("render FormPassenger", passenger);
     const {errors, handleBlur, validateAll } = usePassengerValidation(passenger);
 
     useEffect(() => {
         if (isValid !== null) {
             const hasErrors = Object.values(errors).some(Boolean);
-            setIsValid(!hasErrors);
+            const currentValid = !hasErrors;
+            setIsValid(currentValid);
+
+            dispatch(
+                updatePassenger({
+                    id: passengerId,
+                    data: { is_valid: currentValid },
+                })
+            );
         }
-    }, [isValid, errors]);
+    }, [isValid, errors, dispatch, passengerId]);
+
+    useEffect(() => {
+        // Сбрасываем данные пассажира к начальным при монтировании формы
+        dispatch(clearPassenger(passengerId));
+    }, [dispatch, passengerId]);
 
     return (
         <form className="form-passenger">
@@ -76,12 +89,14 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                         ? "паспорт"
                                         : "свидетельство о рождении",
                                     document_data: "",
+                                    is_valid: false,
                                 },
                             }),
                         );
                         setPassportSeries("");
                         setPassportNumber("");
                         setBirthNumber("");
+                        setIsValid(null);
                     }}
                 />
                 <div className="form-passenger__personal-data">
@@ -169,7 +184,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     dispatch(
                                         updatePassenger({
                                             id: passengerId,
-                                            data: { gender: true },
+                                            data: {gender: true},
                                         }),
                                     )
                                 }
@@ -185,7 +200,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     dispatch(
                                         updatePassenger({
                                             id: passengerId,
-                                            data: { gender: false },
+                                            data: {gender: false},
                                         }),
                                     )
                                 }
@@ -205,19 +220,19 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     ? new Date(passenger.birthday)
                                     : null
                             }
-                            onChange={(date) =>
+                            onChange={(date) => {
+                                const isoString = date ? date.toISOString() : "";
                                 dispatch(
                                     updatePassenger({
                                         id: passengerId,
                                         data: {
-                                            birthday: date
-                                                ? date.toISOString()
-                                                : "",
+                                            birthday: isoString,
                                         },
                                     }),
                                 )
-                            }
-                            onBlur={(e) => handleBlur("birthday", e.target.value)}
+                                handleBlur("birthday", isoString);
+
+                            }}
                             placeholder="ДД/ММ/ГГ"
                             name="birth-date"
                             icon={false}
@@ -265,12 +280,14 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                             : "свидетельство о рождении",
                                         is_adult: isPassport,
                                         document_data: "",
+                                        is_valid: false,
                                     },
                                 }),
                             );
                             setPassportSeries("");
                             setPassportNumber("");
                             setBirthNumber("");
+                            setIsValid(null);
                         }}
                     />
                 </div>
@@ -326,10 +343,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                 name="passport-number"
                                 value={passportNumber}
                                 onChange={(e) => {
-                                    const number = e.target.value.replace(
-                                        /\D/g,
-                                        "",
-                                    );
+                                    const number = e.target.value.replace(/\D/g,"");
                                     setPassportNumber(number);
                                     dispatch(
                                         updatePassenger({
@@ -378,7 +392,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     dispatch(
                                         updatePassenger({
                                             id: passengerId,
-                                            data: { document_data: value },
+                                            data: {document_data: value},
                                         }),
                                     );
                                 }}
@@ -402,6 +416,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                     onClick={() => {
                         const valid = validateAll();
                         setIsValid(valid);
+                        dispatch(updatePassenger({id: passengerId, data: {is_valid: valid}}));
                     }}
                 >
                     Следующий пассажир

@@ -1,6 +1,7 @@
 export interface PassengerInfoState {
     id: string;
-    is_adult: boolean; // true - взрослый, false - днтский
+    is_valid: boolean;
+    is_adult: boolean; // true - взрослый, false - детский
     first_name: string;
     last_name: string;
     patronymic: string;
