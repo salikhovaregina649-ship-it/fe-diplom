@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { PassengerInfoState, PassengerState } from "./types";
 
 // person_info {} из ордера + id каждого пассажира
-const initialInfoState: PassengerInfoState = {
+export const initialInfoState: PassengerInfoState = {
     id: "",
     is_adult: true,
     first_name: "",
@@ -24,6 +24,9 @@ const passengerSlice = createSlice({
     name: "passenger",
     initialState,
     reducers: {
+        setPassengers: (state, action: PayloadAction<PassengerInfoState[]>) => {
+            state.passengers = action.payload;
+        },
         setPassenger: (state, action: PayloadAction<Partial<PassengerInfoState>>) => {
             state.passengers.push({ ...initialInfoState, ...action.payload });
         },
@@ -43,5 +46,5 @@ const passengerSlice = createSlice({
     }
 });
 
-export const {setPassenger, updatePassenger, removePassenger, clearPassenger} = passengerSlice.actions;
+export const {setPassengers, setPassenger, updatePassenger, removePassenger, clearPassenger} = passengerSlice.actions;
 export default passengerSlice.reducer;
