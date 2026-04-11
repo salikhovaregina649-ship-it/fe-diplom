@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { CoachesData } from "../../types/typeSeat";
 import Checkbox from "../uikit/Checkbox/Checkbox";
@@ -34,7 +34,9 @@ export default function CoachList({
 
     const prevCountRef = useRef(0);
 
-    const selectedSeats = currentSeatInfo?.selectedSeats || {};
+    const selectedSeats = useMemo(() => {
+        return currentSeatInfo?.selectedSeats || {};
+    }, [currentSeatInfo?.selectedSeats])
 
     const handleSeatSelect = (coachId: string, seatIndex: number) => {
         dispatch(setSelectedSeats({coachId, seatIndex, isArrival: !!arrival}));
@@ -53,15 +55,12 @@ export default function CoachList({
         return isBottom ? coach.coach.bottom_price : coach.coach.top_price;
     };
 
-    const totalPrice = useMemo(() => {
-        let sum = 0;
-        for (const [coachId, seats] of Object.entries(selectedSeats)) {
-            for (const seatIndex of seats) {
-                sum += getSeatPrice(coachId, seatIndex);
-            }
+    let totalPrice = 0;
+    for (const [coachId, seats] of Object.entries(selectedSeats)) {
+        for (const seatIndex of seats) {
+            totalPrice += getSeatPrice(coachId, seatIndex);
         }
-        return sum;
-    }, [selectedSeats, coaches]);
+    }
 
     useEffect(() => {
         dispatch(setPrice({price: totalPrice, isArrival: !!arrival}));
@@ -76,7 +75,7 @@ export default function CoachList({
             dispatch(updateTickets({tickets: {adult: tickets.adult + 1}, isArrival: !!arrival}));
         }
         prevCountRef.current = count;
-    }, [arrival, dispatch, selectedSeats]);
+    }, [arrival, dispatch, selectedSeats, tickets.adult, tickets.childWithSeat]);
 
     const renderCoach = (item: CoachWithSeats) => {
         const type = item.coach.class_type;

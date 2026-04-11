@@ -54,14 +54,14 @@ export default function FormTicketSeats({
 
     const ticketInfoDirection = arrival ? ticketInfo.arrival : ticketInfo.departure;
 
-    if (!ticketInfoDirection) {
-        return null; 
-    }
-
     const navigate = useNavigate();
     const handleBack = () => {
         navigate(-1);
     };
+
+    if (!ticketInfoDirection) {
+        return null; 
+    }
 
     const handleClassChange = (value: string) => {
         dispatch(setCurrentClass({value, isArrival: arrival}));

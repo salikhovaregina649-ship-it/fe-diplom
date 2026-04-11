@@ -34,37 +34,36 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
     const [passportNumber, setPassportNumber] = useState("");
     const [birthNumber, setBirthNumber] = useState("");
 
-    const [isValid, setIsValid] = useState<boolean | null>(null);
+    const [isValidated, setIsValidated] = useState(false);
 
     const dispatch = useDispatch();
 
     const passenger = useSelector((state: RootState) => 
         state.passenger.passengers.find(p => p.id === passengerId)
     );
-    // Если пассажир не найден
-    if (!passenger) return null;
-    console.log("render FormPassenger", passenger);
+    
     const {errors, handleBlur, validateAll } = usePassengerValidation(passenger);
 
-    useEffect(() => {
-        if (isValid !== null) {
-            const hasErrors = Object.values(errors).some(Boolean);
-            const currentValid = !hasErrors;
-            setIsValid(currentValid);
+    const isValid = !Object.values(errors).some(Boolean);
 
+    useEffect(() => {
+        if (isValidated) {
             dispatch(
                 updatePassenger({
                     id: passengerId,
-                    data: { is_valid: currentValid },
+                    data: { is_valid: isValid },
                 })
             );
         }
-    }, [isValid, errors, dispatch, passengerId]);
+    }, [isValidated, isValid, errors, dispatch, passengerId]);
 
     useEffect(() => {
         // Сбрасываем данные пассажира к начальным при монтировании формы
         dispatch(clearPassenger(passengerId));
     }, [dispatch, passengerId]);
+
+    // Если пассажир не найден
+    if (!passenger) return null;
 
     return (
         <form className="form-passenger">
@@ -96,7 +95,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                         setPassportSeries("");
                         setPassportNumber("");
                         setBirthNumber("");
-                        setIsValid(null);
+                        setIsValidated(false);
                     }}
                 />
                 <div className="form-passenger__personal-data">
@@ -286,7 +285,7 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                             setPassportSeries("");
                             setPassportNumber("");
                             setBirthNumber("");
-                            setIsValid(null);
+                            setIsValidated(false);
                         }}
                     />
                 </div>
@@ -414,13 +413,13 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                     variant="transparent"
                     onClick={() => {
                         const valid = validateAll();
-                        setIsValid(valid);
+                        setIsValidated(true);
                         dispatch(updatePassenger({id: passengerId, data: {is_valid: valid}}));
                     }}
                 >
                     Следующий пассажир
                 </Button>
-                {isValid !== null && (
+                {isValidated && (
                     <div className="form-passenger__message">
                         {isValid ? (
                             <div className="form-passenger__message-box">

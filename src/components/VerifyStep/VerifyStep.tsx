@@ -48,7 +48,7 @@ export default function VerifyStep() {
                 navigate("/order/success", {state: body});
             }
         } catch (error) {
-            console.log("Ошибка подтверждения заказа")
+            console.log(`Ошибка подтверждения заказа: ${error}`);
         }
     }
 

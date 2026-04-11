@@ -20,8 +20,6 @@ export default function OrderSuccess() {
     const location = useLocation();
     const orderData: OrderRequest = location.state;
 
-    if (!orderData) return;
-
     const seatsState = useSelector((state: RootState) => state.seats);
 
     const blocker = useBlocker(
@@ -32,9 +30,11 @@ export default function OrderSuccess() {
 
     useEffect(() => {
         if (blocker.state === "blocked") {
-            navigate("/booking", { replace: true });
+            navigate("/", { replace: true });
         }
     }, [blocker.state, navigate]);
+
+    if (!orderData) return;
 
     return (
         <div className="order-success">

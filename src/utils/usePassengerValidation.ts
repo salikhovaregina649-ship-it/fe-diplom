@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type Errors = Record<string, string>;
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function usePassengerValidation(passenger: any) {
     const [errors, setErrors] = useState<Errors>({});
 
@@ -43,7 +43,8 @@ export function usePassengerValidation(passenger: any) {
     setErrors((prev) => {
         // если ошибки нет — удаляем ключ
         if (!error) {
-            const { [field]: removed, ...rest } = prev;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const { [field]: _, ...rest } = prev;
             return rest;
         }
         // если ошибка есть — сохраняем
