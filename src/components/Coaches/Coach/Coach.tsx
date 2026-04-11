@@ -29,7 +29,6 @@ export default function Coach({
     const coachNumber = coach.coach.name.match(/\d+/)?.[0];
     let bottomSeats = 0; // четные доступные
     let topSeats = 0; // нечетные
-    console.log(coach.coach.price, coach.coach.top_price, coach.coach.bottom_price);
 
     coach.seats.forEach((seat) => {
         if (!seat.available) return;

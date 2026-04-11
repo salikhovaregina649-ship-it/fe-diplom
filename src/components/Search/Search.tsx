@@ -31,7 +31,6 @@ export default function Search({ className }: SearchProps) {
         }
 
         navigate("/booking");
-        console.log("был навигейт на /booking"); //удалить потом
     };
 
     const handleSwap = () => {

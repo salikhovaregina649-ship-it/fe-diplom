@@ -62,7 +62,6 @@ export default function PassengerStep() {
     const handleThen = () => {
         if (!isAllPassengersValid) return;
         navigate("/booking/payment");
-        console.log(passengers); // удалить потом
     };
 
     const handleRemovePassenger = (id: string) => {

@@ -27,7 +27,6 @@ export default function CoachList({
 }: CoachListProps) {
     const dispatch = useDispatch();
     const seatsData = useSelector((state: RootState) => state.seats);
-    console.log("seatsData", seatsData); // Потом убрать
 
     const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
     const tickets = currentSeatInfo?.tickets || { adult: 1, childWithSeat: 0, childWithoutSeat: 0 };

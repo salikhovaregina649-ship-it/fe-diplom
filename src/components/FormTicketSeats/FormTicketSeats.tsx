@@ -42,7 +42,6 @@ export default function FormTicketSeats({
     const dispatch = useDispatch();
     const seatsData = useSelector((state: RootState) => state.seats);
     const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
-    console.log("ticketInfo", ticketInfo);
     
     const {currentClass, selectedCoaches, tickets} = currentSeatInfo || {
         currentClass: null,

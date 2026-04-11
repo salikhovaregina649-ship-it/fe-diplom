@@ -33,7 +33,6 @@ export default function VerifyStep() {
     const passenferState = useSelector((state: RootState) => state.passenger);
     console.log("Список пассажиров", passenferState);
     const paymentState = useSelector((state: RootState) => state.payment);
-    console.log("Данные оплаты", paymentState);
 
     const navigate = useNavigate();
 
