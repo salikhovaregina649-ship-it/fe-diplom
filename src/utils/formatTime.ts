@@ -23,16 +23,18 @@ export function formatTime(timestamp: number): string {
 }
 
 export function formatTimeCompact(timestamp: number): string {
-    const date = new Date(timestamp * 1000);
-    const hours = date.getHours(); // без нуля спереди
-    const minutes = date.getMinutes().toString().padStart(2, "0"); // спереди ноль только для минут
+    const totalMinutes = Math.floor(timestamp / 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = (totalMinutes % 60).toString().padStart(2, "0");
+
     return `${hours} : ${minutes}`;
 }
 
 export function formatTimeLong(timestamp: number): string {
-    const date = new Date(timestamp * 1000);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
+    const totalMinutes = Math.floor(timestamp / 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
     const hoursWord = fixEndingTime(hours, "час", "часа", "часов");
     const minutesWord = fixEndingTime(minutes, "минута", "минуты", "минут");
 
