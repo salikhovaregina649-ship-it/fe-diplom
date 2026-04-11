@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { City } from "../searchSlice/types";
-import type { RouteParams, RoutesResponse, FilterParams } from "./types";
+import type { RouteParams, RoutesResponse, FilterParams, OrderRequest } from "./types";
 import type { LastTicket } from "../../types/typeLastTicket";
 import type { CoachesData } from "../../types/typeSeat";
 
@@ -33,11 +33,18 @@ export const api = createApi({
                 params: filters,
             }),
         }),
-        getSubscribe: builder.mutation<{ status: boolean }, string>({
+        getSubscribe: builder.mutation<{status: boolean}, string>({
             query: (email) => ({
                 url: "/subscribe",
                 method: "POST",
-                params: { email },
+                params: {email},
+            }),
+        }),
+        getOrder: builder.mutation<{status: boolean}, OrderRequest>({
+            query: (body) => ({
+                url: "/order",
+                method: "POST",
+                body,
             }),
         }),
     }),
@@ -49,5 +56,6 @@ export const {
     useLazyGetRoutesQuery,
     useGetLastRoutesQuery,
     useGetSeatsQuery,
-    useGetSubscribeMutation
+    useGetSubscribeMutation,
+    useGetOrderMutation
 } = api;

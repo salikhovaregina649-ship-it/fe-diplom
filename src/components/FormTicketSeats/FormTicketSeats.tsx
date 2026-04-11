@@ -42,16 +42,21 @@ export default function FormTicketSeats({
     const dispatch = useDispatch();
     const seatsData = useSelector((state: RootState) => state.seats);
     const currentSeatInfo = arrival ? seatsData.arrival : seatsData.departure;
+    console.log("ticketInfo", ticketInfo);
     
-    const { currentClass, selectedCoaches, tickets } = currentSeatInfo || {
+    const {currentClass, selectedCoaches, tickets} = currentSeatInfo || {
         currentClass: null,
         selectedCoaches: [],
-        tickets: { adult: 1, childWithSeat: 0, childWithoutSeat: 0 },
+        tickets: {adult: 1, childWithSeat: 0, childWithoutSeat: 0},
     };
-    
-    console.log(`${arrival ? "ARRIVAL" : "DEPARTURE"} состояние:`, { currentClass, selectedCoaches, tickets }); // удалить потом
 
     const radioName = arrival ? "class-arrival" : "class-departure";
+
+    const ticketInfoDirection = arrival ? ticketInfo.arrival : ticketInfo.departure;
+
+    if (!ticketInfoDirection) {
+        return null; 
+    }
 
     const navigate = useNavigate();
     const handleBack = () => {
@@ -125,14 +130,14 @@ export default function FormTicketSeats({
                     </div>
                     <div className="ticket-seats-box__train-info-box">
                         <p className="ticket-seats-box__number">
-                            {ticketInfo.departure.train.name}
+                            {ticketInfoDirection.train.name}
                         </p>
                         <p className="ticket-seats-box__city">
-                            {ticketInfo.departure.from.city.name}
+                            {ticketInfoDirection.from.city.name}
                             <ArrowIconSmall />
                         </p>
                         <p className="ticket-seats-box__city">
-                            {ticketInfo.departure.to.city.name}
+                            {ticketInfoDirection.to.city.name}
                         </p>
                     </div>
                 </div>
@@ -149,10 +154,10 @@ export default function FormTicketSeats({
                     <time
                         className="ticket-seats-box__time-way-time"
                         dateTime={new Date(
-                            ticketInfo.departure.duration * 1000,
+                            ticketInfoDirection.duration * 1000,
                         ).toISOString()}
                     >
-                        {formatTimeLong(ticketInfo.departure.duration)}
+                        {formatTimeLong(ticketInfoDirection.duration)}
                     </time>
                 </div>
             </div>

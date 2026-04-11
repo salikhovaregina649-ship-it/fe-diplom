@@ -1,19 +1,41 @@
-import "./OrderSuccessPage.css";
+import { useEffect } from "react";
+import { useLocation, useNavigate, useBlocker } from "react-router";
+import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router";
 import Hero from "../../components/Hero/Hero";
 import Title from "../../components/uikit/Title/Title";
 import Button from "../../components/uikit/Button/Button";
+import type { OrderRequest } from "../../store/api/types";
+import type { RootState } from "../../store/store";
+import "./OrderSuccessPage.css";
 import monitorTicket from "../../assets/icons/big/monitor-ticket.svg";
 import tickets from "../../assets/icons/big/tickets.svg";
 import conductor from "../../assets/icons/big/conductor.svg";
 import Rating from "../../components/uikit/Rating/Rating";
 import RubleIcon from "../../assets/icons/small/RubleIcon";
-
-const orderId = "285AA";
-const customerName = "Ирина Эдуардовна";
-const orderAmount = "7 760";
+import { useSelector } from "react-redux";
 
 export default function OrderSuccess() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const orderData: OrderRequest = location.state;
+
+    if (!orderData) return;
+
+    const seatsState = useSelector((state: RootState) => state.seats);
+
+    const blocker = useBlocker(
+        ({ currentLocation, nextLocation }) =>
+            currentLocation.pathname === "/order/success" &&
+            nextLocation.pathname !== "/"
+    );
+
+    useEffect(() => {
+        if (blocker.state === "blocked") {
+            navigate("/booking", { replace: true });
+        }
+    }, [blocker.state, navigate]);
+
     return (
         <div className="order-success">
             <Hero className="order-success__hero">
@@ -27,10 +49,10 @@ export default function OrderSuccess() {
                 <div className="order-success__content-wrapper">
                     <div className="order-success__header">
                         <p className="order-success__order-number">
-                            №Заказа {orderId}
+                            №Заказа {uuidv4()}
                         </p>
                         <p className="order-success__order-amount">
-                            сумма <span>{orderAmount}</span> <RubleIcon />
+                            сумма <span>{seatsState.totalPrice}</span> <RubleIcon />
                         </p>
                     </div>
                     <div className="order-success__steps">
@@ -72,7 +94,7 @@ export default function OrderSuccess() {
                     </div>
                     <div className="order-success__details">
                         <Title as="h2" className="order-success__customer-name">
-                            {customerName}!
+                            {`${orderData.user.first_name} ${orderData.user.last_name} ${orderData.user.patronymic}`}!
                         </Title>
                         <p className="order-success__text">
                             Ваш заказ успешно оформлен.

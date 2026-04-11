@@ -43,3 +43,38 @@ export interface FilterParams {
     have_air_conditioning?: boolean;
     have_express?: boolean;
 };
+
+export interface SeatsOrderRequest {
+    coach_id: string;
+    person_info: {
+        is_adult: boolean;
+        first_name: string;
+        last_name: string;
+        patronymic: string;
+        gender: boolean;
+        birthday: string;
+        document_type: string;
+        document_data: string;
+    }
+    seat_number: number;
+    is_child: boolean;
+    include_children_seat: boolean;
+}
+
+export interface DirectionOrderRequest {
+    route_direction_id: string;
+    seats: SeatsOrderRequest[],
+}
+
+export interface OrderRequest {
+    user: {
+        first_name: string;
+        last_name: string;
+        patronymic: string;
+        phone: string;
+        email: string;
+        paymentMethod: "online" | "cash";
+    },
+    departure: DirectionOrderRequest,
+    arrival?: DirectionOrderRequest,
+}

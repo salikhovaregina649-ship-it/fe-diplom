@@ -10,7 +10,7 @@ export default function FormSubscription () {
 
     const [subscribe, {isLoading}] = useGetSubscribeMutation();
 
-    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {

@@ -5,7 +5,6 @@ import CustomSelect from "../uikit/CustomSelect/CustomSelect";
 import Button from "../uikit/Button/Button";
 import Checkbox from "../uikit/Checkbox/Checkbox";
 import Radio from "../uikit/Radio/Radio";
-import { formatDateOrder } from "../../utils/formatTime";
 import CustomDatepicker from "../uikit/CustomDatepicker/CustomDatepicker";
 import { usePassengerValidation } from "../../utils/usePassengerValidation";
 import { updatePassenger, clearPassenger } from "../../store/passengerSlice/passengerSlice";
@@ -226,11 +225,11 @@ export default function FormPassenger({ passengerId }: FormPassengerProps) {
                                     updatePassenger({
                                         id: passengerId,
                                         data: {
-                                            birthday: date ? formatDateOrder(date) : "",
+                                            birthday: date ? date.toISOString() : "",
                                         },
                                     }),
                                 )
-                                handleBlur("birthday", date ? formatDateOrder(date) : "");
+                                handleBlur("birthday", date ? date.toISOString() : "");
 
                             }}
                             placeholder="ДД/ММ/ГГ"

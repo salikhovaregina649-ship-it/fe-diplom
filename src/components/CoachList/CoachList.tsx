@@ -135,17 +135,16 @@ export default function CoachList({
                         <span className="coach-list__label">Вагоны</span>
 
                         {coaches.map((item) => {
-                            const coachNumber =
-                                item.coach.name.match(/\d+/)?.[0] ?? "";
+                            const coachNumber = item.coach.name.match(/\d+/)?.[0] ?? "";
 
                             return (
                                 <Checkbox
                                     key={item.coach._id}
                                     className="coach-list__checkbox"
-                                    value={coachNumber}
+                                    value={item.coach._id}
                                     label={coachNumber}
                                     checked={selectedCoaches.includes(
-                                        coachNumber,
+                                        item.coach._id,
                                     )}
                                     onChange={handleCoachChange}
                                 />
@@ -163,9 +162,8 @@ export default function CoachList({
                 <div className="coach-list__coach">
                     {coaches
                         .filter((item) => {
-                            const coachNumber =
-                                item.coach.name.match(/\d+/)?.[0] ?? "";
-                            return selectedCoaches.includes(coachNumber);
+                            // const coachNumber = item.coach.name.match(/\d+/)?.[0] ?? "";
+                            return selectedCoaches.includes(item.coach._id);
                         })
                         .map(renderCoach)
                     }

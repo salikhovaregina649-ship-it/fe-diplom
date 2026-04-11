@@ -40,7 +40,7 @@ export const router = createHashRouter([
                     { path: "verify", Component: VerifyStep },
                 ],
             },
-            { path: "order/success", Component: OrderSuccessPage }, // /:id добаить позже
+            { path: "order/success", Component: OrderSuccessPage },
         ],
     },
     {

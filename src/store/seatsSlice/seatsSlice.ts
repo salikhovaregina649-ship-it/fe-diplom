@@ -10,10 +10,10 @@ const initialSeatInfo: SeatInfo = {
         childWithSeat: 0,
         childWithoutSeat: 0,
     },
-    totalTickets: 1,
+    totalTickets: 1, // кол-во пассажиров (взрослые + дети с местом)
     price: 0,
-    selectedSeatsCount: 0,
-    selectedSeats: {},
+    selectedSeatsCount: 0, //кол-во выбранных мест
+    selectedSeats: {}, //id вагона: [номера выбранных мест]
 };
 
 const initialState: SeatsState = {
@@ -23,7 +23,7 @@ const initialState: SeatsState = {
 };
 
 const seatsSlice = createSlice({
-    name: "seatsForm",
+    name: "seats",
     initialState,
     reducers: {
         setCurrentClass(state, action: PayloadAction<{ value: string | null; isArrival: boolean }>) {
@@ -33,9 +33,21 @@ const seatsSlice = createSlice({
                     state.arrival = { ...initialSeatInfo };
                 }
                 state.arrival.currentClass = value;
+                // СБРОС при смене класса:
+                state.arrival.selectedCoaches = [];
+                state.arrival.selectedSeats = {};
+                state.arrival.selectedSeatsCount = 0;
+                state.arrival.price = 0;
             } else {
                 state.departure.currentClass = value;
+                // СБРОС при смене класса:
+                state.departure.selectedCoaches = [];
+                state.departure.selectedSeats = {};
+                state.departure.selectedSeatsCount = 0;
+                state.departure.price = 0;
             }
+
+            state.totalPrice = state.departure.price + (state.arrival ? state.arrival.price : 0);
         },
         addCoach(state, action: PayloadAction<{ coach: string; isArrival: boolean }>) {
             const { coach, isArrival } = action.payload;
@@ -51,6 +63,10 @@ const seatsSlice = createSlice({
                 target.selectedCoaches = target.selectedCoaches.filter(
                     (c) => c !== coach,
                 );
+
+                if (target.selectedSeats[coach]) {
+                    delete target.selectedSeats[coach];
+                }
             }
         },
         updateTickets(state, action: PayloadAction<{ tickets: Partial<TicketsInfo>; isArrival: boolean }>) {
@@ -61,7 +77,7 @@ const seatsSlice = createSlice({
                     ...target.tickets,
                     ...tickets,
                 };
-                target.totalTickets = target.tickets.adult + target.tickets.childWithSeat + target.tickets.childWithoutSeat;
+                target.totalTickets = target.tickets.adult + target.tickets.childWithSeat; //  + target.tickets.childWithoutSeat не считается за пассажира
             }
         },
         setPrice(state, action: PayloadAction<{ price: number; isArrival: boolean }>) {
@@ -93,6 +109,10 @@ const seatsSlice = createSlice({
                 );
             } else {
                 target.selectedSeats[coachId] = [...coachSeats, seatIndex];
+            }
+
+            if (!target.selectedCoaches.includes(coachId)) {
+                target.selectedCoaches.push(coachId);
             }
         },
         resetSeatsForm(state) {

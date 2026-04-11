@@ -6,8 +6,10 @@ import Button from "../uikit/Button/Button";
 import TripDetails from "../TripDetails/TripDetails";
 import Train from "../Train/Train";
 import Title from "../uikit/Title/Title";
-import { useGetRoutesQuery } from "../../store/api/api";
+import { buildOrderRequest } from "../../utils/buildOrderRequest";
+import { useGetRoutesQuery, useGetOrderMutation } from "../../store/api/api";
 import { getRouteParams } from "../../utils/getRouteParams";
+import { formatDateOrder } from "../../utils/formatTime";
 import type { RootState } from "../../store/store";
 import "./VerifyStep.css";
 
@@ -22,6 +24,8 @@ export default function VerifyStep() {
         (state: RootState) => state.booking,
     );
 
+    const appState = useSelector((state: RootState) => state);
+
     const routeParams = useMemo(() => getRouteParams(searchState, routesState), [searchState, routesState]);
     const { data: routesData } = useGetRoutesQuery(routeParams!, {skip: !routeParams});
     const ticketInfo = routesData?.items?.find((item) => item.departure._id === selectedRouteId);
@@ -33,9 +37,20 @@ export default function VerifyStep() {
 
     const navigate = useNavigate();
 
-    const handleThen = () => {
-        navigate("/order/success");
-    };
+    const [getOrder] = useGetOrderMutation();
+    const handleConfirm = async () => {
+        try {
+            const body = buildOrderRequest(appState);
+            const result = await getOrder(body).unwrap();
+
+            if (result.status) {
+                console.log(result.status, body)
+                navigate("/order/success", {state: body});
+            }
+        } catch (error) {
+            console.log("Ошибка подтверждения заказа")
+        }
+    }
 
     const trainHanle = () => {
         navigate("/booking/trains");
@@ -98,7 +113,7 @@ export default function VerifyStep() {
                                             </p>
                                             <p className="verify-step__passenger-birth-date">
                                                 <span>Дата рождения</span>{" "}
-                                                {passenger.birthday}
+                                                {formatDateOrder(passenger.birthday)}
                                             </p>
                                             <p className="verify-step__passenger-document">
                                                 <span>{passenger.document_type ? "Паспорт РФ" : "Свидетельство о рождении"}{" "}</span>
@@ -154,7 +169,7 @@ export default function VerifyStep() {
                         className="verify-step__then-btn"
                         type="submit"
                         variant="yellow"
-                        onClick={handleThen}
+                        onClick={handleConfirm}
                     >
                         Подтвердить
                     </Button>

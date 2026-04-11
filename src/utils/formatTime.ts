@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export function formatDate(timestamp: number): string {
     const date = new Date(timestamp * 1000);
 
@@ -8,9 +10,9 @@ export function formatDate(timestamp: number): string {
     return `${day}.${month}.${year}`;
 }
 
-export function formatDateOrder(date: Date): string {
-    const result = date.toLocaleDateString('ru-RU');
-    return result;
+export function formatDateOrder(isoString: string): string {
+    if (!isoString) return "";
+    return format(new Date(isoString), "dd.MM.yyyy");
 }
 
 export function formatTime(timestamp: number): string {
